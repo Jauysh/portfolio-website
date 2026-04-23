@@ -27,10 +27,10 @@ export default function FooterContact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
-    
+
     // Simulate API call or webhook payload
     console.log('[Webhook Payload]', formData);
-    
+
     setTimeout(() => {
       setStatus('success');
       setFormData({ name: '', email: '', message: '' });
@@ -45,7 +45,7 @@ export default function FooterContact() {
 
       <div className="max-w-7xl mx-auto py-24 px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -64,13 +64,13 @@ export default function FooterContact() {
                 <LinkedinIcon size={24} />
               </a>
             </div>
-            
+
             <div className="mt-16 text-sm text-slate-gray/60 font-mono">
-              &copy; {new Date().getFullYear()} Асқар Жауыш. Барлық құқықтар қорғалған.
+              &copy; {new Date().getFullYear()} Азамат Жауыш. Барлық құқықтар қорғалған.
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -80,25 +80,25 @@ export default function FooterContact() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-mono text-slate-gray mb-2">Аты</label>
-                <input 
-                  type="text" 
-                  id="name" 
+                <input
+                  type="text"
+                  id="name"
                   required
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full bg-obsidian border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber/50 focus:ring-1 focus:ring-amber/50 transition-colors font-sans"
                   placeholder="Сіздің атыңыз"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="email" className="block text-sm font-mono text-slate-gray mb-2">Электрондық пошта</label>
-                <input 
-                  type="email" 
-                  id="email" 
+                <input
+                  type="email"
+                  id="email"
                   required
                   value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full bg-obsidian border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber/50 focus:ring-1 focus:ring-amber/50 transition-colors font-sans"
                   placeholder="name@example.com"
                 />
@@ -106,19 +106,19 @@ export default function FooterContact() {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-mono text-slate-gray mb-2">Хабарлама</label>
-                <textarea 
-                  id="message" 
+                <textarea
+                  id="message"
                   required
                   rows={4}
                   value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full bg-obsidian border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-amber/50 focus:ring-1 focus:ring-amber/50 transition-colors font-sans resize-none"
                   placeholder="Жобаңыз туралы қысқаша мәлімет..."
                 ></textarea>
               </div>
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={status === 'submitting'}
                 className="w-full bg-amber text-obsidian font-bold py-4 rounded-lg flex items-center justify-center space-x-2 hover:bg-orange-400 transition-colors disabled:opacity-70"
               >
