@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["cyrillic", "latin"], variable: "--font-inter" }
 const jetBrainsMono = JetBrains_Mono({ subsets: ["cyrillic", "latin"], variable: "--font-jetbrains-mono" });
 
 export const metadata: Metadata = {
-  title: "Асқар Жауыш - AI & Automation Architect",
+  title: "Азамат Жауыш - AI & Automation Architect",
   description: "Интеллектуалды автоматтандыру және көп агентті жүйелер архитектурасы",
 };
 
