@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-obsidian: #0f172a;
-  --color-amber: #f59e0b;
-  --color-slate-gray: #94a3b8;
+  --color-obsidian: #061637;
+  --color-amber: #cca876;
+  --color-slate-gray: #9ba3af;
 }
 
 @layer base {
   body {
-    background-color: var(--color-obsidian);
+    background: radial-gradient(circle at top right, #1d1b4b, #0B0E14);
+    background-attachment: fixed;
     color: var(--color-slate-gray);
   }
 }
