@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: "Интеллектуалды автоматтандыру және көп агентті жүйелер архитектурасы",
 };
 
+import Navigation from "@/components/Navigation";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -18,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="kk" className={`${inter.variable} ${jetBrainsMono.variable}`}>
       <body className="font-sans antialiased text-slate-gray bg-obsidian text-base">
+        <Navigation />
         {children}
       </body>
     </html>

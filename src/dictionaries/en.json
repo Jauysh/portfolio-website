@@ -1,0 +1,162 @@
+{
+  "home": {
+    "hero": {
+      "badge": "Systems Architecture & Agentic AI",
+      "headline": "Architecting Autonomous Workflows & Resilient Infrastructure.",
+      "subHeadline": "Bridging multi-agent AI, high-throughput automation, and bare-metal DevOps. Engineering self-sustaining systems for enterprises across Eastern Europe and the CIS region.",
+      "primaryCta": "Explore Systems",
+      "secondaryCta": "Initiate Contact"
+    },
+    "coreAreas": {
+      "title": "Core Deployment Areas",
+      "agenticAi": {
+        "title": "Agentic AI Engineering",
+        "description": "Designing multi-agent frameworks using CrewAI and LangGraph to automate complex, decision-heavy operational logic."
+      },
+      "enterpriseAutomation": {
+        "title": "Enterprise Automation",
+        "description": "Architecting high-throughput, queue-based automation pipelines using n8n and FastAPI to connect decoupled services."
+      },
+      "selfHosted": {
+        "title": "Self-Hosted Infrastructure",
+        "description": "Deploying and managing secure, scalable containerized environments on Hetzner, from edge devices to cloud environments behind Cloudflare."
+      }
+    },
+    "recentArchitectures": {
+      "title": "Recent Architectures",
+      "items": {
+        "clinicalAi": "Clinical AI Management System (Multi-Agent Facility Orchestration)",
+        "tanymedu": "Tanymedu Educational Infrastructure (Centralized Attendance & Grading Backend)",
+        "gradingPipeline": "Secondary Education Grading Pipeline (Speech-to-Text & OCR Assessment Engine)"
+      },
+      "link": "View full technical breakdowns ->"
+    },
+    "footer": {
+      "status": "Operating from Chișinău, Moldova. Deploying globally.",
+      "languages": "EN · KK · RU · TR · AR",
+      "copyright": "© 2026 Azamat Jauysh. All systems operational."
+    }
+  },
+  "projects": {
+    "title": "Architectural Implementations",
+    "clinicalAi": {
+      "title": "Clinical AI Management System",
+      "subtitle": "Multi-Agent Facility Orchestration",
+      "summary": "A multi-agent autonomous framework designed to centralize and automate clinical administration, removing the need for continuous human oversight in standard facility operations.",
+      "challenge": "Healthcare facilities frequently suffer from high administrative overhead, resulting in scheduling bottlenecks and fragmented patient data routing.",
+      "solution": "Deployed an autonomous AI network utilizing CrewAI and LangGraph. The architecture assigns specific operational roles to distinct AI agents, allowing them to communicate, process patient routing, and manage internal schedules programmatically.",
+      "outcome": "Drastically reduced manual administrative hours, eliminated data routing errors, and created a scalable foundation for future AI-driven healthcare integrations."
+    },
+    "tanymedu": {
+      "title": "Tanymedu.kz Educational Infrastructure",
+      "subtitle": "Centralized Attendance & Grading Backend",
+      "summary": "A robust, automated backend architecture designed to handle real-time student tracking and data distribution for middle school educational centers.",
+      "challenge": "Fragmented data collection methods were causing significant reporting delays, creating a disconnect in parent-staff communication and administrative inefficiency.",
+      "solution": "Engineered a highly available n8n automation pipeline connected to a PostgreSQL database. The system automatically intercepts attendance data, processes grading metrics via webhooks, and distributes the finalized data to necessary stakeholders.",
+      "outcome": "Achieved zero-delay reporting, removed administrative data entry overhead, and established a highly reliable data ecosystem for staff and parents."
+    },
+    "gradingPipeline": {
+      "title": "Automated Assessment Pipeline",
+      "subtitle": "OCR & Speech-to-Text Grading Engine",
+      "summary": "An advanced homework evaluation system that ingests multimedia student submissions and processes them through automated grading logic.",
+      "challenge": "Teaching staff were experiencing severe operational bottlenecks when evaluating varied, unstructured assignment formats, limiting time spent on actual instruction.",
+      "solution": "Built a custom n8n workflow integrating OCR and Speech-to-Text models. The system instantly transcribes audio submissions, reads written text, and applies grading logic before returning structured assessments.",
+      "outcome": "Recovered hundreds of instructional hours previously lost to manual grading, ensuring immediate and consistent feedback loops for secondary school students."
+    }
+  },
+  "infra": {
+    "philosophy": {
+      "title": "The Infrastructure Philosophy",
+      "description": "I prioritize high availability, data sovereignty, and edge-computing efficiency. My systems are architected to be environment-agnostic, moving seamlessly between localized edge hardware and distributed cloud GPU clusters."
+    },
+    "orchestration": {
+      "title": "Orchestration & Routing",
+      "summary": "A deep dive into the self-hosted environment that powers my automation agents.",
+      "virtualization": "Docker & Docker Compose for containerized microservices isolation.",
+      "security": "Cloudflare Zero Trust tunneling and WAF rules to secure internal API endpoints.",
+      "compute": "High-performance Hetzner dedicated instances paired with RunPod for GPU-intensive AI inference."
+    },
+    "runtime": {
+      "title": "Agentic Runtime Environments",
+      "summary": "How I host and manage multi-agent systems.",
+      "statefulLogic": "Utilizing LangGraph and CrewAI for stateful agentic workflows, managed via specialized Python-based backend containers.",
+      "queueProcessing": "Implementing Redis and n8n (Queue Mode) to handle asynchronous tasks and high-throughput data processing without system degradation."
+    },
+    "hardware": {
+      "title": "Hardware & Edge Integration",
+      "compute": "AMD EPYC™ and Intel® Xeon® clusters.",
+      "edgeNodes": "Custom Raspberry Pi nodes for localized IoT and automation tasks.",
+      "diagnostics": "OBD2 (Vgate iCar Pro) integration for automotive telemetry and monitoring experiments."
+    }
+  },
+  "about": {
+    "hero": {
+      "badge": "The Architect",
+      "title": "Azamat Jauysh",
+      "mission": "Engineering resilient architectures for sustainable business processes and environmental longevity."
+    },
+    "bio": {
+      "title": "Systems Thinking Across Domains",
+      "text": "I transition complex technical challenges into streamlined, self-sustaining systems. My expertise spans the entire stack—from configuring the mechanical constraints of local edge hardware to deploying distributed, GPU-intensive AI workloads in the cloud."
+    },
+    "roadmapAcademic": {
+      "title": "Future Research & Academic Trajectory",
+      "focus": "Designing a Scalable Microservices Architecture for Integrating AI Models into Hospital Information Systems (HIS).",
+      "vision": "As part of my future PhD trajectory and eventual return to Kazakhstan, my goal is to bridge the gap between advanced agentic AI models and strict, high-stakes medical infrastructure. This research will focus on ensuring high availability, data security, and seamless operational flow in localized healthcare environments."
+    },
+    "roadmapEnvironment": {
+      "title": "Environmental Sustainability & Edge IoT",
+      "vision": "True architectural thinking extends beyond the screen. My strategic roadmap includes actively applying Cloud computing, IoT telemetry, and AI-driven resource management to environmental sustainability. A primary target for this implementation is the design of data-driven agricultural layers for a permaculture ecosystem near Taraz, Kazakhstan."
+    },
+    "global": {
+      "title": "Cross-Border Capability",
+      "text": "Operating seamlessly across borders. Fluent in English, Kazakh, Russian, Turkish, and Arabic."
+    }
+  },
+  "contact": {
+    "header": {
+      "headline": "System Intake & Inquiries",
+      "subHeadline": "Submit project specifications, consulting requests, or research proposals. All communications are securely routed via an n8n webhook directly to my encrypted terminal."
+    },
+    "form": {
+      "name": "Name",
+      "company": "Company / Institution (Optional)",
+      "email": "Email",
+      "engagementType": {
+        "label": "Engagement Type",
+        "options": {
+          "consulting": "Consulting & Strategy",
+          "aiIntegration": "Multi-Agent AI Integration",
+          "devops": "DevOps & Self-Hosted Infrastructure",
+          "academic": "Academic Research / PhD"
+        }
+      },
+      "budget": {
+        "label": "Budget Range / Scope (Optional)",
+        "options": {
+          "research": "Research / Academic (No Commercial Budget)",
+          "discovery": "Discovery Phase (Under $1,000)",
+          "deployment": "Deployment & Integration ($1,000 - $3,000)",
+          "enterprise": "Enterprise Architecture ($3,000+)"
+        }
+      },
+      "message": "System Requirements / Message",
+      "submit": "Transmit Request ->"
+    },
+    "operations": {
+      "title": "Operations & Logistics",
+      "status": "Online",
+      "base": "Chișinău, Moldova",
+      "timezone": "EEST (Eastern European Summer Time / UTC+3)",
+      "sla": "Incoming requests are parsed and reviewed daily.",
+      "endpoints": "Verified Endpoints"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "infrastructure": "Infrastructure",
+    "about": "About",
+    "contact": "Contact"
+  }
+}
