@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/routing";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import en from "@/dictionaries/en.json";
 
 // Simulate translation function
@@ -60,6 +60,7 @@ export default function Navigation() {
           );
         })}
         <div className="w-[1px] h-6 bg-slate-200 dark:bg-white/10 mx-1" />
+        <LanguageSwitcher />
         {mounted && (
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
