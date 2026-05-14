@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 };
 
 import Navigation from "@/components/Navigation";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 export default function RootLayout({
   children,
@@ -18,10 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="kk" className={`${inter.variable} ${jetBrainsMono.variable}`}>
-      <body className="font-sans antialiased text-slate-gray bg-obsidian text-base">
-        <Navigation />
-        {children}
+    <html lang="kk" className={`${inter.variable} ${jetBrainsMono.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased text-slate-900 bg-slate-50 dark:text-slate-gray dark:bg-obsidian text-base transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <Navigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
