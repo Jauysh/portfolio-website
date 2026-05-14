@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArrowLeft, BookOpen, Leaf, Globe, Hexagon } from "lucide-react";
 import Link from "next/link";
 import en from "@/dictionaries/en.json";
@@ -27,7 +27,7 @@ export default function AboutPage() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
@@ -45,8 +45,8 @@ export default function AboutPage() {
         >
           {/* Header & Mission */}
           <motion.div variants={itemVariants} className="space-y-12">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="inline-flex items-center space-x-2 text-slate-gray/70 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -60,11 +60,11 @@ export default function AboutPage() {
                   {t("about.hero.badge")}
                 </span>
               </div>
-              
+
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
                 {t("about.hero.title")}
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-slate-gray/90 leading-relaxed border-l-2 border-white/20 pl-6 py-2">
                 {t("about.hero.mission")}
               </p>
@@ -86,7 +86,7 @@ export default function AboutPage() {
             <h2 className="text-sm font-mono tracking-widest text-white/50 uppercase border-b border-white/10 pb-4">
               // Strategic Roadmap
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Academic Roadmap */}
               <div className="group relative p-8 rounded-2xl border border-blue-500/20 bg-blue-500/[0.02] hover:bg-blue-500/[0.05] transition-all flex flex-col h-full shadow-[inset_0_0_20px_rgba(59,130,246,0.02)] overflow-hidden">
