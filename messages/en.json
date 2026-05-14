@@ -1,5 +1,12 @@
 {
   "Index": {
     "title": "Azamat Zhauysh - AI & Automation Architect"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "infrastructure": "Infrastructure",
+    "about": "About",
+    "contact": "Contact"
   }
 }

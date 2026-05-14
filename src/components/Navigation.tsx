@@ -6,32 +6,22 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import en from "@/dictionaries/en.json";
-
-// Simulate translation function
-const t = (key: string) => {
-  const keys = key.split(".");
-  let val: any = en;
-  for (const k of keys) {
-    if (val && val[k]) val = val[k];
-    else return key;
-  }
-  return val;
-};
+import { useTranslations } from "next-intl";
 
 export default function Navigation() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const t = useTranslations("nav");
 
   useEffect(() => setMounted(true), []);
 
   const links = [
-    { href: "/", label: t("nav.home") },
-    { href: "/projects", label: t("nav.projects") },
-    { href: "/infrastructure", label: t("nav.infrastructure") },
-    { href: "/about", label: t("nav.about") },
-    { href: "/contact", label: t("nav.contact") },
+    { href: "/", label: t("home") },
+    { href: "/projects", label: t("projects") },
+    { href: "/infrastructure", label: t("infrastructure") },
+    { href: "/about", label: t("about") },
+    { href: "/contact", label: t("contact") },
   ];
 
   return (
