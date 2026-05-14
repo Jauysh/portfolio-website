@@ -2,17 +2,9 @@ version: '3.8'
 
 services:
   portfolio_web:
-    image: node:20-alpine
+    build: .
     container_name: portfolio_nextjs
     restart: unless-stopped
-    working_dir: /app
-    
-    # Changed to ./ so Portainer uses the automatically cloned GitHub repository
-    volumes:
-      - ./:/app
-      
-   command: sh -c "npm install && npm run build && npm start -- -H 0.0.0.0"
-    
     networks:
       - proxy-net
 
