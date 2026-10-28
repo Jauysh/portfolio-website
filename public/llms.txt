@@ -1,0 +1,39 @@
+# Azamat Jauysh (Азамат Жауыш) — Full-Stack & AI Product Engineer | EdTech & IT Infrastructure Architect
+
+> Official engineering portfolio and B2B software catalog of Azamat Jauysh. End-to-end architect of high-concurrency web platforms, multimodal AI EdTech SaaS products, and enterprise multi-campus network & cloud infrastructure across 7 educational campuses in Chișinău & Bălți, Moldova.
+
+## Key Impact Metrics
+- **7 Educational Campuses**: Unified network topology (MikroTik RouterOS, CAPsMAN, VLAN, WireGuard VPN) and multi-campus software ecosystem.
+- **1,000+ Concurrent Users**: High-concurrency Olympiad registration & OMR PDF pipelines on Google Cloud Run and PostgreSQL.
+- **100 TB+ Enterprise Cloud**: Google Workspace Enterprise IAM automation, organizational units, and workspace provisioning.
+- **11 Production Systems**: Spanning Flagship AI EdTech SaaS, Enterprise School MIS/SIS, Network/Cloud Infrastructure, and ERP/Consumer PWAs.
+- **Trilingual Interface**: Full localization in Kazakh (`/kk`), English (`/en`), and Russian (`/ru`).
+
+## Core Navigation & Endpoints
+- [Home & Executive Overview (KK)](https://jauysh.dev/kk)
+- [Home & Executive Overview (EN)](https://jauysh.dev/en)
+- [Home & Executive Overview (RU)](https://jauysh.dev/ru)
+- [11 Case Studies & B2B Products](https://jauysh.dev/en/projects)
+- [Multi-Campus IT Infrastructure & Cloud Blueprint](https://jauysh.dev/en/infrastructure)
+- [About & 1-Page Printable Engineering CV](https://jauysh.dev/en/about)
+- [B2B Licensing & Engineering Contact](https://jauysh.dev/en/contact)
+- [Full AI Context & Case Study Specifications](https://jauysh.dev/llms-full.txt)
+
+## Featured B2B Products & Case Studies (11 Systems)
+1. **OmniCheck (`omnicheck.kz`)** — Multi-Tenant AI Homework Grading & 24/7 Socratic Tutor SaaS (Next.js, Gemini 2.5 Flash Vision / GPT-4o, HTML5 Canvas GDPR Privacy Shield, Perceptual dHash Anti-Plagiarism, Redis + BullMQ, 6-tier RBAC).
+2. **LuminaMath (`luminamath.orizont.md`)** — High-Load National Mathematics Olympiad Platform (700+ concurrent users, 6-digit deterministic IDs, OMR PDF generation, Google Cloud Run Serverless).
+3. **SSP (Subject Selection Platform)** — Transactional Elective Course Registration with `prisma.$transaction` strict seat quota locks and real-time countdown timers.
+4. **GM-App (Executive Enrollment Analytics)** — Multi-Campus Enrollment Quota, Exam & Tuition Re-registration MIS for 50+ school managers across 7 campuses.
+5. **EduStaff IAM** — Enterprise HR, Trilingual Digital CV Builder & Automated Google Workspace Directory Provisioning (Admin SDK + 100 TB Drive governance).
+6. **Enterprise Media OS & AI Studio** — 29-Channel Multi-Campus Editorial Hub with 6-dimension AI content moderation and Telegram/Social automation.
+7. **Multi-Campus Corporate Web CMS** — 30+ Route Trilingual School Portal with PHP 8.4 Headless REST API, Moldindconbank 3D-Secure payments, and GEO/AEO optimization.
+8. **Multi-Campus IT Infrastructure & Cloud** — 7-campus MikroTik RouterOS, CAPsMAN seamless Wi-Fi roaming, VLAN isolation, WireGuard VPN mesh, and AI-assisted incident diagnostics.
+9. **My-Family («Береке» PWA)** — Family Habits, Digital Detox Timer & Analytics Progressive Web App (Next.js 16, Supabase Realtime, Telegram Bot).
+10. **1C:Enterprise Retail & Accounting** — Modern 1C:EDT + Git + PostgreSQL + Linux distributed retail (`Розница 2.2` / `РИБ`) and accounting (`Бухгалтерия 3.0`) engineering.
+11. **Multi-Service Command Center** — Zero-dependency glassmorphism operational portal monitoring 9+ local and staging microservices (`:3000`–`:8090`).
+
+## Contact & B2B Inquiries
+- **Email**: a.jauysh@gmail.com
+- **Telegram**: https://t.me/jauysh
+- **GitHub**: https://github.com/jauysh
+- **Location**: Chișinău, Moldova (Available for Remote Global, EU, UK, and Central Asia engagements)

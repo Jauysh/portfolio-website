@@ -140,82 +140,82 @@ export default function Home() {
     <div className="min-h-screen bg-slate-50 text-slate-600 dark:bg-[#0B0E14] dark:text-slate-gray font-sans selection:bg-emerald-400/30 dark:selection:bg-amber/30 selection:text-slate-900 dark:selection:text-white">
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_top_right,#e0e7ff,#f8fafc)] dark:bg-[radial-gradient(circle_at_top_right,#1d1b4b,#0B0E14)] -z-10 transition-colors duration-500" />
 
-      <main className="max-w-6xl mx-auto px-6 py-24 lg:py-32">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-16 lg:py-32">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="space-y-24"
+          className="space-y-16 sm:space-y-24"
         >
           {/* 1. HERO SECTION */}
-          <motion.section variants={itemVariants} className="space-y-8">
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-                <span className="text-xs font-mono font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 uppercase">
+          <motion.section variants={itemVariants} className="space-y-6 sm:space-y-8">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
+                <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 uppercase">
                   {pickLocale(HERO_CONTENT.badge, locale)}
                 </span>
               </div>
-              <span className="text-xs font-mono px-3 py-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-amber">
+              <span className="text-[11px] sm:text-xs font-mono px-3 py-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-amber">
                 {pickLocale(HERO_CONTENT.roleTitle, locale)}
               </span>
             </div>
 
-            <div className="space-y-5 max-w-4xl">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+            <div className="space-y-4 sm:space-y-5 max-w-4xl">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12]">
                 {pickLocale(HERO_CONTENT.headline, locale)}
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-gray/90 leading-relaxed border-l-2 border-amber-500/60 dark:border-amber pl-5 py-1">
+              <p className="text-sm sm:text-lg md:text-xl text-slate-600 dark:text-slate-gray/90 leading-relaxed border-l-2 border-amber-500/60 dark:border-amber pl-4 sm:pl-5 py-1">
                 {pickLocale(HERO_CONTENT.subHeadline, locale)}
               </p>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
               <Link
                 href="/projects"
-                className="group inline-flex items-center space-x-2 bg-slate-900 text-white dark:bg-amber dark:text-slate-950 px-6 py-3.5 rounded-xl font-semibold hover:bg-slate-800 dark:hover:bg-amber/90 transition-all shadow-lg shadow-slate-900/10 dark:shadow-amber/10"
+                className="group inline-flex items-center justify-center space-x-2 bg-slate-900 text-white dark:bg-amber dark:text-slate-950 px-6 py-3.5 rounded-xl font-semibold hover:bg-slate-800 dark:hover:bg-amber/90 transition-all shadow-lg shadow-slate-900/10 dark:shadow-amber/10 text-sm sm:text-base"
               >
                 <span>{pickLocale(HERO_CONTENT.primaryCta, locale)}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
               </Link>
 
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 dark:text-emerald-300 transition-colors"
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 dark:text-emerald-300 transition-colors text-sm sm:text-base"
               >
                 {pickLocale(HERO_CONTENT.secondaryCta, locale)}
               </Link>
 
               <Link
                 href="/about#cv"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-mono text-xs sm:text-sm border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/10 dark:text-white dark:hover:bg-white/5 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-mono text-xs sm:text-sm border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/10 dark:text-white dark:hover:bg-white/5 transition-colors"
               >
-                <FileText className="w-4 h-4 text-amber-600 dark:text-amber" />
+                <FileText className="w-4 h-4 text-amber-600 dark:text-amber shrink-0" />
                 <span>{pickLocale(HERO_CONTENT.cvCta, locale)}</span>
               </Link>
             </div>
 
             {/* Live Ecosystem Telemetry Terminal */}
-            <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-900 dark:bg-black/60 p-5 font-mono text-xs sm:text-sm text-slate-300 shadow-xl backdrop-blur-md">
-              <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 text-[11px] text-slate-400">
-                    azamat@enterprise-core:~ (Production Telemetry)
+            <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-900 dark:bg-black/60 p-4 sm:p-5 font-mono text-[11px] sm:text-sm text-slate-300 shadow-xl backdrop-blur-md overflow-hidden">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 mb-3">
+                <div className="flex items-center gap-1.5 min-w-0">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 shrink-0" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 shrink-0" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 shrink-0" />
+                  <span className="ml-1.5 text-[10px] sm:text-[11px] text-slate-400 truncate">
+                    azamat@enterprise-core:~ (Telemetry)
                   </span>
                 </div>
-                <span className="text-[11px] text-emerald-400 flex items-center gap-1.5">
+                <span className="text-[10px] sm:text-[11px] text-emerald-400 flex items-center gap-1.5 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
                   11 REPOS ACTIVE
                 </span>
               </div>
-              <div className="space-y-1.5">
+              <div className="space-y-1.5 overflow-x-auto">
                 {terminalLines.map((line, i) => (
-                  <div key={i} className="text-amber-300/90 leading-relaxed">
+                  <div key={i} className="text-amber-300/90 leading-relaxed break-words">
                     {line}
                   </div>
                 ))}

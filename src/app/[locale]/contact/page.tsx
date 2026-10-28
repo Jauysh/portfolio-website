@@ -45,6 +45,8 @@ export default function ContactPage() {
       contact: String(formData.get("contact") || ""),
       productOrService: String(formData.get("productOrService") || ""),
       message: String(formData.get("message") || ""),
+      website_hp: String(formData.get("website_hp") || ""),
+      locale,
     };
 
     try {
@@ -64,7 +66,7 @@ export default function ContactPage() {
       const mailto = `mailto:a.jauysh@gmail.com?subject=${subject}&body=${bodyText}`;
       setMailtoFallbackUrl(mailto);
 
-      if (!data.configured && typeof window !== "undefined") {
+      if (data.mode !== "telegram" && data.mode !== "filtered" && typeof window !== "undefined") {
         window.location.href = mailto;
       }
     } catch {
@@ -79,7 +81,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-slate-50 text-slate-600 dark:bg-[#0B0E14] dark:text-slate-gray font-sans selection:bg-emerald-400/30 dark:selection:bg-amber/30 selection:text-slate-900 dark:selection:text-white pb-20">
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_top_right,#e0e7ff,#f8fafc)] dark:bg-[radial-gradient(circle_at_top_right,#1d1b4b,#0B0E14)] -z-10 transition-colors duration-500" />
 
-      <main className="max-w-6xl mx-auto px-6 py-24 lg:py-32">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-16 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_1fr] gap-14">
           {/* Left Column: B2B Demo & Consulting Form */}
           <div className="space-y-10">
@@ -122,8 +124,16 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               onSubmit={handleSubmit}
-              className="space-y-6 bg-white shadow-sm border border-slate-200 dark:shadow-none dark:bg-white/[0.02] dark:border-white/10 p-7 sm:p-9 rounded-3xl"
+              className="space-y-6 bg-white shadow-sm border border-slate-200 dark:shadow-none dark:bg-white/[0.02] dark:border-white/10 p-5 sm:p-9 rounded-3xl"
             >
+              <input
+                type="text"
+                name="website_hp"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               {submitted && (
                 <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm">
                   <div className="flex items-center gap-3">

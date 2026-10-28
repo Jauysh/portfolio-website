@@ -53,7 +53,7 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-slate-50 text-slate-600 dark:bg-[#0B0E14] dark:text-slate-gray font-sans selection:bg-emerald-400/30 dark:selection:bg-amber/30 selection:text-slate-900 dark:selection:text-white">
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_top_right,#e0e7ff,#f8fafc)] dark:bg-[radial-gradient(circle_at_top_right,#1d1b4b,#0B0E14)] -z-10 transition-colors duration-500" />
 
-      <main className="max-w-6xl mx-auto px-6 py-24 lg:py-32 space-y-14">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-16 lg:py-32 space-y-10 sm:space-y-14">
         {/* Page Header */}
         <div className="space-y-6">
           <Link

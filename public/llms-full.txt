@@ -1,0 +1,93 @@
+# Azamat Jauysh (Азамат Жауыш) — Comprehensive AI & LLM Reference (llms-full.txt)
+
+## 1. Executive Profile
+- **Full Name**: Azamat Jauysh (Азамат Жауыш)
+- **Primary Title**: Full-Stack & AI Product Engineer | EdTech & IT Infrastructure Architect
+- **Location**: Chișinău, Moldova (Serving Central Asia, EU, UK, MENA & Global Remote)
+- **Spoken Languages**:
+  - Kazakh (KK) — Native
+  - Russian (RU) — Fluent / Bilingual
+  - Turkish (TR) — Fluent / Professional
+  - English (EN) — Professional Technical
+  - Arabic (AR) — Basic / Foundational
+- **Contact**:
+  - Email: `a.jauysh@gmail.com`
+  - Telegram: `https://t.me/jauysh`
+  - GitHub: `https://github.com/jauysh`
+
+## 2. Core Engineering Differentiator
+Azamat Jauysh bridges two domains that are almost always siloed in modern technology organizations:
+1. **Modern Full-Stack & Multimodal AI SaaS Engineering**: Next.js 15/16 App Router, TypeScript 5, React 19, Tailwind CSS, Prisma + PostgreSQL, Supabase, Redis + BullMQ, Google Cloud Run, Docker, and Multimodal LLMs (Gemini 2.5 Flash Vision, OpenAI GPT-4o, Anthropic Claude).
+2. **Physical Multi-Campus Enterprise IT & Cloud Infrastructure**: Designing and operating the network backbone for 7 educational campuses across multiple cities (MikroTik RouterOS, CAPsMAN wireless roaming, VLAN segmentation, WireGuard VPN tunnels, 100 TB+ Google Workspace Enterprise IAM, and 1C:Enterprise ERP on Linux/PostgreSQL).
+
+---
+
+## 3. Detailed Case Studies & B2B Product Catalog (11 Systems)
+
+### [01] OmniCheck (`omnicheck.kz`) — Flagship AI & EdTech SaaS
+- **Category**: B2B / B2C Multi-Tenant EdTech SaaS
+- **Problem**: Teachers spend 10–15 hours weekly grading handwritten STEM homework (math, physics, chemistry), while students lack immediate step-by-step Socratic guidance at home. Sending raw notebook photos to public LLMs also creates student PII/GDPR compliance risks and fails to detect classmate photo-copying.
+- **Architecture**:
+  - Next.js Edge Middleware subdomain multi-tenancy (`*.omnicheck.kz`) with 6-tier Role-Based Access Control (SuperAdmin, SchoolAdmin, Teacher, Student, Parent, Solo).
+  - **Client-Side GDPR Privacy Shield**: HTML5 Canvas automatically masks student names on notebook headers in the browser before uploading to cloud storage or AI APIs.
+  - **Perceptual Anti-Plagiarism Engine**: Sharp image normalization + 64-bit Perceptual dHash (`hammingDistance <= 8`) detects duplicate or re-cropped homework submissions across classmates in milliseconds.
+  - **High-Concurrency Queue**: Redis + BullMQ worker queues prevent deadline traffic spikes from dropping grading jobs.
+- **Stack**: Next.js 16, TypeScript, Prisma, PostgreSQL, Redis, BullMQ, Gemini 2.5 Flash Vision, GPT-4o, Sharp, Tailwind CSS.
+
+### [02] LuminaMath (`luminamath.orizont.md`) — High-Load National Olympiad Platform
+- **Category**: High-Concurrency Public EdTech Platform
+- **Problem**: National mathematics competition required reliable online registration for Grades 2–8 across Moldova, deterministic 6-digit student ID assignment, and automated OMR (Optical Mark Recognition) PDF answer sheet generation without crashing when 700+ parents and students check results simultaneously.
+- **Architecture**: Stateless containerized deployment on Google Cloud Run (`europe-west1`) with Prisma + PostgreSQL connection pooling and dynamic PDF/OMR sheet rendering (`pdf-lib`).
+- **Stack**: Next.js, TypeScript, PostgreSQL, Prisma, Google Cloud Run, Docker, pdf-lib.
+
+### [03] SSP — Transactional Subject Selection Platform
+- **Category**: Enterprise School SIS Module
+- **Problem**: When hundreds of high-school students simultaneously select elective courses with strict classroom seat caps, naive database queries suffer from race conditions and overbooking.
+- **Architecture**: Interactive matrix selection UI backed by strict PostgreSQL serializable transactions (`prisma.$transaction`), real-time seat quota locks, countdown timers, and one-click CSV/Excel schedule exports.
+- **Stack**: Next.js 16, TypeScript, PostgreSQL, Prisma, NextAuth, Tailwind CSS.
+
+### [04] GM-App — Multi-Campus Executive Enrollment & Quota MIS
+- **Category**: Executive Management Information System (MIS)
+- **Problem**: Executive leadership across 7 campuses previously tracked enrollment targets, entrance exam pipelines, and tuition contract renewals across fragmented spreadsheets used by 50+ admissions managers.
+- **Architecture**: Real-time executive MIS dashboard with campus-level quota tracking, automated daily delta snapshots, entrance exam funnel analytics, and role-scoped reporting.
+- **Stack**: Next.js 15, TypeScript, Prisma, PostgreSQL, Recharts, Tailwind CSS.
+
+### [05] EduStaff IAM — Enterprise HR, Trilingual Digital CV & Google Workspace Provisioning
+- **Category**: Enterprise HR & Cloud Identity Automation
+- **Problem**: Onboarding hundreds of teachers and staff across 7 campuses required manual Google Workspace account creation, organizational unit placement, and fragmented paper CVs across multiple languages.
+- **Architecture**: Unified HR portal with a trilingual Digital CV builder, PDF dossier export, and direct Google Workspace Admin SDK Directory API integration that provisions accounts, groups, and 100 TB+ Drive permissions in one click.
+- **Stack**: Next.js 16, TypeScript, Google Admin SDK, Prisma, PostgreSQL, PDFKit.
+
+### [06] Enterprise Media OS & AI Studio
+- **Category**: Multi-Campus Content Governance & AI Editorial Hub
+- **Problem**: Managing content consistency, ethical compliance, and multi-language publishing across 29 digital channels and 7 campus editorial teams led to bottlenecks and uneven quality.
+- **Architecture**: Centralized Media OS with a 6-dimension AI editorial auditor (grammar, tone, ethics, safety, SEO, translation across 4 languages), kanban approval workflows, and automated social publishing.
+- **Stack**: Next.js 16, React 19, Gemini 2.5 Pro, Prisma, PostgreSQL, Telegram Bot API.
+
+### [07] Multi-Campus Corporate Web CMS & 3D-Secure Admissions Portal
+- **Category**: Enterprise Web Platform & Payment Gateway
+- **Problem**: A 7-campus international school network needed a fast, SEO/AI-optimized public web portal spanning 30+ routes in 3 languages, paired with online contract/event payments via local banking rails.
+- **Architecture**: Hybrid Next.js 16 frontend + PHP 8.4 Headless REST CMS, integrated with Moldindconbank 3D-Secure (`CommerceGateway` RSA-SHA256) payment processing and full Schema.org / `llms.txt` GEO optimization.
+- **Stack**: Next.js 16, TypeScript, PHP 8.4 REST API, MySQL, Moldindconbank 3D-Secure, Tailwind CSS.
+
+### [08] Multi-Campus IT Infrastructure & Google Workspace Cloud (7 Campuses)
+- **Category**: Enterprise Network Engineering & Cloud DevOps
+- **Problem**: Operating 7 physical school campuses across Chișinău and Bălți required resilient WAN/LAN connectivity, seamless Wi-Fi roaming for thousands of devices, strict segmentation between admin/lab/guest traffic, and centralized cloud governance.
+- **Architecture**:
+  - MikroTik RouterOS core routing with VLAN segmentation (Management, Staff, Labs, IoT/CCTV, Guest Portal).
+  - CAPsMAN centralized wireless controller for zero-handoff roaming across campus buildings.
+  - WireGuard site-to-site VPN mesh connecting all 7 campuses + Linux production servers.
+  - 100 TB+ Google Workspace for Education Enterprise architecture and AI-assisted incident root-cause diagnostics (`helpdesk` & `mikrotik` automation scripts).
+
+### [09] My-Family («Береке» PWA) — Family Habits, Digital Detox & Analytics
+- **Category**: Consumer Mobile PWA
+- **Architecture**: Installable Progressive Web App with parent/child role profiles, Digital Detox focus timers, daily habit scoring engine, Recharts family analytics, and Telegram Bot reminders.
+- **Stack**: Next.js 16, TypeScript, Supabase (PostgreSQL + Auth + Realtime), Recharts, PWA Service Workers.
+
+### [10] 1C:Enterprise Retail, RIB & Accounting Engineering
+- **Category**: Enterprise ERP & Distributed Retail Systems
+- **Architecture**: Modern 1C engineering workflow using 1C:Enterprise Development Tools (1C:EDT), Git version control, PostgreSQL on Linux, distributed retail synchronization (`Розница 2.2` / `РИБ`), and custom fiscal/accounting (`Бухгалтерия 3.0`) extensions.
+
+### [11] Multi-Service Engineering Command Center
+- **Category**: Developer Experience & Microservice Operations Portal
+- **Architecture**: Zero-dependency dark glassmorphism operational dashboard indexing all local and staging services (`:3000`–`:8090`), port health status, and architecture documentation in one unified view.
