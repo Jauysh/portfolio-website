@@ -6,8 +6,9 @@ const inter = Inter({ subsets: ["cyrillic", "latin"], variable: "--font-inter" }
 const jetBrainsMono = JetBrains_Mono({ subsets: ["cyrillic", "latin"], variable: "--font-jetbrains-mono" });
 
 export const metadata: Metadata = {
-  title: "Азамат Жауыш - AI & Automation Architect",
-  description: "Интеллектуалды автоматтандыру және көп агентті жүйелер архитектурасы",
+  title: "Азамат Жауыш (Azamat Jauysh) — Full-Stack & AI Product Engineer | EdTech & IT Infrastructure Architect",
+  description:
+    "7–8 филиалы бар халықаралық білім беру желісінің цифрлық экожүйесін, жоғары жүктемелі веб-платформаларын, мультимодальды ЖИ EdTech SaaS өнімдерін (OmniCheck) және корпоративтік желілік инфрақұрылымын (End-to-End) құрастырушы.",
 };
 
 import Navigation from "@/components/Navigation";

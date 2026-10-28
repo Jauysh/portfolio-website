@@ -25,7 +25,7 @@ export default function Navigation() {
   ];
 
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-fit px-4">
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full max-w-fit px-4 print:hidden">
       <nav className="flex items-center gap-1 sm:gap-2 px-2 py-2 bg-white/80 dark:bg-[#0B0E14]/80 backdrop-blur-md border border-slate-200 dark:border-white/10 rounded-full shadow-2xl overflow-x-auto no-scrollbar">
         {links.map((link) => {
           const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
