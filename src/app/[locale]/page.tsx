@@ -151,8 +151,8 @@ export default function Home() {
         >
           {/* 1. HERO SECTION */}
           <motion.section variants={itemVariants} className="space-y-6 sm:space-y-8">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_380px] xl:grid-cols-[1.2fr_410px] gap-8 lg:gap-12 items-center">
-              <div className="space-y-5 sm:space-y-6 min-w-0 order-2 lg:order-1">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_420px] xl:grid-cols-[1.2fr_440px] gap-8 lg:gap-10 items-start">
+              <div className="space-y-5 sm:space-y-6 min-w-0">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-2xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm max-w-full">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
@@ -215,12 +215,9 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Column: Frameless Portrait with Extended Environment */}
-              <div className="relative flex items-center justify-center lg:justify-end order-1 lg:order-2 py-4">
-                <ExecutivePortrait
-                  alt={pickLocale(HERO_CONTENT.name, locale)}
-                  size="hero"
-                />
+              {/* Right Column: Linear/Stripe Style Executive Architect Dossier */}
+              <div className="w-full">
+                <ExecutivePortrait locale={locale} />
               </div>
             </div>
 

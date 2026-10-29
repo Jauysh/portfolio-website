@@ -113,8 +113,16 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="relative flex items-center justify-center shrink-0 mx-auto md:mx-0 py-2">
-              <ExecutivePortrait alt="Azamat Jauysh" size="about" />
+            <div className="shrink-0">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden ring-2 ring-slate-200 dark:ring-amber-500/30 shadow-xl bg-slate-900">
+                <img
+                  src="/avatar.jpg?v=3"
+                  alt="Azamat Jauysh"
+                  width={320}
+                  height={320}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
           </div>
 
