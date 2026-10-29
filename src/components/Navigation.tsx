@@ -12,6 +12,7 @@ import {
   Network,
   UserCheck,
   Send,
+  Search,
 } from "lucide-react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";
@@ -121,6 +122,17 @@ export default function Navigation() {
           })}
 
           <div className="w-[1px] h-6 bg-slate-200 dark:bg-white/10 mx-1" />
+          <button
+            onClick={() =>
+              window.dispatchEvent(new CustomEvent("open-command-palette"))
+            }
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs font-mono text-slate-500 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/10 transition-colors cursor-pointer"
+            aria-label="Open Command Palette"
+            title="Quick Search (⌘K / Ctrl+K)"
+          >
+            <Search className="w-3.5 h-3.5 text-amber-500" />
+            <span className="hidden lg:inline">⌘K</span>
+          </button>
           <LanguageSwitcher />
           {mounted && (
             <button
@@ -155,7 +167,16 @@ export default function Navigation() {
             </div>
           </Link>
 
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-1 shrink-0">
+            <button
+              onClick={() =>
+                window.dispatchEvent(new CustomEvent("open-command-palette"))
+              }
+              className="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 bg-slate-100 dark:bg-white/5 dark:text-slate-300 dark:hover:text-white transition-colors shrink-0"
+              aria-label="Quick Search"
+            >
+              <Search className="w-4 h-4 text-amber-500" />
+            </button>
             <LanguageSwitcher />
             {mounted && (
               <button

@@ -4,6 +4,7 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import CommandPalette from "@/components/CommandPalette";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -25,7 +26,7 @@ const jetbrains = JetBrains_Mono({
   display: "swap",
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://jauysh.dev";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://niaz.kz";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -260,6 +261,7 @@ export default async function RootLayout({
           >
             <div className="ambient-glow" />
             <Navigation />
+            <CommandPalette />
             <main className="flex-grow z-10 pb-24 md:pb-0 w-full max-w-[100vw] overflow-x-hidden min-w-0">
               {children}
             </main>

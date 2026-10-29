@@ -90,25 +90,37 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           className="space-y-8 print:hidden"
         >
-          <div className="space-y-4 max-w-4xl">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10">
-              <Hexagon className="w-3.5 h-3.5 text-amber-600 dark:text-amber" />
-              <span className="text-xs font-mono tracking-wider text-amber-700 dark:text-amber uppercase">
-                Full-Cycle Engineer & IT Architect
-              </span>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div className="space-y-4 max-w-3xl">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10">
+                <Hexagon className="w-3.5 h-3.5 text-amber-600 dark:text-amber" />
+                <span className="text-xs font-mono tracking-wider text-amber-700 dark:text-amber uppercase">
+                  Full-Cycle Engineer & IT Architect
+                </span>
+              </div>
+
+              <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-900 dark:text-white">
+                {locale === "kk" ? "Азамат Жауыш" : "Azamat Jauysh"}
+              </h1>
+
+              <p className="text-base sm:text-xl text-slate-700 dark:text-slate-200 leading-relaxed border-l-2 border-amber-500 pl-5 py-1">
+                {locale === "kk"
+                  ? "Нарықтағы мамандардың 90%-ы не тек код жазады (бірақ шынайы желілік инфрақұрылым мен бизнес процесті білмейді), не тек желі мен сервер баптайды (бірақ заманауи AI SaaS пен жоғары жүктемелі веб-платформа жасай алмайды). Менің профилім — осы екі әлемді басынан аяғына дейін (End-to-End) біріктіретін Full-Cycle Product & Infrastructure Architect."
+                  : locale === "ru"
+                  ? "90% специалистов на рынке либо только пишут код (не понимая реальной сетевой инфраструктуры и бизнес-процессов), либо только администрируют сети и серверы (не умея создавать современные AI SaaS и высоконагруженные платформы). Мой профиль объединяет оба мира: от проектирования MikroTik SD-WAN и кластеров Proxmox/1С до мультимодальных AI SaaS-продуктов."
+                  : "90% of engineers either only write application code (without understanding physical networks, security, and enterprise operations) or only administer infrastructure (without building modern AI SaaS products). I bridge both worlds End-to-End as a Full-Cycle Product & Infrastructure Architect."}
+              </p>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-slate-900 dark:text-white">
-              {locale === "kk" ? "Азамат Жауыш" : "Azamat Jauysh"}
-            </h1>
-
-            <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-200 leading-relaxed border-l-2 border-amber-500 pl-5 py-1">
-              {locale === "kk"
-                ? "Нарықтағы мамандардың 90%-ы не тек код жазады (бірақ шынайы желілік инфрақұрылым мен бизнес процесті білмейді), не тек желі мен сервер баптайды (бірақ заманауи AI SaaS пен жоғары жүктемелі веб-платформа жасай алмайды). Менің профилім — осы екі әлемді басынан аяғына дейін (End-to-End) біріктіретін Full-Cycle Product & Infrastructure Architect."
-                : locale === "ru"
-                ? "90% специалистов на рынке либо только пишут код (не понимая реальной сетевой инфраструктуры и бизнес-процессов), либо только администрируют сети и серверы (не умея создавать современные AI SaaS и высоконагруженные платформы). Мой профиль объединяет оба мира: от проектирования MikroTik SD-WAN и кластеров Proxmox/1С до мультимодальных AI SaaS-продуктов."
-                : "90% of engineers either only write application code (without understanding physical networks, security, and enterprise operations) or only administer infrastructure (without building modern AI SaaS products). I bridge both worlds End-to-End as a Full-Cycle Product & Infrastructure Architect."}
-            </p>
+            <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden border-2 border-amber-500/40 shadow-2xl shrink-0 bg-slate-950">
+              <img
+                src="/avatar.jpg"
+                alt="Azamat Jauysh"
+                width={200}
+                height={200}
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
           </div>
 
           {/* Core Architectural Pillars */}

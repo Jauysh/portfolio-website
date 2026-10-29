@@ -12,6 +12,8 @@ import {
   ShieldCheck,
   Sparkles,
   GitBranch,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
@@ -27,6 +29,13 @@ export default function ProjectsPage() {
   const locale = useLocale();
   const [selectedBlock, setSelectedBlock] = useState<ProjectBlockId | "all">("all");
   const [b2bOnly, setB2bOnly] = useState(false);
+  const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({
+    omnicheck: true,
+  });
+
+  const toggleExpand = (slug: string) => {
+    setExpandedIds((prev) => ({ ...prev, [slug]: !prev[slug] }));
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -291,101 +300,132 @@ export default function ProjectsPage() {
                   </div>
                 </div>
 
-                {/* Problem -> Architectural Solution -> Measured Outcome */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="p-5 rounded-2xl border border-rose-500/20 bg-rose-500/[0.03] space-y-2.5">
-                    <div className="text-xs font-mono font-semibold text-rose-600 dark:text-rose-400 uppercase flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-rose-500" />
-                      {locale === "kk"
-                        ? "1. Мәселе (The Challenge)"
+                {/* Progressive Disclosure Toggle (Deep Dive Accordion) */}
+                <div>
+                  <button
+                    onClick={() => toggleExpand(project.slug)}
+                    className="w-full py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100/80 hover:bg-slate-200/70 dark:bg-white/[0.03] dark:hover:bg-white/[0.06] flex items-center justify-between gap-2 text-xs sm:text-sm font-mono font-semibold text-slate-800 dark:text-amber transition-colors cursor-pointer"
+                  >
+                    <span>
+                      {expandedIds[project.slug]
+                        ? locale === "kk"
+                          ? "▲ Толық архитектуралық талдауды жасыру"
+                          : locale === "ru"
+                          ? "▲ Свернуть полный архитектурный разбор"
+                          : "▲ Collapse Deep-Dive Architecture & Highlights"
+                        : locale === "kk"
+                        ? "▼ Толық архитектураны ашу: Мәселе → Шешім → Конвейер & Фишкалар"
                         : locale === "ru"
-                        ? "1. Проблема (Challenge)"
-                        : "1. The Challenge"}
-                    </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      {pickLocale(project.challenge, locale)}
-                    </p>
-                  </div>
-
-                  <div className="p-5 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.03] space-y-2.5">
-                    <div className="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 uppercase flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                      {locale === "kk"
-                        ? "2. Архитектуралық шешім"
-                        : locale === "ru"
-                        ? "2. Архитектурное решение"
-                        : "2. Architectural Solution"}
-                    </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      {pickLocale(project.solution, locale)}
-                    </p>
-                  </div>
-
-                  <div className="p-5 rounded-2xl border border-blue-500/20 bg-blue-500/[0.03] space-y-2.5">
-                    <div className="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 uppercase flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-blue-500" />
-                      {locale === "kk"
-                        ? "3. Нақты нәтиже (Outcome)"
-                        : locale === "ru"
-                        ? "3. Результат (Outcome)"
-                        : "3. Measured Outcome"}
-                    </div>
-                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                      {pickLocale(project.outcome, locale)}
-                    </p>
-                  </div>
+                        ? "▼ Раскрыть архитектуру: Проблема → Решение → Конвейер и Фишки"
+                        : "▼ Expand Deep-Dive: Challenge → Solution → Pipeline & Highlights"}
+                    </span>
+                    {expandedIds[project.slug] ? (
+                      <ChevronUp className="w-4 h-4 shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 shrink-0" />
+                    )}
+                  </button>
                 </div>
 
-                {/* Architecture Flow Pipeline */}
-                <div className="p-5 rounded-2xl bg-slate-900 dark:bg-black/40 border border-slate-800 dark:border-white/10 space-y-4">
-                  <div className="flex items-center gap-2 text-xs font-mono text-amber uppercase tracking-wider">
-                    <Layers className="w-4 h-4" />
-                    <span>
-                      {locale === "kk"
-                        ? "Архитектуралық конвейер (Request & Data Flow)"
-                        : locale === "ru"
-                        ? "Архитектурный конвейер (Поток данных)"
-                        : "System Architecture Pipeline"}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    {project.architectureFlow.map((node, nIdx) => (
-                      <div key={nIdx} className="flex items-center gap-2">
-                        <span className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-white">
-                          {node}
+                {expandedIds[project.slug] && (
+                  <div className="space-y-8 pt-2">
+                    {/* Problem -> Architectural Solution -> Measured Outcome */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="p-5 rounded-2xl border border-rose-500/20 bg-rose-500/[0.03] space-y-2.5">
+                        <div className="text-xs font-mono font-semibold text-rose-600 dark:text-rose-400 uppercase flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-rose-500" />
+                          {locale === "kk"
+                            ? "1. Мәселе (The Challenge)"
+                            : locale === "ru"
+                            ? "1. Проблема (Challenge)"
+                            : "1. The Challenge"}
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                          {pickLocale(project.challenge, locale)}
+                        </p>
+                      </div>
+
+                      <div className="p-5 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.03] space-y-2.5">
+                        <div className="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 uppercase flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                          {locale === "kk"
+                            ? "2. Архитектуралық шешім"
+                            : locale === "ru"
+                            ? "2. Архитектурное решение"
+                            : "2. Architectural Solution"}
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                          {pickLocale(project.solution, locale)}
+                        </p>
+                      </div>
+
+                      <div className="p-5 rounded-2xl border border-blue-500/20 bg-blue-500/[0.03] space-y-2.5">
+                        <div className="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 uppercase flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-blue-500" />
+                          {locale === "kk"
+                            ? "3. Нақты нәтиже (Outcome)"
+                            : locale === "ru"
+                            ? "3. Результат (Outcome)"
+                            : "3. Measured Outcome"}
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                          {pickLocale(project.outcome, locale)}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Architecture Flow Pipeline */}
+                    <div className="p-5 rounded-2xl bg-slate-900 dark:bg-black/40 border border-slate-800 dark:border-white/10 space-y-4">
+                      <div className="flex items-center gap-2 text-xs font-mono text-amber uppercase tracking-wider">
+                        <Layers className="w-4 h-4" />
+                        <span>
+                          {locale === "kk"
+                            ? "Архитектуралық конвейер (Request & Data Flow)"
+                            : locale === "ru"
+                            ? "Архитектурный конвейер (Поток данных)"
+                            : "System Architecture Pipeline"}
                         </span>
-                        {nIdx < project.architectureFlow.length - 1 && (
-                          <ArrowRight className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                        )}
                       </div>
-                    ))}
-                  </div>
-                </div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        {project.architectureFlow.map((node, nIdx) => (
+                          <div key={nIdx} className="flex items-center gap-2">
+                            <span className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-white">
+                              {node}
+                            </span>
+                            {nIdx < project.architectureFlow.length - 1 && (
+                              <ArrowRight className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
 
-                {/* Standout Engineering Features (Техникалық фишкалары) */}
-                <div className="space-y-3">
-                  <h3 className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-white/50 flex items-center gap-2">
-                    <Cpu className="w-4 h-4 text-emerald-500" />
-                    <span>
-                      {locale === "kk"
-                        ? "Техникалық фишкалары (Рекрутерлер, CTO және Инженерлер бағалайтын тұстары)"
-                        : locale === "ru"
-                        ? "Ключевые инженерные решения (Для CTO, рекрутеров и архитекторов)"
-                        : "Key Engineering Highlights (For CTOs, Recruiters & Systems Architects)"}
-                    </span>
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {highlights.map((bullet, bIdx) => (
-                      <div
-                        key={bIdx}
-                        className="flex items-start gap-2.5 p-3.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                        <span>{bullet}</span>
+                    {/* Standout Engineering Features (Техникалық фишкалары) */}
+                    <div className="space-y-3">
+                      <h3 className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-white/50 flex items-center gap-2">
+                        <Cpu className="w-4 h-4 text-emerald-500" />
+                        <span>
+                          {locale === "kk"
+                            ? "Техникалық фишкалары (Рекрутерлер, CTO және Инженерлер бағалайтын тұстары)"
+                            : locale === "ru"
+                            ? "Ключевые инженерные решения (Для CTO, рекрутеров и архитекторов)"
+                            : "Key Engineering Highlights (For CTOs, Recruiters & Systems Architects)"}
+                        </span>
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {highlights.map((bullet, bIdx) => (
+                          <div
+                            key={bIdx}
+                            className="flex items-start gap-2.5 p-3.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed"
+                          >
+                            <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                            <span>{bullet}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {/* Tech Stack Tags */}
                 <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200/70 dark:border-white/5">

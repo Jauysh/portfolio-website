@@ -10,14 +10,14 @@
 - **Trilingual Interface**: Full localization in Kazakh (`/kk`), English (`/en`), and Russian (`/ru`).
 
 ## Core Navigation & Endpoints
-- [Home & Executive Overview (KK)](https://jauysh.dev/kk)
-- [Home & Executive Overview (EN)](https://jauysh.dev/en)
-- [Home & Executive Overview (RU)](https://jauysh.dev/ru)
-- [11 Case Studies & B2B Products](https://jauysh.dev/en/projects)
-- [Multi-Campus IT Infrastructure & Cloud Blueprint](https://jauysh.dev/en/infrastructure)
-- [About & 1-Page Printable Engineering CV](https://jauysh.dev/en/about)
-- [B2B Licensing & Engineering Contact](https://jauysh.dev/en/contact)
-- [Full AI Context & Case Study Specifications](https://jauysh.dev/llms-full.txt)
+- [Home & Executive Overview (KK)](https://niaz.kz/kk)
+- [Home & Executive Overview (EN)](https://niaz.kz/en)
+- [Home & Executive Overview (RU)](https://niaz.kz/ru)
+- [11 Case Studies & B2B Products](https://niaz.kz/en/projects)
+- [Multi-Campus IT Infrastructure & Cloud Blueprint](https://niaz.kz/en/infrastructure)
+- [About & 1-Page Printable Engineering CV](https://niaz.kz/en/about)
+- [B2B Licensing & Engineering Contact](https://niaz.kz/en/contact)
+- [Full AI Context & Case Study Specifications](https://niaz.kz/llms-full.txt)
 
 ## Featured B2B Products & Case Studies (11 Systems)
 1. **OmniCheck (`omnicheck.kz`)** — Multi-Tenant AI Homework Grading & 24/7 Socratic Tutor SaaS (Next.js, Gemini 2.5 Flash Vision / GPT-4o, HTML5 Canvas GDPR Privacy Shield, Perceptual dHash Anti-Plagiarism, Redis + BullMQ, 6-tier RBAC).

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://jauysh.dev";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://niaz.kz";
 const LOCALES = ["kk", "en", "ru"] as const;
 const ROUTES = ["", "/projects", "/infrastructure", "/about", "/contact"] as const;
 

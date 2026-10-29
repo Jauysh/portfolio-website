@@ -27,6 +27,7 @@ import {
 } from "@/data/siteContent";
 import { FEATURED_PROJECTS, ALL_PROJECTS } from "@/data/projectsData";
 import { pickLocale } from "@/data/types";
+import ArchitectureBenchmarks from "@/components/ArchitectureBenchmarks";
 
 export default function Home() {
   const locale = useLocale();
@@ -149,52 +150,92 @@ export default function Home() {
         >
           {/* 1. HERO SECTION */}
           <motion.section variants={itemVariants} className="space-y-6 sm:space-y-8">
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-2xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm max-w-full">
-                <div className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
-                <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 uppercase break-words">
-                  {pickLocale(HERO_CONTENT.badge, locale)}
-                </span>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-center">
+              <div className="space-y-5 sm:space-y-6 min-w-0">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                  <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-2xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm max-w-full">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
+                    <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 uppercase break-words">
+                      {pickLocale(HERO_CONTENT.badge, locale)}
+                    </span>
+                  </div>
+                  <span className="text-[11px] sm:text-xs font-mono px-3 py-1.5 rounded-2xl sm:rounded-full border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-amber max-w-full break-words">
+                    {pickLocale(HERO_CONTENT.roleTitle, locale)}
+                  </span>
+                </div>
+
+                <div className="space-y-4 sm:space-y-5">
+                  <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12]">
+                    {pickLocale(HERO_CONTENT.headline, locale)}
+                  </h1>
+
+                  <p className="text-sm sm:text-lg text-slate-600 dark:text-slate-gray/90 leading-relaxed border-l-2 border-amber-500/60 dark:border-amber pl-4 sm:pl-5 py-1">
+                    {pickLocale(HERO_CONTENT.subHeadline, locale)}
+                  </p>
+                </div>
+
+                {/* Credibility Bar */}
+                <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-slate-600 dark:text-slate-300">
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-200/70 dark:bg-white/5 border border-slate-300/60 dark:border-white/10">
+                    🇲🇩 Chișinău · 🇰🇿 Almaty/Taraz
+                  </span>
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-200/70 dark:bg-white/5 border border-slate-300/60 dark:border-white/10">
+                    🏢 7–8 Campuses SD-WAN
+                  </span>
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-200/70 dark:bg-white/5 border border-slate-300/60 dark:border-white/10">
+                    🗣️ KK · RU · TR · EN · AR
+                  </span>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-1">
+                  <Link
+                    href="/projects"
+                    className="group inline-flex items-center justify-center space-x-2 bg-slate-900 text-white dark:bg-amber dark:text-slate-950 px-6 py-3.5 rounded-xl font-semibold hover:bg-slate-800 dark:hover:bg-amber/90 transition-all shadow-lg shadow-slate-900/10 dark:shadow-amber/10 text-sm sm:text-base"
+                  >
+                    <span>{pickLocale(HERO_CONTENT.primaryCta, locale)}</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 dark:text-emerald-300 transition-colors text-sm sm:text-base"
+                  >
+                    {pickLocale(HERO_CONTENT.secondaryCta, locale)}
+                  </Link>
+
+                  <Link
+                    href="/about#cv"
+                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-mono text-xs sm:text-sm border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/10 dark:text-white dark:hover:bg-white/5 transition-colors"
+                  >
+                    <FileText className="w-4 h-4 text-amber-600 dark:text-amber shrink-0" />
+                    <span>{pickLocale(HERO_CONTENT.cvCta, locale)}</span>
+                  </Link>
+                </div>
               </div>
-              <span className="text-[11px] sm:text-xs font-mono px-3 py-1.5 rounded-2xl sm:rounded-full border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-amber max-w-full break-words">
-                {pickLocale(HERO_CONTENT.roleTitle, locale)}
-              </span>
-            </div>
 
-            <div className="space-y-4 sm:space-y-5 max-w-4xl">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12]">
-                {pickLocale(HERO_CONTENT.headline, locale)}
-              </h1>
-
-              <p className="text-sm sm:text-lg md:text-xl text-slate-600 dark:text-slate-gray/90 leading-relaxed border-l-2 border-amber-500/60 dark:border-amber pl-4 sm:pl-5 py-1">
-                {pickLocale(HERO_CONTENT.subHeadline, locale)}
-              </p>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
-              <Link
-                href="/projects"
-                className="group inline-flex items-center justify-center space-x-2 bg-slate-900 text-white dark:bg-amber dark:text-slate-950 px-6 py-3.5 rounded-xl font-semibold hover:bg-slate-800 dark:hover:bg-amber/90 transition-all shadow-lg shadow-slate-900/10 dark:shadow-amber/10 text-sm sm:text-base"
-              >
-                <span>{pickLocale(HERO_CONTENT.primaryCta, locale)}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
-              </Link>
-
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl font-medium border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 dark:text-emerald-300 transition-colors text-sm sm:text-base"
-              >
-                {pickLocale(HERO_CONTENT.secondaryCta, locale)}
-              </Link>
-
-              <Link
-                href="/about#cv"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-mono text-xs sm:text-sm border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-white/10 dark:text-white dark:hover:bg-white/5 transition-colors"
-              >
-                <FileText className="w-4 h-4 text-amber-600 dark:text-amber shrink-0" />
-                <span>{pickLocale(HERO_CONTENT.cvCta, locale)}</span>
-              </Link>
+              {/* Right Column: Executive Portrait Card */}
+              <div className="flex flex-col items-center lg:items-end">
+                <div className="relative group w-48 sm:w-60 lg:w-full rounded-3xl p-2 border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-white/[0.03] shadow-2xl">
+                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-950">
+                    <img
+                      src="/avatar.jpg"
+                      alt={pickLocale(HERO_CONTENT.name, locale)}
+                      width={400}
+                      height={400}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/50 to-transparent p-3.5">
+                      <div className="text-sm font-bold text-white leading-tight">
+                        {pickLocale(HERO_CONTENT.name, locale)}
+                      </div>
+                      <div className="text-[10px] font-mono text-amber mt-0.5">
+                        Full-Cycle & AI Architect
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Live Ecosystem Telemetry Terminal */}
@@ -267,6 +308,11 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </motion.section>
+
+          {/* 2.5 INTERACTIVE SANDBOX & B2B ROI BENCHMARKS */}
+          <motion.section variants={itemVariants}>
+            <ArchitectureBenchmarks locale={locale} />
           </motion.section>
 
           {/* 3. 4 STRATEGIC PORTFOLIO BLOCKS */}
