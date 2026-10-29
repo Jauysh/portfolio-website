@@ -219,7 +219,7 @@ export default function Home() {
                 <div className="relative group w-48 sm:w-60 lg:w-full rounded-3xl p-2 border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-white/[0.03] shadow-2xl">
                   <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-950">
                     <img
-                      src="/avatar.jpg"
+                      src="/avatar.jpg?v=2"
                       alt={pickLocale(HERO_CONTENT.name, locale)}
                       width={400}
                       height={400}

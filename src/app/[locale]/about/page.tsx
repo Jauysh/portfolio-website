@@ -114,7 +114,7 @@ export default function AboutPage() {
 
             <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden border-2 border-amber-500/40 shadow-2xl shrink-0 bg-slate-950">
               <img
-                src="/avatar.jpg"
+                src="/avatar.jpg?v=2"
                 alt="Azamat Jauysh"
                 width={200}
                 height={200}
