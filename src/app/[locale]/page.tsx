@@ -150,8 +150,8 @@ export default function Home() {
         >
           {/* 1. HERO SECTION */}
           <motion.section variants={itemVariants} className="space-y-6 sm:space-y-8">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-8 items-center">
-              <div className="space-y-5 sm:space-y-6 min-w-0">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_380px] xl:grid-cols-[1.2fr_410px] gap-8 lg:gap-12 items-center">
+              <div className="space-y-5 sm:space-y-6 min-w-0 order-2 lg:order-1">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                   <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-2xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm max-w-full">
                     <div className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
@@ -165,7 +165,7 @@ export default function Home() {
                 </div>
 
                 <div className="space-y-4 sm:space-y-5">
-                  <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12]">
+                  <h1 className="text-3xl sm:text-5xl lg:text-[50px] xl:text-[54px] font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12]">
                     {pickLocale(HERO_CONTENT.headline, locale)}
                   </h1>
 
@@ -214,23 +214,57 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Column: Executive Portrait Card */}
-              <div className="flex flex-col items-center lg:items-end">
-                <div className="relative group w-48 sm:w-60 lg:w-full rounded-3xl p-2 border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-white/[0.03] shadow-2xl">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-950">
+              {/* Right Column: Large Harmonious Executive Portrait Showcase */}
+              <div className="flex flex-col items-center lg:items-end order-1 lg:order-2">
+                <div className="relative group w-full max-w-[320px] sm:max-w-[360px] lg:max-w-full rounded-[28px] p-3 border border-slate-200/90 dark:border-white/15 bg-gradient-to-b from-white/90 to-slate-100/80 dark:from-white/[0.06] dark:to-white/[0.02] shadow-2xl backdrop-blur-md">
+                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-950 ring-1 ring-white/10">
                     <img
                       src="/avatar.jpg?v=2"
                       alt={pickLocale(HERO_CONTENT.name, locale)}
-                      width={400}
-                      height={400}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
                     />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/50 to-transparent p-3.5">
-                      <div className="text-sm font-bold text-white leading-tight">
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-emerald-500/40 flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="text-[10px] font-mono font-bold text-emerald-300 uppercase">
+                        Available for B2B
+                      </span>
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pt-12 pb-4 px-4">
+                      <div className="text-lg sm:text-xl font-bold text-white leading-tight">
                         {pickLocale(HERO_CONTENT.name, locale)}
                       </div>
-                      <div className="text-[10px] font-mono text-amber mt-0.5">
-                        Full-Cycle & AI Architect
+                      <div className="text-xs font-mono text-amber mt-0.5">
+                        Full-Stack & AI Product Engineer · IT Architect
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Mini Executive Metrics Footer inside Portrait Card */}
+                  <div className="grid grid-cols-3 gap-2 pt-3 text-center font-mono">
+                    <div className="p-2 rounded-xl bg-slate-200/60 dark:bg-black/40 border border-slate-300/50 dark:border-white/5">
+                      <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
+                        11 Systems
+                      </div>
+                      <div className="text-[10px] text-slate-500 dark:text-slate-400">
+                        Production
+                      </div>
+                    </div>
+                    <div className="p-2 rounded-xl bg-slate-200/60 dark:bg-black/40 border border-slate-300/50 dark:border-white/5">
+                      <div className="text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                        7–8 Campuses
+                      </div>
+                      <div className="text-[10px] text-slate-500 dark:text-slate-400">
+                        SD-WAN / Cloud
+                      </div>
+                    </div>
+                    <div className="p-2 rounded-xl bg-slate-200/60 dark:bg-black/40 border border-slate-300/50 dark:border-white/5">
+                      <div className="text-xs sm:text-sm font-bold text-amber-600 dark:text-amber">
+                        3,000+
+                      </div>
+                      <div className="text-[10px] text-slate-500 dark:text-slate-400">
+                        Active Users
                       </div>
                     </div>
                   </div>

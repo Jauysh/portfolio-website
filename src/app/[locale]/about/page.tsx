@@ -112,14 +112,16 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden border-2 border-amber-500/40 shadow-2xl shrink-0 bg-slate-950">
-              <img
-                src="/avatar.jpg?v=2"
-                alt="Azamat Jauysh"
-                width={200}
-                height={200}
-                className="w-full h-full object-cover object-top"
-              />
+            <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-3xl p-2 border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-white/[0.03] shadow-2xl shrink-0 mx-auto md:mx-0">
+              <div className="w-full h-full rounded-2xl overflow-hidden bg-slate-950 ring-1 ring-amber-500/30">
+                <img
+                  src="/avatar.jpg?v=2"
+                  alt="Azamat Jauysh"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
             </div>
           </div>
 
