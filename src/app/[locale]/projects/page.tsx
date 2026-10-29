@@ -72,9 +72,9 @@ export default function ProjectsPage() {
 
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div className="space-y-3 max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-mono text-amber-700 dark:text-amber">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-2xl sm:rounded-full bg-amber-500/10 border border-amber-500/20 text-[11px] sm:text-xs font-mono text-amber-700 dark:text-amber max-w-full">
+                <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                <span className="break-words">
                   {locale === "kk"
                     ? `${ALL_PROJECTS.length} ӨНДІРІСТІК ЖОБА · ENGINEERING CASE STUDIES + B2B ВИТРИНА`
                     : locale === "ru"

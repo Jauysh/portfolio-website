@@ -9,9 +9,23 @@
 }
 
 @layer base {
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     background: radial-gradient(circle at top right, #1d1b4b, #0B0E14);
-    background-attachment: fixed;
     color: var(--color-slate-gray);
   }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

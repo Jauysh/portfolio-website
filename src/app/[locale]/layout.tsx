@@ -250,7 +250,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased selection:bg-cyan-500 selection:text-white min-h-screen flex flex-col">
+      <body className="antialiased selection:bg-cyan-500 selection:text-white min-h-screen flex flex-col w-full max-w-[100vw] overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
@@ -260,7 +260,9 @@ export default async function RootLayout({
           >
             <div className="ambient-glow" />
             <Navigation />
-            <main className="flex-grow z-10 pb-24 md:pb-0">{children}</main>
+            <main className="flex-grow z-10 pb-24 md:pb-0 w-full max-w-[100vw] overflow-x-hidden min-w-0">
+              {children}
+            </main>
             <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>

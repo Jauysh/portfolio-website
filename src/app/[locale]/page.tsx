@@ -150,13 +150,13 @@ export default function Home() {
           {/* 1. HERO SECTION */}
           <motion.section variants={itemVariants} className="space-y-6 sm:space-y-8">
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm">
+              <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-2xl sm:rounded-full border border-emerald-500/30 bg-emerald-500/10 backdrop-blur-sm max-w-full">
                 <div className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
-                <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 uppercase">
+                <span className="text-[11px] sm:text-xs font-mono font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 uppercase break-words">
                   {pickLocale(HERO_CONTENT.badge, locale)}
                 </span>
               </div>
-              <span className="text-[11px] sm:text-xs font-mono px-3 py-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-amber">
+              <span className="text-[11px] sm:text-xs font-mono px-3 py-1.5 rounded-2xl sm:rounded-full border border-slate-200 dark:border-white/10 bg-white/70 dark:bg-white/5 text-slate-700 dark:text-amber max-w-full break-words">
                 {pickLocale(HERO_CONTENT.roleTitle, locale)}
               </span>
             </div>
@@ -572,10 +572,10 @@ export default function Home() {
               </h2>
             </div>
 
-            <div className="flex flex-wrap gap-4 shrink-0">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 w-full lg:w-auto shrink-0">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-amber text-slate-950 font-semibold hover:bg-amber/90 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber text-slate-950 font-semibold hover:bg-amber/90 transition-colors"
               >
                 <span>
                   {locale === "kk"
@@ -584,35 +584,19 @@ export default function Home() {
                     ? "Связаться и запросить демо"
                     : "Schedule Demo / Contact"}
                 </span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 shrink-0" />
               </Link>
               <Link
                 href="/about#cv"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-white/20 text-white hover:bg-white/10 transition-colors font-mono text-xs sm:text-sm"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/20 text-white hover:bg-white/10 transition-colors font-mono text-xs sm:text-sm"
               >
-                <FileText className="w-4 h-4" />
+                <FileText className="w-4 h-4 shrink-0" />
                 <span>Engineering CV</span>
               </Link>
             </div>
           </motion.section>
         </motion.div>
       </main>
-
-      <footer className="border-t border-slate-200 dark:border-white/10 mt-16">
-        <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-gray/60">
-          <div className="flex items-center gap-2">
-            <Globe className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
-            <span>
-              Chișinău, Moldova · Almaty / Taraz, Kazakhstan · Global Remote
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span>KK · RU · TR · EN · AR (Basic)</span>
-            <span className="text-slate-300 dark:text-white/20">|</span>
-            <span>© 2026 Azamat Jauysh (Азамат Жауыш)</span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

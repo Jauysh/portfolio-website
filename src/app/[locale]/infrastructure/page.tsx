@@ -156,9 +156,9 @@ export default function InfrastructurePage() {
           </Link>
 
           <div className="space-y-4 max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-700 dark:text-emerald-400">
-              <Network className="w-3.5 h-3.5" />
-              <span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-2xl sm:rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] sm:text-xs font-mono text-emerald-700 dark:text-emerald-400 max-w-full">
+              <Network className="w-3.5 h-3.5 shrink-0" />
+              <span className="break-words">
                 7–8 CAMPUSES SD-WAN · PROXMOX VE CLUSTER · 5-LAYER DMZ · 100 TB WORKSPACE
               </span>
             </div>

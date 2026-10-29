@@ -2,16 +2,21 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
+const isProd = process.env.NODE_ENV === "production";
 
 const securityHeaders = [
   {
     key: "X-DNS-Prefetch-Control",
     value: "on",
   },
-  {
-    key: "Strict-Transport-Security",
-    value: "max-age=63072000; includeSubDomains; preload",
-  },
+  ...(isProd
+    ? [
+        {
+          key: "Strict-Transport-Security",
+          value: "max-age=63072000; includeSubDomains; preload",
+        },
+      ]
+    : []),
   {
     key: "X-Frame-Options",
     value: "SAMEORIGIN",
@@ -40,7 +45,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https:",
-      "connect-src 'self' https://api.telegram.org",
+      "connect-src 'self' ws: wss: http: https://api.telegram.org",
       "frame-ancestors 'self'",
       "base-uri 'self'",
       "form-action 'self' mailto:",
@@ -52,6 +57,15 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+  devIndicators: false,
+  allowedDevOrigins: [
+    "localhost",
+    "127.0.0.1",
+    "192.168.100.36",
+    "*.local",
+    "192.168.*.*",
+    "10.*.*.*",
+  ],
   async headers() {
     return [
       {
