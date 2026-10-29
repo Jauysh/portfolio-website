@@ -28,6 +28,7 @@ import {
 import { FEATURED_PROJECTS, ALL_PROJECTS } from "@/data/projectsData";
 import { pickLocale } from "@/data/types";
 import ArchitectureBenchmarks from "@/components/ArchitectureBenchmarks";
+import ExecutivePortrait from "@/components/ExecutivePortrait";
 
 export default function Home() {
   const locale = useLocale();
@@ -214,28 +215,12 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Column: Frameless Portrait Blended into Background */}
-              <div className="relative flex items-center justify-center lg:justify-end order-1 lg:order-2 select-none pointer-events-none">
-                {/* Subtle Ambient Aura Behind Subject */}
-                <div className="absolute -inset-6 bg-[radial-gradient(circle_at_50%_45%,rgba(204,168,118,0.18),rgba(16,185,129,0.08)_45%,transparent_72%)] blur-2xl -z-10" />
-
-                <div
-                  className="relative w-72 h-72 sm:w-88 sm:h-88 lg:w-[430px] lg:h-[430px] overflow-hidden"
-                  style={{
-                    WebkitMaskImage:
-                      "radial-gradient(closest-side at 50% 48%, #000 54%, rgba(0,0,0,0.45) 78%, transparent 100%)",
-                    maskImage:
-                      "radial-gradient(closest-side at 50% 48%, #000 54%, rgba(0,0,0,0.45) 78%, transparent 100%)",
-                  }}
-                >
-                  <img
-                    src="/avatar.jpg?v=2"
-                    alt={pickLocale(HERO_CONTENT.name, locale)}
-                    width={600}
-                    height={600}
-                    className="w-full h-full object-cover object-top brightness-[1.02] contrast-[1.04]"
-                  />
-                </div>
+              {/* Right Column: Frameless Portrait with Extended Environment */}
+              <div className="relative flex items-center justify-center lg:justify-end order-1 lg:order-2 py-4">
+                <ExecutivePortrait
+                  alt={pickLocale(HERO_CONTENT.name, locale)}
+                  size="hero"
+                />
               </div>
             </div>
 
