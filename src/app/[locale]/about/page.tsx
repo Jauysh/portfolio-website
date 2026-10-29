@@ -112,14 +112,23 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-3xl p-2 border border-slate-200 dark:border-white/15 bg-white/80 dark:bg-white/[0.03] shadow-2xl shrink-0 mx-auto md:mx-0">
-              <div className="w-full h-full rounded-2xl overflow-hidden bg-slate-950 ring-1 ring-amber-500/30">
+            <div className="relative flex items-center justify-center shrink-0 mx-auto md:mx-0 select-none pointer-events-none">
+              <div className="absolute -inset-4 bg-[radial-gradient(circle_at_50%_45%,rgba(204,168,118,0.16),rgba(16,185,129,0.08)_45%,transparent_70%)] blur-2xl -z-10" />
+              <div
+                className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80"
+                style={{
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse 76% 80% at 50% 44%, #000 48%, rgba(0,0,0,0.65) 68%, transparent 98%)",
+                  maskImage:
+                    "radial-gradient(ellipse 76% 80% at 50% 44%, #000 48%, rgba(0,0,0,0.65) 68%, transparent 98%)",
+                }}
+              >
                 <img
                   src="/avatar.jpg?v=2"
                   alt="Azamat Jauysh"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover object-top"
+                  width={500}
+                  height={500}
+                  className="w-full h-full object-cover object-top scale-105"
                 />
               </div>
             </div>

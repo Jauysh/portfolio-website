@@ -214,60 +214,27 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right Column: Large Harmonious Executive Portrait Showcase */}
-              <div className="flex flex-col items-center lg:items-end order-1 lg:order-2">
-                <div className="relative group w-full max-w-[320px] sm:max-w-[360px] lg:max-w-full rounded-[28px] p-3 border border-slate-200/90 dark:border-white/15 bg-gradient-to-b from-white/90 to-slate-100/80 dark:from-white/[0.06] dark:to-white/[0.02] shadow-2xl backdrop-blur-md">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-slate-950 ring-1 ring-white/10">
-                    <img
-                      src="/avatar.jpg?v=2"
-                      alt={pickLocale(HERO_CONTENT.name, locale)}
-                      width={600}
-                      height={600}
-                      className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-emerald-500/40 flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-[10px] font-mono font-bold text-emerald-300 uppercase">
-                        Available for B2B
-                      </span>
-                    </div>
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent pt-12 pb-4 px-4">
-                      <div className="text-lg sm:text-xl font-bold text-white leading-tight">
-                        {pickLocale(HERO_CONTENT.name, locale)}
-                      </div>
-                      <div className="text-xs font-mono text-amber mt-0.5">
-                        Full-Stack & AI Product Engineer · IT Architect
-                      </div>
-                    </div>
-                  </div>
+              {/* Right Column: Frameless Portrait Blended into Background */}
+              <div className="relative flex items-center justify-center lg:justify-end order-1 lg:order-2 select-none pointer-events-none">
+                {/* Subtle Ambient Aura Behind Subject */}
+                <div className="absolute -inset-6 bg-[radial-gradient(circle_at_50%_45%,rgba(204,168,118,0.18),rgba(16,185,129,0.08)_45%,transparent_72%)] blur-2xl -z-10" />
 
-                  {/* Mini Executive Metrics Footer inside Portrait Card */}
-                  <div className="grid grid-cols-3 gap-2 pt-3 text-center font-mono">
-                    <div className="p-2 rounded-xl bg-slate-200/60 dark:bg-black/40 border border-slate-300/50 dark:border-white/5">
-                      <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                        11 Systems
-                      </div>
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400">
-                        Production
-                      </div>
-                    </div>
-                    <div className="p-2 rounded-xl bg-slate-200/60 dark:bg-black/40 border border-slate-300/50 dark:border-white/5">
-                      <div className="text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400">
-                        7–8 Campuses
-                      </div>
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400">
-                        SD-WAN / Cloud
-                      </div>
-                    </div>
-                    <div className="p-2 rounded-xl bg-slate-200/60 dark:bg-black/40 border border-slate-300/50 dark:border-white/5">
-                      <div className="text-xs sm:text-sm font-bold text-amber-600 dark:text-amber">
-                        3,000+
-                      </div>
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400">
-                        Active Users
-                      </div>
-                    </div>
-                  </div>
+                <div
+                  className="relative w-72 h-72 sm:w-88 sm:h-88 lg:w-[420px] lg:h-[420px]"
+                  style={{
+                    WebkitMaskImage:
+                      "radial-gradient(ellipse 76% 80% at 50% 44%, #000 48%, rgba(0,0,0,0.65) 68%, transparent 98%)",
+                    maskImage:
+                      "radial-gradient(ellipse 76% 80% at 50% 44%, #000 48%, rgba(0,0,0,0.65) 68%, transparent 98%)",
+                  }}
+                >
+                  <img
+                    src="/avatar.jpg?v=2"
+                    alt={pickLocale(HERO_CONTENT.name, locale)}
+                    width={600}
+                    height={600}
+                    className="w-full h-full object-cover object-top scale-105 brightness-[1.02] contrast-[1.04]"
+                  />
                 </div>
               </div>
             </div>
