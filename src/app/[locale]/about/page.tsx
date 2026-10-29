@@ -114,13 +114,13 @@ export default function AboutPage() {
             </div>
 
             <div className="shrink-0">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl overflow-hidden ring-2 ring-slate-200 dark:ring-amber-500/30 shadow-xl bg-slate-900">
+              <div className="w-48 h-56 sm:w-56 sm:h-64 rounded-2xl overflow-hidden ring-1 ring-slate-200 dark:ring-white/15 shadow-2xl bg-[#0B0E14]">
                 <img
-                  src="/avatar.jpg?v=3"
+                  src="/avatar.jpg?v=5"
                   alt="Azamat Jauysh"
-                  width={320}
-                  height={320}
-                  className="w-full h-full object-cover object-center"
+                  width={448}
+                  height={512}
+                  className="w-full h-full object-cover object-[50%_20%]"
                 />
               </div>
             </div>
