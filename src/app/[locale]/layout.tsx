@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CommandPalette from "@/components/CommandPalette";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -268,6 +269,7 @@ export default async function RootLayout({
             <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
+        <GoogleAnalytics />
       </body>
     </html>
   );

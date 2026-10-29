@@ -16,6 +16,7 @@ import { FormEvent, useState, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { B2B_PRODUCTS } from "@/data/projectsData";
 import { pickLocale } from "@/data/types";
+import { trackGAEvent } from "@/components/GoogleAnalytics";
 
 export default function ContactPage() {
   const locale = useLocale();
@@ -56,6 +57,12 @@ export default function ContactPage() {
         body: JSON.stringify(payload),
       });
       const data = await res.json();
+
+      trackGAEvent("generate_lead", {
+        product_or_service: payload.productOrService,
+        locale,
+        delivery_mode: data.mode || "mailto",
+      });
 
       const subject = encodeURIComponent(
         `[Portfolio / B2B] ${payload.productOrService} — ${payload.name}`
