@@ -220,12 +220,12 @@ export default function Home() {
                 <div className="absolute -inset-6 bg-[radial-gradient(circle_at_50%_45%,rgba(204,168,118,0.18),rgba(16,185,129,0.08)_45%,transparent_72%)] blur-2xl -z-10" />
 
                 <div
-                  className="relative w-72 h-72 sm:w-88 sm:h-88 lg:w-[420px] lg:h-[420px]"
+                  className="relative w-72 h-72 sm:w-88 sm:h-88 lg:w-[430px] lg:h-[430px] overflow-hidden"
                   style={{
                     WebkitMaskImage:
-                      "radial-gradient(ellipse 76% 80% at 50% 44%, #000 48%, rgba(0,0,0,0.65) 68%, transparent 98%)",
+                      "radial-gradient(closest-side at 50% 48%, #000 54%, rgba(0,0,0,0.45) 78%, transparent 100%)",
                     maskImage:
-                      "radial-gradient(ellipse 76% 80% at 50% 44%, #000 48%, rgba(0,0,0,0.65) 68%, transparent 98%)",
+                      "radial-gradient(closest-side at 50% 48%, #000 54%, rgba(0,0,0,0.45) 78%, transparent 100%)",
                   }}
                 >
                   <img
@@ -233,7 +233,7 @@ export default function Home() {
                     alt={pickLocale(HERO_CONTENT.name, locale)}
                     width={600}
                     height={600}
-                    className="w-full h-full object-cover object-top scale-105 brightness-[1.02] contrast-[1.04]"
+                    className="w-full h-full object-cover object-top brightness-[1.02] contrast-[1.04]"
                   />
                 </div>
               </div>

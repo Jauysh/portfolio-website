@@ -115,12 +115,12 @@ export default function AboutPage() {
             <div className="relative flex items-center justify-center shrink-0 mx-auto md:mx-0 select-none pointer-events-none">
               <div className="absolute -inset-4 bg-[radial-gradient(circle_at_50%_45%,rgba(204,168,118,0.16),rgba(16,185,129,0.08)_45%,transparent_70%)] blur-2xl -z-10" />
               <div
-                className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80"
+                className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 overflow-hidden"
                 style={{
                   WebkitMaskImage:
-                    "radial-gradient(ellipse 76% 80% at 50% 44%, #000 48%, rgba(0,0,0,0.65) 68%, transparent 98%)",
+                    "radial-gradient(closest-side at 50% 48%, #000 54%, rgba(0,0,0,0.45) 78%, transparent 100%)",
                   maskImage:
-                    "radial-gradient(ellipse 76% 80% at 50% 44%, #000 48%, rgba(0,0,0,0.65) 68%, transparent 98%)",
+                    "radial-gradient(closest-side at 50% 48%, #000 54%, rgba(0,0,0,0.45) 78%, transparent 100%)",
                 }}
               >
                 <img
@@ -128,7 +128,7 @@ export default function AboutPage() {
                   alt="Azamat Jauysh"
                   width={500}
                   height={500}
-                  className="w-full h-full object-cover object-top scale-105"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
