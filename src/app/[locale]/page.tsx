@@ -435,9 +435,11 @@ export default function Home() {
 
                     {/* Title & Subtitle */}
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber transition-colors">
-                        {pickLocale(project.title, locale)}
-                      </h3>
+                      <Link href={`/projects/${project.slug}`}>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber transition-colors">
+                          {pickLocale(project.title, locale)}
+                        </h3>
+                      </Link>
                       <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">
                         {pickLocale(project.subtitle, locale)}
                       </p>
@@ -481,7 +483,7 @@ export default function Home() {
                   {/* Card Footer Actions */}
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-5 mt-6 border-t border-slate-200/80 dark:border-white/10">
                     <Link
-                      href={`/projects#${project.slug}`}
+                      href={`/projects/${project.slug}`}
                       className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-slate-900 dark:text-white hover:text-amber-600 dark:hover:text-amber transition-colors"
                     >
                       <span>

@@ -9,10 +9,20 @@ import {
   CheckCircle2,
   AlertTriangle,
   Sparkles,
+  Calculator,
+  ArrowRight,
 } from "lucide-react";
+import { Link } from "@/i18n/routing";
 
 export default function ArchitectureBenchmarks({ locale }: { locale: string }) {
   const [privacyShieldActive, setPrivacyShieldActive] = useState(true);
+  const [students, setStudents] = useState(1500);
+  const [teachers, setTeachers] = useState(110);
+  const [campuses, setCampuses] = useState(3);
+
+  const savedHoursPerYear = Math.round(teachers * 36 * 1.25);
+  const automatedPapersPerYear = Math.round(students * 28);
+  const annualSavingsUsd = Math.round(campuses * 4200 + students * 6.5);
 
   const comparisons = [
     {
@@ -262,6 +272,181 @@ export default function ArchitectureBenchmarks({ locale }: { locale: string }) {
             ? "Нажмите кнопку «PII Masked» выше: OmniCheck автоматически закрашивает ФИО ученика в браузере через HTML5 Canvas еще до отправки фото в облако и ИИ (100% соответствие GDPR)."
             : "Toggle the 'PII Masked' button above: OmniCheck redacts the top 7% header of student notebooks in the browser via HTML5 Canvas before any image leaves the device."}
         </p>
+      </div>
+
+      {/* Bottom 12 Cols: Interactive B2B School & Enterprise ROI Calculator */}
+      <div className="lg:col-span-12 p-6 sm:p-8 rounded-3xl border border-slate-200 bg-white dark:border-white/10 dark:bg-[#111622] shadow-sm dark:shadow-none space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-white/10 pb-4">
+          <div>
+            <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+              <Calculator className="w-3.5 h-3.5" />
+              <span>// INTERACTIVE B2B EDTECH & INFRASTRUCTURE ROI CALCULATOR</span>
+            </span>
+            <h3 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
+              {locale === "kk"
+                ? "Мектебіңіз немесе білім желісі үшін үнемдеу калькуляторы"
+                : locale === "ru"
+                ? "Калькулятор экономии для вашей школы или образовательной сети"
+                : "Interactive ROI & Time-Savings Calculator for Your School Network"}
+            </h3>
+          </div>
+          <Link
+            href={`/contact?product=omnicheck`}
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber text-slate-950 font-mono font-bold text-xs hover:bg-amber/90 transition-all shrink-0 self-start sm:self-center"
+          >
+            <span>
+              {locale === "kk"
+                ? "Осы есеппен Демо сұрау"
+                : locale === "ru"
+                ? "Запросить демо с этим расчетом"
+                : "Request Demo with Estimate"}
+            </span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          {/* Sliders */}
+          <div className="lg:col-span-6 space-y-5">
+            <div className="space-y-2">
+              <div className="flex justify-between text-xs font-mono">
+                <span className="text-slate-600 dark:text-slate-300">
+                  {locale === "kk"
+                    ? "Оқушы саны (Students):"
+                    : locale === "ru"
+                    ? "Количество учеников:"
+                    : "Total Students:"}
+                </span>
+                <span className="font-bold text-slate-900 dark:text-amber">
+                  {students.toLocaleString()}
+                </span>
+              </div>
+              <input
+                type="range"
+                min={100}
+                max={10000}
+                step={100}
+                value={students}
+                onChange={(e) => setStudents(Number(e.target.value))}
+                aria-label="Students"
+                className="w-full accent-amber-500 cursor-pointer"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex justify-between text-xs font-mono">
+                <span className="text-slate-600 dark:text-slate-300">
+                  {locale === "kk"
+                    ? "Мұғалім саны (Teachers):"
+                    : locale === "ru"
+                    ? "Количество учителей:"
+                    : "Faculty / Teachers:"}
+                </span>
+                <span className="font-bold text-slate-900 dark:text-amber">
+                  {teachers}
+                </span>
+              </div>
+              <input
+                type="range"
+                min={10}
+                max={800}
+                step={10}
+                value={teachers}
+                onChange={(e) => setTeachers(Number(e.target.value))}
+                aria-label="Teachers"
+                className="w-full accent-amber-500 cursor-pointer"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex justify-between text-xs font-mono">
+                <span className="text-slate-600 dark:text-slate-300">
+                  {locale === "kk"
+                    ? "Кампус / Филиал саны (Campuses):"
+                    : locale === "ru"
+                    ? "Количество кампусов / филиалов:"
+                    : "Number of Campuses:"}
+                </span>
+                <span className="font-bold text-slate-900 dark:text-amber">
+                  {campuses}
+                </span>
+              </div>
+              <input
+                type="range"
+                min={1}
+                max={15}
+                step={1}
+                value={campuses}
+                onChange={(e) => setCampuses(Number(e.target.value))}
+                aria-label="Campuses"
+                className="w-full accent-amber-500 cursor-pointer"
+              />
+            </div>
+          </div>
+
+          {/* Calculated Impact Cards */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            <div className="p-4 rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.06] space-y-1.5">
+              <div className="text-[10px] font-mono uppercase text-emerald-700 dark:text-emerald-400">
+                {locale === "kk"
+                  ? "Үнемделген уақыт / жыл"
+                  : locale === "ru"
+                  ? "Экономия времени / год"
+                  : "Saved Faculty Time / Yr"}
+              </div>
+              <div className="text-2xl font-bold font-mono text-slate-900 dark:text-white">
+                {savedHoursPerYear.toLocaleString()}h
+              </div>
+              <div className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug">
+                {locale === "kk"
+                  ? "OmniCheck + OMR авто-тексеру"
+                  : locale === "ru"
+                  ? "Авто-проверка OmniCheck + OMR"
+                  : "OmniCheck + OMR auto-grading"}
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl border border-amber-500/25 bg-amber-500/[0.06] space-y-1.5">
+              <div className="text-[10px] font-mono uppercase text-amber-700 dark:text-amber">
+                {locale === "kk"
+                  ? "Авто-тексерілген жұмыс"
+                  : locale === "ru"
+                  ? "Проверено работ / год"
+                  : "Graded Works / Yr"}
+              </div>
+              <div className="text-2xl font-bold font-mono text-slate-900 dark:text-white">
+                {automatedPapersPerYear.toLocaleString()}
+              </div>
+              <div className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug">
+                {locale === "kk"
+                  ? "БЖБ/ТЖБ, Олимпиада & Эссе"
+                  : locale === "ru"
+                  ? "СОР/СОЧ, Олимпиады и Эссе"
+                  : "Exams, Olympiads & Essays"}
+              </div>
+            </div>
+
+            <div className="p-4 rounded-2xl border border-cyan-500/25 bg-cyan-500/[0.06] space-y-1.5">
+              <div className="text-[10px] font-mono uppercase text-cyan-700 dark:text-cyan-300">
+                {locale === "kk"
+                  ? "Жылдық IT & SaaS үнемі"
+                  : locale === "ru"
+                  ? "ИТ и SaaS экономия / год"
+                  : "Est. Annual IT Savings"}
+              </div>
+              <div className="text-2xl font-bold font-mono text-slate-900 dark:text-white">
+                ${annualSavingsUsd.toLocaleString()}
+              </div>
+              <div className="text-[11px] text-slate-600 dark:text-slate-300 leading-snug">
+                {locale === "kk"
+                  ? "Шексіз мульти-тенант лицензия"
+                  : locale === "ru"
+                  ? "Безлимитная multi-tenant лицензия"
+                  : "Zero per-seat SaaS fees"}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

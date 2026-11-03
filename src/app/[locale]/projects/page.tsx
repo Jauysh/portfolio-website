@@ -201,9 +201,11 @@ export default function ProjectsPage() {
                       </span>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
-                      {pickLocale(project.title, locale)}
-                    </h2>
+                    <Link href={`/projects/${project.slug}`}>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white hover:text-amber-600 dark:hover:text-amber transition-colors leading-tight">
+                        {pickLocale(project.title, locale)}
+                      </h2>
+                    </Link>
 
                     <p className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400">
                       {pickLocale(project.subtitle, locale)}
@@ -212,6 +214,19 @@ export default function ProjectsPage() {
 
                   {/* External & B2B Action Buttons */}
                   <div className="flex flex-wrap items-center gap-3 shrink-0">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-300 dark:border-white/15 bg-slate-50 dark:bg-white/[0.04] hover:border-amber-500/50 text-xs font-mono font-bold text-slate-900 dark:text-white transition-colors"
+                    >
+                      <span>
+                        {locale === "kk"
+                          ? "Толық Case Study"
+                          : locale === "ru"
+                          ? "Полный Case Study"
+                          : "Full Case Study"}
+                      </span>
+                      <ArrowRight className="w-3.5 h-3.5 text-amber-500" />
+                    </Link>
                     {project.b2bReady && (
                       <Link
                         href={`/contact?product=${project.slug}`}

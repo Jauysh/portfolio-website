@@ -214,7 +214,7 @@ export default function CommandPalette() {
                     key={proj.id}
                     onClick={() => {
                       setOpen(false);
-                      router.push(`/projects#${proj.slug}`);
+                      router.push(`/projects/${proj.slug}`);
                     }}
                     className="w-full text-left px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors flex items-center justify-between gap-3 group"
                   >

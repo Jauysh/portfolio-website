@@ -26,25 +26,25 @@ export default function ExecutivePortrait({
       name: "OmniCheck AI SaaS",
       meta: "Gemini Vision · dHash · Canvas GDPR",
       badge: "B2B Flagship",
-      href: "/projects#omnicheck",
+      href: "/projects/omnicheck",
     },
     {
       name: "LuminaMath Olympiad",
       meta: "Cloud Run · 1,200 req/s · OMR PDF",
       badge: "700+ Peak",
-      href: "/projects#luminamath",
+      href: "/projects/luminamath",
     },
     {
       name: "GM-App & SSP Engines",
       meta: "PostgreSQL Serializable · 0% Overbook",
       badge: "7 Campuses",
-      href: "/projects#ssp",
+      href: "/projects/gm-app",
     },
     {
       name: "SD-WAN & 5-Layer DMZ",
       meta: "MikroTik · Proxmox · 12MB RAM NOC",
       badge: "41x TTFB",
-      href: "/infrastructure",
+      href: "/projects/school-it-infra",
     },
   ];
 
