@@ -27,9 +27,9 @@ export const HERO_CONTENT = {
     ru: "End-to-End архитектор цифровой экосистемы международной образовательной сети из 8 кампусов, высоконагруженных веб-платформ, мультимодальных AI EdTech SaaS-продуктов и корпоративной сетевой инфраструктуры.",
   },
   primaryCta: {
-    kk: "Жобалар мен B2B Витрина (11)",
-    en: "Explore Projects & B2B Suite (11)",
-    ru: "Смотреть проекты и B2B-витрину (11)",
+    kk: "Жобалар мен B2B Витрина (12)",
+    en: "Explore Projects & B2B Suite (12)",
+    ru: "Смотреть проекты и B2B-витрину (12)",
   },
   secondaryCta: {
     kk: "B2B Демо / Консалтинг",
@@ -44,20 +44,20 @@ export const HERO_CONTENT = {
   terminalLines: {
     kk: [
       "> [OmniCheck SaaS] *.omnicheck.kz Edge Middleware + Top-7% Canvas Privacy Shield — ІСКЕ ҚОСЫЛҒАН",
+      "> [Auto-Tender AI] Goszakup v3 AntiBanGuard + Kaspi/1688/OEM ROI + Cloud Run — ОНЛАЙН",
       "> [LuminaMath] luminamath.orizont.md Cloud Run (1,200 req/s) + BYTEA OMR PDF — ОНЛАЙН",
-      "> [Media OS & Web CMS] 29 Арна Zero-Password AI Hub + 30-Route 3D-Secure CMS — ДАЙЫН",
       "> [SD-WAN & NOC] 7 Кампус WireGuard (~7ms RTT) + 5-Layer DMZ + 12MB RAM Helpdesk — 100% OK",
     ],
     en: [
       "> [OmniCheck SaaS] *.omnicheck.kz Edge Middleware + Top-7% Canvas Privacy Shield — ACTIVE",
+      "> [Auto-Tender AI] Goszakup v3 AntiBanGuard + Kaspi/1688/OEM ROI + Cloud Run — ONLINE",
       "> [LuminaMath] luminamath.orizont.md Cloud Run (1,200 req/s) + BYTEA OMR Stream — ONLINE",
-      "> [Media OS & Web CMS] 29-Channel Zero-Password AI Hub + 30-Route 3D-Secure CMS — READY",
       "> [SD-WAN & NOC] 7 Campuses WireGuard (~7ms RTT) + 5-Layer DMZ + 12MB RAM Helpdesk — 100% OK",
     ],
     ru: [
       "> [OmniCheck SaaS] *.omnicheck.kz Edge Middleware + Top-7% Canvas Privacy Shield — АКТИВЕН",
+      "> [Auto-Tender AI] Goszakup v3 AntiBanGuard + Kaspi/1688/OEM ROI + Cloud Run — ОНЛАЙН",
       "> [LuminaMath] luminamath.orizont.md Cloud Run (1,200 req/s) + BYTEA OMR Stream — ОНЛАЙН",
-      "> [Media OS & Web CMS] 29 каналов Zero-Password AI Hub + 30-Route 3D-Secure CMS — ГОТОВ",
       "> [SD-WAN & NOC] 7 кампусов WireGuard (~7ms RTT) + 5-Layer DMZ + 12MB RAM Helpdesk — 100% OK",
     ],
   },
@@ -158,19 +158,19 @@ export const STRATEGIC_BLOCKS: {
       ru: "🏆 БЛОК 1",
     },
     title: {
-      kk: "Flagship AI & EdTech SaaS",
-      en: "Flagship AI & EdTech SaaS",
-      ru: "Флагманский AI & EdTech SaaS",
+      kk: "Flagship AI, EdTech & GovTech SaaS",
+      en: "Flagship AI, EdTech & GovTech SaaS",
+      ru: "Флагманские AI, EdTech и GovTech SaaS",
     },
     subtitle: {
-      kk: "Басты технологиялық B2B/B2C өнім",
-      en: "Core B2B/B2C Multi-Tenant Product",
-      ru: "Главный технологический B2B/B2C продукт",
+      kk: "OmniCheck AI және Auto-Tender GovTech B2B/B2C платформалары",
+      en: "OmniCheck AI & Auto-Tender GovTech B2B/B2C Platforms",
+      ru: "Платформы OmniCheck AI и Auto-Tender GovTech B2B/B2C",
     },
     description: {
-      kk: "Мектептер желілері мен білім орталықтарына арналған мультимодальды ЖИ (Gemini 2.0 Flash Vision / GPT-4o) платформасы: қолжазба үй тапсырмаларын тексеру, антиплагиат (dHash), GDPR Privacy Shield және 24/7 Сократтық репетитор.",
-      en: "Multi-tenant B2B/B2C SaaS platform for school networks & prep centers: Vision LLM handwritten STEM grading, perceptual dHash anti-plagiarism, browser-side GDPR Privacy Shield, and 24/7 Socratic AI tutoring.",
-      ru: "Мультитенантная B2B/B2C SaaS-платформа для сетей школ и учебных центров: проверка рукописных работ через Vision LLM, антиплагиат dHash, браузерный GDPR Privacy Shield и сократический ИИ-тьютор 24/7.",
+      kk: "Мультимодальды ЖИ (Gemini 2.5 Flash Vision / GPT-4o) негізіндегі флагмандық SaaS өнімдері: мектептерге арналған OmniCheck (дәптер тексеру, dHash антиплагиат, GDPR Privacy Shield) және мемлекеттік сатып алулар мен импортерлерге арналған Auto-Tender (Анти-РНУ сканері, Kaspi/1688/OEM ROI).",
+      en: "Flagship AI SaaS platforms powered by Gemini 2.5 Flash Vision: OmniCheck for K-12 networks (handwritten STEM grading, dHash anti-plagiarism, GDPR Privacy Shield) and Auto-Tender for GovTech/importers (Anti-RNU risk scanner, Kaspi/1688/OEM sourcing ROI).",
+      ru: "Флагманские ИИ SaaS-платформы на базе Gemini 2.5 Flash: OmniCheck для сетей школ (проверка тетрадей, антиплагиат dHash, GDPR Privacy Shield) и Auto-Tender для госзакупок и импортеров (сканер рисков Анти-РНУ, расчет ROI по ценам Kaspi/1688/OEM).",
     },
   },
   {

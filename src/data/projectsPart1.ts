@@ -113,6 +113,118 @@ export const PROJECTS_PART_1: ProjectItem[] = [
     ],
   },
   {
+    id: "auto-tender",
+    slug: "auto-tender",
+    block: "ai-saas",
+    featured: true,
+    b2bReady: true,
+    title: {
+      kk: "Auto-Tender — AI GovTech, Anti-RNU Risk Scanner & Global Sourcing ROI Platform",
+      en: "Auto-Tender — AI GovTech, Anti-RNU Risk Scanner & Global Sourcing ROI Platform",
+      ru: "Auto-Tender — ИИ GovTech-платформа, Анти-РНУ сканер рисков и Global Sourcing ROI",
+    },
+    subtitle: {
+      kk: "B2B GovTech SaaS · Goszakup OWS v3 GraphQL · Kaspi & 1688 Live Pricer · Telegram Mini App",
+      en: "B2B GovTech SaaS · Goszakup OWS v3 GraphQL · Kaspi & 1688 Live Pricer · Telegram Mini App",
+      ru: "B2B GovTech SaaS · Goszakup OWS v3 GraphQL · Kaspi и 1688 Live Pricer · Telegram Mini App",
+    },
+    domainOrPort: {
+      kk: "Cloud Run (europe-west3) · @TenderUP14_bot",
+      en: "Cloud Run (europe-west3) · @TenderUP14_bot",
+      ru: "Cloud Run (europe-west3) · @TenderUP14_bot",
+    },
+    repoUrl: "https://github.com/Jauysh/auto-tender",
+    liveUrl: "https://auto-tender-100463055748.europe-west3.run.app",
+    statusBadge: {
+      kk: "Live Cloud Run · B2B GovTech SaaS",
+      en: "Live Cloud Run · B2B GovTech SaaS",
+      ru: "Live Cloud Run · B2B GovTech SaaS",
+    },
+    b2bValue: {
+      kk: "Мемлекеттік және корпоративтік тендер қатысушылары мен импортерлерге техникалық спецификацияны секунд ішінде талдап, «Анти-РНУ» тәуекелдерін, Kaspi/1688/OEM зауыт бағаларын және таза маржаны (ROI %) дайын күйінде беретін B2B SaaS терминалы.",
+      en: "B2B GovTech intelligence terminal for suppliers and importers that automatically parses tender PDFs/DOCX, flags 'Anti-RNU' blacklist risks, compares real-time Kaspi.kz, 1688.com factory, and Global OEM prices, and calculates net ROI %.",
+      ru: "B2B SaaS-терминал для поставщиков госзакупок и импортеров: автоматически разбирает PDF/DOCX техспецификации, выявляет риски РНУ («заточки», СТ-KZ, короткие сроки) и считает чистую маржу (ROI %) по ценам Kaspi.kz, 1688.com и прямых OEM-заводов.",
+    },
+    summary: {
+      kk: "Goszakup OWS v3 GraphQL API-мен тікелей интеграцияланған интеллектуалды платформа: белсенді лоттар мен жылдық жоспарларды жинайды, PyMuPDF + Gemini 2.5 Flash арқылы PDF/DOCX құжаттардан нақты тауар моделін, HS Code (ТН ВЭД) пен қауіпті талаптарды суырып алады және 3 деңгейлі (ҚР / Қытай 1688 / OEM Зауыт) таза пайданы есептейді.",
+      en: "End-to-End GovTech & Supply Chain AI platform integrating Goszakup OWS v3 GraphQL, in-memory PyMuPDF/DOCX parsing, Gemini 2.5 Flash structured intelligence, 3-tier global sourcing (Kaspi.kz Live Pricer, 1688 RapidAPI, ImportYeti OEM graph), and a Telegram Mini App.",
+      ru: "Интеллектуальная платформа на базе FastAPI, Goszakup OWS v3 GraphQL и Gemini 2.5 Flash: собирает активные лоты и планы, извлекает из PDF/DOCX точные модели, коды ТН ВЭД и «красные флаги», сравнивает цены в РК (Kaspi), Китае (1688) и у OEM-производителей.",
+    },
+    challenge: {
+      kk: "Тендер мамандары күніне жүздеген PDF техникалық спецификацияны қолмен оқып, жасырын «заточкаларды», СТ-KZ талаптарын немесе тым қысқа жеткізу мерзімін байқамай РНУ-ға (адал емес жеткізушілер тізіліміне) түсіп қалады. Ал 1,000+ қолданушы Госзакуп API-ге тікелей сұраныс жіберсе, NITEC файрволы токенді бірден бұғаттайды.",
+      en: "Procurement teams waste hours manually reading PDF technical specs and risk getting blacklisted (RNU) due to hidden certificate traps or <10-day delivery terms. Meanwhile, direct multi-user requests to government APIs trigger instant NITEC rate-limit bans.",
+      ru: "Тендерные специалисты тратят часы на ручное чтение PDF-спецификаций и рискуют попасть в РНУ из-за скрытых «заточек», требований СТ-KZ или сроков поставки <10 дней, а прямые запросы пользователей к API Госзакупок приводят к мгновенной блокировке токена со стороны НИТЭК.",
+    },
+    solution: {
+      kk: "5-деңгейлі GoszakupAntiBanGuard (Semaphore=1, 2.5s + Random Jitter, Circuit Breaker, KZ IPv4 Proxy 0.88s) және Supabase Cloud PostgreSQL (Transaction Pooler :6543) арқылы «Оқшауланған Ядро» жасалды. PyMuPDF + Gemini 2.5 Flash гибридті талдаушысы, 6–12 айлық Pre-RFP бюджет болжамдаушысы, Zero-Trust Server-Side Paywall және Lemon Squeezy / Stripe биллингі енгізілді.",
+      en: "Architected an Isolated Core with a 5-layer GoszakupAntiBanGuard (Semaphore=1, Jitter, Circuit Breaker, KZ Proxy) backed by Supabase PostgreSQL so 10,000+ users read cached intelligence in 0.005s with 0% ban risk. Built a Hybrid AI Spec Parser, 6–12 month Pre-RFP Budget Forecaster, Customs OEM Graph, and Zero-Trust Server-Side Paywall.",
+      ru: "Спроектировано «Изолированное Ядро» с 5-уровневой защитой GoszakupAntiBanGuard (Semaphore=1, Jitter, Circuit Breaker, KZ IPv4 Proxy 0.88с) и кэшем в Supabase PostgreSQL (ответ за 0.005с при 0% риска бана). Внедрены гибридный парсер PyMuPDF + Gemini 2.5 Flash, прогноз бюджетов Pre-RFP на 6–12 мес., таможенный граф OEM и Zero-Trust Server-Side Paywall.",
+    },
+    outcome: {
+      kk: "10-нан 10,000+ қолданушыға дейін Госзакуп API-ге минутына тек 12–15 қауіпсіз сұраныс жіберетін 0% бан тәуекелі, сервер деңгейінде F12 DevTools арқылы дерек ұрлаудан 100% қорғалған Paywall және Google Cloud Run (europe-west3) + @TenderUP14_bot Telegram Mini App продакшн деплойменті.",
+      en: "0% government API token ban risk regardless of user scale (0.005s cached reads), 100% DevTools-proof server-side DEMO redaction, automated CI/CD via Google Cloud Build to Cloud Run (europe-west3), and integrated Telegram Mini App (@TenderUP14_bot).",
+      ru: "0% риска блокировки API-токена при масштабировании до 10,000+ пользователей (чтение из кэша за 0.005с), 100% защита платных данных от перехвата через F12 DevTools на уровне сервера, CI/CD в Google Cloud Run (europe-west3) и Telegram Mini App (@TenderUP14_bot).",
+    },
+    highlights: {
+      kk: [
+        "5-Layer GoszakupAntiBanGuard: Semaphore(1), 2.25–2.85s Jitter, Circuit Breaker және арнайы KZ IPv4 Proxy (0.88s) арқылы 0% токен бұғатталу тәуекелі.",
+        "AI Anti-RNU Shield & Spec Parser: PyMuPDF (BytesIO) + Gemini 2.5 Flash арқылы PDF/DOCX ішінен тауар бренді, SKU, Kaspi ID, ТН ВЭД (HS Code) және 5 тәуекел факторын анықтау.",
+        "3-Tier Global Sourcing & Pre-RFP Forecast: Kaspi.kz Live Pricer, 1688.com RapidAPI (Қытай зауыттары + Карго), ImportYeti KZ кедендік OEM графы және 6–12 айлық бюджет болжамы.",
+        "Zero-Trust Server Paywall & Billing: Серверлік DEMO редакторлау (redact_analysis_for_demo), Telegram Mini App HMAC-SHA256 авторизациясы және Lemon Squeezy (KZT) / Stripe 3-тарифтік биллингі.",
+      ],
+      en: [
+        "5-Layer GoszakupAntiBanGuard: Semaphore(1), 2.25–2.85s human jitter, Circuit Breaker, and dedicated KZ IPv4 Proxy routing (0.88s) ensuring 0% API ban risk.",
+        "AI Anti-RNU Shield & Spec Parser: In-memory PyMuPDF + Gemini 2.5 Flash extracting exact brand, SKU, Kaspi ID, HS Code, and 5 procurement red-flag categories.",
+        "3-Tier Global Sourcing & Pre-RFP Forecast: Real-time Kaspi.kz Live Pricer, 1688.com factory wholesale API, Customs OEM Supply Chain Graph, and 6–12 month budget forecasting.",
+        "Zero-Trust Server Paywall & Billing: Server-side field redaction against DevTools scraping, Telegram Mini App HMAC-SHA256 auth, and Lemon Squeezy (KZT) / Stripe billing.",
+      ],
+      ru: [
+        "5-Layer GoszakupAntiBanGuard: Semaphore(1), Jitter 2.25–2.85с, Circuit Breaker и выделенный KZ IPv4 прокси (0.88с) — 0% риска блокировки токена.",
+        "ИИ-щит «Анти-РНУ» и парсер спецификаций: PyMuPDF (BytesIO) + Gemini 2.5 Flash для извлечения бренда, модели, Kaspi ID, кода ТН ВЭД и 5 категорий рисков.",
+        "3-уровневый Global Sourcing и Pre-RFP прогноз: Kaspi.kz Live Pricer, 1688.com RapidAPI (цены фабрик Китая + карго), таможенный граф OEM и прогноз бюджетов на 6–12 мес.",
+        "Zero-Trust Server Paywall и биллинг: Серверная маскировка данных в DEMO-режиме, авторизация Telegram Mini App (HMAC-SHA256) и 3 тарифа Lemon Squeezy (KZT) / Stripe.",
+      ],
+    },
+    architectureFlow: [
+      "Goszakup OWS v3 GraphQL + KZ Proxy (0.88s)",
+      "5-Layer AntiBanGuard (Semaphore + Circuit Breaker)",
+      "PyMuPDF In-Memory + Gemini 2.5 Flash AI",
+      "Kaspi Live Pricer + 1688 Factory API + OEM Graph",
+      "Supabase PostgreSQL Transaction Pooler (:6543)",
+      "FastAPI Zero-Trust Paywall + Cloud Run + TG Mini App",
+    ],
+    techStack: [
+      "Python 3.12 (uv)",
+      "FastAPI & Pydantic v2",
+      "SQLAlchemy 2.0 Async",
+      "Supabase PostgreSQL",
+      "Gemini 2.5 Flash API",
+      "PyMuPDF & python-docx",
+      "Aiogram 3 & TG Mini App",
+      "Google Cloud Run (CI/CD)",
+      "Lemon Squeezy & Stripe",
+      "Goszakup GraphQL v3",
+    ],
+    metrics: [
+      {
+        value: "0.005s",
+        label: { kk: "Supabase Кэш & 0% Бан", en: "Supabase Cache & 0% Ban", ru: "Кэш Supabase и 0% Бана" },
+      },
+      {
+        value: "3-Tier",
+        label: { kk: "Kaspi · 1688 · OEM ROI", en: "Kaspi · 1688 · OEM ROI", ru: "Kaspi · 1688 · OEM ROI" },
+      },
+      {
+        value: { kk: "6–12 ай", en: "6–12 mo", ru: "6–12 мес" },
+        label: { kk: "Pre-RFP Бюджет Болжамы", en: "Pre-RFP Budget Forecast", ru: "Pre-RFP Прогноз Бюджета" },
+      },
+      {
+        value: "Zero-Trust",
+        label: { kk: "Server Paywall & Mini App", en: "Server Paywall & Mini App", ru: "Server Paywall и Mini App" },
+      },
+    ],
+  },
+  {
     id: "luminamath",
     slug: "luminamath",
     block: "edtech-enterprise",

@@ -29,16 +29,16 @@ export default function ExecutivePortrait({
       href: "/projects/omnicheck",
     },
     {
+      name: "Auto-Tender GovTech AI",
+      meta: "Goszakup v3 · Kaspi & 1688 · Anti-RNU",
+      badge: "0% Ban Core",
+      href: "/projects/auto-tender",
+    },
+    {
       name: "LuminaMath Olympiad",
       meta: "Cloud Run · 1,200 req/s · OMR PDF",
       badge: "700+ Peak",
       href: "/projects/luminamath",
-    },
-    {
-      name: "GM-App & SSP Engines",
-      meta: "PostgreSQL Serializable · 0% Overbook",
-      badge: "7 Campuses",
-      href: "/projects/gm-app",
     },
     {
       name: "SD-WAN & 5-Layer DMZ",
@@ -101,7 +101,7 @@ export default function ExecutivePortrait({
         <div className="grid grid-cols-3 gap-2.5 text-center font-mono">
           <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/5">
             <div className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
-              11
+              12
             </div>
             <div className="text-[10px] text-slate-500 dark:text-slate-400">
               {locale === "kk"

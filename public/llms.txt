@@ -6,22 +6,23 @@
 - **7 Educational Campuses**: Unified network topology (MikroTik RouterOS, CAPsMAN, VLAN, WireGuard VPN) and multi-campus software ecosystem.
 - **1,000+ Concurrent Users**: High-concurrency Olympiad registration & OMR PDF pipelines on Google Cloud Run and PostgreSQL.
 - **100 TB+ Enterprise Cloud**: Google Workspace Enterprise IAM automation, organizational units, and workspace provisioning.
-- **11 Production Systems**: Spanning Flagship AI EdTech SaaS, Enterprise School MIS/SIS, Network/Cloud Infrastructure, and ERP/Consumer PWAs.
+- **12 Production Systems**: Spanning Flagship AI EdTech & GovTech SaaS, Enterprise School MIS/SIS, Network/Cloud Infrastructure, and ERP/Consumer PWAs.
 - **Trilingual Interface**: Full localization in Kazakh (`/kk`), English (`/en`), and Russian (`/ru`).
 
 ## Core Navigation & Endpoints
 - [Home & Executive Overview (KK)](https://niaz.kz/kk)
 - [Home & Executive Overview (EN)](https://niaz.kz/en)
 - [Home & Executive Overview (RU)](https://niaz.kz/ru)
-- [11 Case Studies & B2B Products](https://niaz.kz/en/projects)
+- [12 Case Studies & B2B Products](https://niaz.kz/en/projects)
 - [Multi-Campus IT Infrastructure & Cloud Blueprint](https://niaz.kz/en/infrastructure)
 - [About & 1-Page Printable Engineering CV](https://niaz.kz/en/about)
 - [B2B Licensing & Engineering Contact](https://niaz.kz/en/contact)
 - [Full AI Context & Case Study Specifications](https://niaz.kz/llms-full.txt)
 
-## Featured B2B Products & Case Studies (11 Systems)
+## Featured B2B Products & Case Studies (12 Systems)
 1. **OmniCheck (`omnicheck.kz`)** — Multi-Tenant AI Homework Grading & 24/7 Socratic Tutor SaaS (Next.js, Gemini 2.5 Flash Vision / GPT-4o, HTML5 Canvas GDPR Privacy Shield, Perceptual dHash Anti-Plagiarism, Redis + BullMQ, 6-tier RBAC).
-2. **LuminaMath (`luminamath.orizont.md`)** — High-Load National Mathematics Olympiad Platform (700+ concurrent users, 6-digit deterministic IDs, OMR PDF generation, Google Cloud Run Serverless).
+2. **Auto-Tender (`auto-tender-100463055748.europe-west3.run.app` · `@TenderUP14_bot`)** — AI GovTech Procurement Intelligence, Anti-RNU Risk Scanner & 3-Tier Global Sourcing ROI Platform (FastAPI, Goszakup OWS v3 GraphQL, 5-Layer AntiBanGuard, PyMuPDF + Gemini 2.5 Flash, Kaspi.kz Live Pricer, 1688 Factory API, Customs OEM Graph, Supabase PostgreSQL, Google Cloud Run, Zero-Trust Server Paywall).
+3. **LuminaMath (`luminamath.orizont.md`)** — High-Load National Mathematics Olympiad Platform (700+ concurrent users, 6-digit deterministic IDs, OMR PDF generation, Google Cloud Run Serverless).
 3. **SSP (Subject Selection Platform)** — Transactional Elective Course Registration with `prisma.$transaction` strict seat quota locks and real-time countdown timers.
 4. **GM-App (Executive Enrollment Analytics)** — Multi-Campus Enrollment Quota, Exam & Tuition Re-registration MIS for 50+ school managers across 7 campuses.
 5. **EduStaff IAM** — Enterprise HR, Trilingual Digital CV Builder & Automated Google Workspace Directory Provisioning (Admin SDK + 100 TB Drive governance).
