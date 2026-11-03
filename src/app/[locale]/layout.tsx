@@ -152,6 +152,9 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
+    verification: {
+      google: "kfMFKk3sRRQx18FyigQULpYI6xOGwrjfiwoRyBjqWu4",
+    },
     other: {
       "ai-content-declaration": `${BASE_URL}/llms-full.txt`,
     },
