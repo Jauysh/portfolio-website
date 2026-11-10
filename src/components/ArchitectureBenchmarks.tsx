@@ -118,7 +118,7 @@ export default function ArchitectureBenchmarks({ locale }: { locale: string }) {
         <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-white/10 pb-4">
           <div>
             <span className="text-[11px] font-mono uppercase tracking-wider text-amber-600 dark:text-amber block">
-              // B2B ARCHITECTURAL ROI BENCHMARKS
+              {"// B2B ARCHITECTURAL ROI BENCHMARKS"}
             </span>
             <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-0.5">
               {locale === "kk"
@@ -170,7 +170,7 @@ export default function ArchitectureBenchmarks({ locale }: { locale: string }) {
           <div className="flex items-center justify-between gap-2 border-b border-slate-200 dark:border-white/10 pb-4">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block">
-                // INTERACTIVE SANDBOX · OMNICHECK AI
+                {"// INTERACTIVE SANDBOX · OMNICHECK AI"}
               </span>
               <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-0.5">
                 {locale === "kk"
@@ -280,7 +280,7 @@ export default function ArchitectureBenchmarks({ locale }: { locale: string }) {
           <div>
             <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
               <Calculator className="w-3.5 h-3.5" />
-              <span>// INTERACTIVE B2B EDTECH & INFRASTRUCTURE ROI CALCULATOR</span>
+              <span>{"// INTERACTIVE B2B EDTECH & INFRASTRUCTURE ROI CALCULATOR"}</span>
             </span>
             <h3 className="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
               {locale === "kk"

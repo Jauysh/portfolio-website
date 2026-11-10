@@ -61,10 +61,10 @@ export default function CommandPalette() {
         id: "nav-projects",
         label:
           locale === "kk"
-            ? "Барлық 11 Жоба және B2B Өнімдер"
+            ? `Барлық ${ALL_PROJECTS.length} Жоба және B2B Өнімдер`
             : locale === "ru"
-            ? "Все 11 Проектов и B2B-витрина"
-            : "All 11 Case Studies & B2B Products",
+            ? `Все ${ALL_PROJECTS.length} Проектов и B2B-витрина`
+            : `All ${ALL_PROJECTS.length} Case Studies & B2B Products`,
         sub: "Case Studies · /projects",
         icon: Layers,
         action: () => router.push("/projects"),
@@ -237,7 +237,7 @@ export default function CommandPalette() {
           {filteredActions.length > 0 && (
             <div className="space-y-1.5">
               <div className="px-2.5 text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-white/40">
-                //{" "}
+                {"// "}
                 {locale === "kk"
                   ? "Жылдам әрекеттер"
                   : locale === "ru"

@@ -33,10 +33,10 @@ export default function Footer() {
             className="hover:text-cyan-500 transition-colors"
           >
             {locale === "kk"
-              ? "11 Жоба"
+              ? "12 Жоба"
               : locale === "ru"
-              ? "11 Проектов"
-              : "11 Case Studies"}
+              ? "12 Проектов"
+              : "12 Case Studies"}
           </Link>
           <Link
             href="/about#cv"

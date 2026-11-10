@@ -12,7 +12,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Link } from "@/i18n/routing";
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState, useSyncExternalStore } from "react";
 import { useLocale } from "next-intl";
 import { B2B_PRODUCTS } from "@/data/projectsData";
 import { pickLocale } from "@/data/types";
@@ -23,17 +23,17 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [mailtoFallbackUrl, setMailtoFallbackUrl] = useState<string | null>(null);
-  const [selectedProduct, setSelectedProduct] = useState("general-consulting");
+  const [productOverride, setProductOverride] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      const prod = params.get("product");
-      if (prod) {
-        setSelectedProduct(prod);
-      }
-    }
-  }, []);
+  const urlSearch = useSyncExternalStore(
+    () => () => {},
+    () => window.location.search,
+    () => ""
+  );
+
+  const selectedProduct =
+    productOverride ??
+    (new URLSearchParams(urlSearch).get("product") || "general-consulting");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -128,7 +128,7 @@ export default function ContactPage() {
             </div>
 
             <motion.form
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 1, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               onSubmit={handleSubmit}
               className="space-y-6 bg-white shadow-sm border border-slate-200 dark:shadow-none dark:bg-white/[0.02] dark:border-white/10 p-5 sm:p-9 rounded-3xl"
@@ -167,7 +167,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-mono text-slate-400 dark:text-white/50 uppercase tracking-widest block">
-                    //{" "}
+                    {"// "}
                     {locale === "kk"
                       ? "Аты-жөніңіз"
                       : locale === "ru"
@@ -191,7 +191,7 @@ export default function ContactPage() {
 
                 <div className="space-y-2">
                   <label className="text-xs font-mono text-slate-400 dark:text-white/50 uppercase tracking-widest block">
-                    //{" "}
+                    {"// "}
                     {locale === "kk"
                       ? "Мектеп / Компания / Ұйым"
                       : locale === "ru"
@@ -216,7 +216,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-xs font-mono text-slate-400 dark:text-white/50 uppercase tracking-widest block">
-                    // Email / Telegram
+                    {"// Email / Telegram"}
                   </label>
                   <input
                     type="text"
@@ -229,7 +229,7 @@ export default function ContactPage() {
 
                 <div className="space-y-2">
                   <label className="text-xs font-mono text-slate-400 dark:text-white/50 uppercase tracking-widest block">
-                    //{" "}
+                    {"// "}
                     {locale === "kk"
                       ? "Таңдалған B2B Өнім немесе Қызмет"
                       : locale === "ru"
@@ -239,7 +239,7 @@ export default function ContactPage() {
                   <select
                     name="productOrService"
                     value={selectedProduct}
-                    onChange={(e) => setSelectedProduct(e.target.value)}
+                    onChange={(e) => setProductOverride(e.target.value)}
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:outline-none focus:border-amber-500 dark:bg-[#11151F] dark:border-white/10 dark:text-white"
                   >
                     <option value="general-consulting">
@@ -260,7 +260,7 @@ export default function ContactPage() {
 
               <div className="space-y-2">
                 <label className="text-xs font-mono text-slate-400 dark:text-white/50 uppercase tracking-widest block">
-                  //{" "}
+                  {"// "}
                   {locale === "kk"
                     ? "Жоба сипаттамасы немесе сұраныс"
                     : locale === "ru"
@@ -312,7 +312,7 @@ export default function ContactPage() {
           <div className="space-y-8 lg:pt-16">
             <div className="p-7 rounded-3xl border border-slate-200 bg-white dark:border-white/10 dark:bg-white/[0.02] space-y-6">
               <h2 className="text-xs font-mono tracking-widest text-slate-400 dark:text-white/50 uppercase border-b border-slate-200 dark:border-white/10 pb-3">
-                //{" "}
+                {"// "}
                 {locale === "kk"
                   ? "ТІКЕЛЕЙ БАЙЛАНЫС ЖӘНЕ ЛОГИСТИКА"
                   : locale === "ru"

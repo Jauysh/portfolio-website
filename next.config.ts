@@ -23,7 +23,7 @@ const securityHeaders = [
   },
   {
     key: "X-XSS-Protection",
-    value: "1; mode=block",
+    value: "0",
   },
   {
     key: "Referrer-Policy",
@@ -37,12 +37,12 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://telegram.org",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "font-src 'self' https://fonts.gstatic.com data:",
+      `script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"} https://www.googletagmanager.com https://www.google-analytics.com https://telegram.org`,
+      "style-src 'self' 'unsafe-inline'",
+      "font-src 'self' data:",
       "img-src 'self' data: blob: https:",
-      "connect-src 'self' ws: wss: http: https://api.telegram.org https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://stats.g.doubleclick.net",
-      "frame-ancestors 'self' https: http:",
+      `connect-src 'self'${isProd ? "" : " ws: wss: http:"} https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://stats.g.doubleclick.net`,
+      "frame-ancestors 'self' https://web.telegram.org https://*.telegram.org https://t.me https://*.t.me",
       "base-uri 'self'",
       "form-action 'self' mailto:",
     ].join("; "),
@@ -54,6 +54,9 @@ const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
   devIndicators: false,
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   allowedDevOrigins: [
     "localhost",
     "127.0.0.1",

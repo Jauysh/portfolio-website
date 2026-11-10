@@ -11,9 +11,9 @@ import {
   Cpu,
   ShieldCheck,
 } from "lucide-react";
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
-import ExecutivePortrait from "@/components/ExecutivePortrait";
 
 export default function AboutPage() {
   const locale = useLocale();
@@ -87,7 +87,7 @@ export default function AboutPage() {
 
         {/* 1. EXECUTIVE POSITIONING & WHY FULL-CYCLE */}
         <motion.section
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           className="space-y-8 print:hidden"
         >
@@ -114,13 +114,14 @@ export default function AboutPage() {
             </div>
 
             <div className="shrink-0">
-              <div className="w-48 h-56 sm:w-56 sm:h-64 rounded-2xl overflow-hidden ring-1 ring-slate-200 dark:ring-white/15 shadow-2xl bg-[#0B0E14]">
-                <img
-                  src="/avatar.jpg?v=5"
+              <div className="relative w-48 h-56 sm:w-56 sm:h-64 rounded-2xl overflow-hidden ring-1 ring-slate-200 dark:ring-white/15 shadow-2xl bg-[#0B0E14]">
+                <Image
+                  src="/avatar.jpg"
                   alt="Azamat Jauysh"
-                  width={448}
-                  height={512}
-                  className="w-full h-full object-cover object-[50%_20%]"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 192px, 224px"
+                  className="object-cover object-[50%_20%]"
                 />
               </div>
             </div>
@@ -255,7 +256,7 @@ export default function AboutPage() {
           {/* CV Executive Summary & Key Impact Metrics */}
           <div className="space-y-4">
             <h3 className="text-xs font-mono uppercase tracking-widest text-slate-400">
-              //{" "}
+              {"// "}
               {locale === "kk"
                 ? "01. ҚЫСҚАША ПРОФИЛЬ ЖӘНЕ НЕГІЗГІ КӨРСЕТКІШТЕР"
                 : locale === "ru"
@@ -304,7 +305,7 @@ export default function AboutPage() {
           {/* CV Selected Production Systems */}
           <div className="space-y-4">
             <h3 className="text-xs font-mono uppercase tracking-widest text-slate-400">
-              //{" "}
+              {"// "}
               {locale === "kk"
                 ? "02. ӨНДІРІСКЕ ЕНГІЗІЛГЕН НЕГІЗГІ ЖОБАЛАР МЕН АРХИТЕКТУРАЛАР"
                 : locale === "ru"

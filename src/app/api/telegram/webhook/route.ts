@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 
 function escapeHtml(input: string): string {
@@ -8,13 +9,29 @@ function escapeHtml(input: string): string {
     .replace(/"/g, "&quot;");
 }
 
+function isValidWebhookSecret(provided: string | null, expected: string): boolean {
+  if (!provided) return false;
+  const a = Buffer.from(provided);
+  const b = Buffer.from(expected);
+  if (a.length !== b.length) return false;
+  return crypto.timingSafeEqual(a, b);
+}
+
 export async function POST(req: NextRequest) {
   try {
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const ownerChatId = process.env.TELEGRAM_CHAT_ID || "315270829";
+    const ownerChatId = process.env.TELEGRAM_CHAT_ID;
+    const webhookSecret = process.env.TELEGRAM_WEBHOOK_SECRET;
 
     if (!botToken) {
       return NextResponse.json({ ok: true });
+    }
+
+    if (webhookSecret) {
+      const headerSecret = req.headers.get("x-telegram-bot-api-secret-token");
+      if (!isValidWebhookSecret(headerSecret, webhookSecret)) {
+        return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
+      }
     }
 
     const update = await req.json().catch(() => null);
@@ -24,10 +41,12 @@ export async function POST(req: NextRequest) {
     }
 
     const chatId = String(message.chat.id);
-    const text = String(message.text || "").trim();
+    const text = String(message.text || "").trim().slice(0, 2000);
     const fromUser = message.from || {};
-    const firstName = String(fromUser.first_name || "Қонақ");
-    const username = fromUser.username ? `@${fromUser.username}` : "—";
+    const firstName = String(fromUser.first_name || "Қонақ").slice(0, 100);
+    const username = fromUser.username
+      ? `@${String(fromUser.username).slice(0, 64)}`
+      : "—";
 
     const sendTelegram = async (
       targetChatId: string,
@@ -37,6 +56,7 @@ export async function POST(req: NextRequest) {
       await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal: AbortSignal.timeout(6000),
         body: JSON.stringify({
           chat_id: targetChatId,
           text: htmlText,
@@ -135,7 +155,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Forward any direct message from a visitor to the owner
-    if (chatId !== ownerChatId && text) {
+    if (ownerChatId && chatId !== ownerChatId && text) {
       const forwardMsg = [
         `💬 <b>Ботқа жаңа хабарлама келді (@jauysh_portfolio_web_bot)</b>`,
         ``,

@@ -7,11 +7,8 @@ import {
   Users,
   Cloud,
   Globe,
-  Terminal,
   Sparkles,
-  Server,
   ShieldCheck,
-  Layers,
   ExternalLink,
   FileText,
   Cpu,
@@ -34,19 +31,19 @@ export default function Home() {
   const locale = useLocale();
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.08 },
+      transition: { staggerChildren: 0.06 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 18 },
+    hidden: { opacity: 1, y: 0 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.45, ease: "easeOut" as const },
+      transition: { duration: 0.35, ease: "easeOut" as const },
     },
   };
 
@@ -234,7 +231,7 @@ export default function Home() {
                 </div>
                 <span className="text-[10px] sm:text-[11px] text-emerald-400 flex items-center gap-1.5 shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  11 REPOS ACTIVE
+                  {ALL_PROJECTS.length} REPOS ACTIVE
                 </span>
               </div>
               <div className="space-y-1.5 overflow-x-auto">
@@ -251,7 +248,7 @@ export default function Home() {
           <motion.section variants={itemVariants} className="space-y-6">
             <div className="flex items-center justify-between">
               <h2 className="text-xs font-mono tracking-widest text-slate-400 dark:text-white/50 uppercase">
-                //{" "}
+                {"// "}
                 {locale === "kk"
                   ? "САНДАРМЕН ДӘЛЕЛДЕУ (IMPACT METRICS)"
                   : locale === "ru"
@@ -303,7 +300,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-4">
               <div>
                 <h2 className="text-xs font-mono tracking-widest text-slate-400 dark:text-white/50 uppercase mb-2">
-                  //{" "}
+                  {"// "}
                   {locale === "kk"
                     ? "4 СТРАТЕГИЯЛЫҚ БАҒЫТ ( ИНЖЕНЕРЛІК БРЕНД + B2B ВИТРИНА )"
                     : locale === "ru"
@@ -381,7 +378,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-slate-200 dark:border-white/10 pb-4">
               <div>
                 <h2 className="text-xs font-mono tracking-widest text-slate-400 dark:text-white/50 uppercase mb-2">
-                  //{" "}
+                  {"// "}
                   {locale === "kk"
                     ? "ТАҢДАУЛЫ ФЛАГМАНДЫҚ ЖОБАЛАР & B2B ӨНІМДЕР"
                     : locale === "ru"
@@ -422,7 +419,7 @@ export default function Home() {
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
                         <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
-                          // 0{idx + 1}
+                          {`// 0${idx + 1}`}
                         </span>
                         <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
                           {pickLocale(project.domainOrPort, locale)}
@@ -531,7 +528,7 @@ export default function Home() {
           <motion.section variants={itemVariants} className="space-y-8">
             <div className="border-b border-slate-200 dark:border-white/10 pb-4">
               <h2 className="text-xs font-mono tracking-widest text-slate-400 dark:text-white/50 uppercase mb-2">
-                //{" "}
+                {"// "}
                 {locale === "kk"
                   ? "ТОЛЫҚ ЦИКЛДЫ ТЕХНОЛОГИЯЛЫҚ СТЕК (FULL-CYCLE STACK)"
                   : locale === "ru"

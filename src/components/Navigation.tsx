@@ -2,7 +2,7 @@
 
 import { Link, usePathname } from "@/i18n/routing";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import {
   Sun,
@@ -47,12 +47,14 @@ const MOBILE_LABELS: Record<
 export default function Navigation() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
   const t = useTranslations("nav");
   const locale = useLocale();
   const mLabels = MOBILE_LABELS[locale] || MOBILE_LABELS.kk;
-
-  useEffect(() => setMounted(true), []);
 
   const links = [
     { href: "/", label: t("home"), shortLabel: mLabels.home, icon: Home },
@@ -162,7 +164,7 @@ export default function Navigation() {
                 {locale === "kk" ? "Азамат Жауыш" : "Azamat Jauysh"}
               </span>
               <span className="text-[10px] font-mono text-amber-600 dark:text-amber truncate">
-                // {activeLink.shortLabel}
+                {`// ${activeLink.shortLabel}`}
               </span>
             </div>
           </Link>

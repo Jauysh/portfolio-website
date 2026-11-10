@@ -22,7 +22,7 @@ Azamat Jauysh bridges two domains that are almost always siloed in modern techno
 
 ---
 
-## 3. Detailed Case Studies & B2B Product Catalog (11 Systems)
+## 3. Detailed Case Studies & B2B Product Catalog (12 Systems)
 
 ### [01] OmniCheck (`omnicheck.kz`) — Flagship AI & EdTech SaaS
 - **Category**: B2B / B2C Multi-Tenant EdTech SaaS
@@ -91,3 +91,12 @@ Azamat Jauysh bridges two domains that are almost always siloed in modern techno
 ### [11] Multi-Service Engineering Command Center
 - **Category**: Developer Experience & Microservice Operations Portal
 - **Architecture**: Zero-dependency dark glassmorphism operational dashboard indexing all local and staging services (`:3000`–`:8090`), port health status, and architecture documentation in one unified view.
+
+### [12] TenderScan.kz (`Auto-Tender`) — Multi-Portal GovTech AI & Anti-RNU Procurement Intelligence SaaS
+- **Category**: B2B GovTech & AI Procurement SaaS (`https://niaz.kz/projects/auto-tender`)
+- **Problem**: Suppliers across Kazakhstan waste hours manually monitoring 5 fragmented state/corporate procurement portals (`goszakup.gov.kz`, `samruk-kazyna`, `nadloc`, `mitwork`, `ets-tender`), miscalculate net margins after logistics/VAT/warranty, and risk costly 24-month RNU blacklisting from hidden technical specification traps.
+- **Architecture**:
+  - Multi-portal ingestion engine (`Goszakup GraphQL/REST v3` + portal adapters) paired with a deterministic **Anti-RNU Risk Shield** (`0% Ban Core`) scanning PDF/DOCX specifications (`pdf-parse`, `mammoth`) before bid submission.
+  - **Multi-Source Margin & Sourcing Radar**: Automated price cross-checking across Kaspi.kz, 1688/China wholesale, and OEM distributors with net ROI, VAT, and logistics breakdown.
+  - Multi-tenant subscription tiers via **Kaspi Pay QR**, **Telegram Mini App** instant alerts, and NCALayer EDS integration readiness.
+- **Stack**: Next.js 16, TypeScript, PostgreSQL, Prisma, Gemini 2.5 Flash, Goszakup v3 GraphQL, Kaspi Pay, Telegram Bot & Mini App.

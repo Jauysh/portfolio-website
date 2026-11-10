@@ -5,6 +5,27 @@ const BOT_UA_REGEX =
 
 const RECENT_VISITOR_CACHE = new Map<string, number>();
 const COOLDOWN_MS = 30 * 60 * 1000; // 30 minutes per IP to prevent refresh spam
+const MAX_CACHE_ENTRIES = 2000;
+
+function isAllowedOrigin(req: NextRequest): boolean {
+  if (process.env.NODE_ENV !== "production") return true;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://niaz.kz";
+  let allowedHost = "niaz.kz";
+  try {
+    allowedHost = new URL(siteUrl).hostname.replace(/^www\./, "");
+  } catch {
+    // Keep default host
+  }
+
+  const origin = req.headers.get("origin") || req.headers.get("referer") || "";
+  if (!origin) return false;
+  try {
+    const reqHost = new URL(origin).hostname.replace(/^www\./, "");
+    return reqHost === allowedHost;
+  } catch {
+    return false;
+  }
+}
 
 function countryCodeToFlag(code: string): string {
   if (!code || code.length !== 2) return "🌍";
@@ -51,6 +72,10 @@ function escapeHtml(input: string): string {
 
 export async function POST(req: NextRequest) {
   try {
+    if (!isAllowedOrigin(req)) {
+      return NextResponse.json({ skipped: "origin" }, { status: 403 });
+    }
+
     const ua = req.headers.get("user-agent") || "";
 
     // 1. Ignore bots, crawlers, and headless browsers
@@ -64,9 +89,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ skipped: "owner_cookie" });
     }
 
+    // Prefer Vercel's non-spoofable edge headers over generic x-forwarded-for
     const ip =
+      req.headers.get("x-real-ip")?.trim() ||
+      req.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ||
       req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-      req.headers.get("x-real-ip") ||
       "unknown";
 
     // 3. Ignore localhost / private network IPs
@@ -80,8 +107,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ skipped: "local_network" });
     }
 
-    // 4. Ignore configured Owner IPs (optional env var OWNER_IPS="1.2.3.4,5.6.7.8")
-    const ownerIps = (process.env.OWNER_IPS || "178.168.107.86")
+    // 4. Ignore configured Owner IPs via OWNER_IPS env var
+    const ownerIps = (process.env.OWNER_IPS || "")
       .split(",")
       .map((s) => s.trim())
       .filter(Boolean);
@@ -89,7 +116,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ skipped: "owner_ip" });
     }
 
-    // 5. Deduplicate per IP within 30-minute window
+    // 5. Deduplicate per IP within 30-minute window (bounded map)
     const now = Date.now();
     for (const [cachedIp, ts] of RECENT_VISITOR_CACHE.entries()) {
       if (now - ts > COOLDOWN_MS) {
@@ -99,6 +126,10 @@ export async function POST(req: NextRequest) {
     const lastSeen = RECENT_VISITOR_CACHE.get(ip);
     if (lastSeen && now - lastSeen < COOLDOWN_MS) {
       return NextResponse.json({ skipped: "cooldown" });
+    }
+    if (RECENT_VISITOR_CACHE.size >= MAX_CACHE_ENTRIES) {
+      const oldestKey = RECENT_VISITOR_CACHE.keys().next().value;
+      if (oldestKey) RECENT_VISITOR_CACHE.delete(oldestKey);
     }
     RECENT_VISITOR_CACHE.set(ip, now);
 
@@ -147,6 +178,7 @@ export async function POST(req: NextRequest) {
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal: AbortSignal.timeout(5000),
         body: JSON.stringify({
           chat_id: chatId,
           text,

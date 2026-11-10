@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -27,30 +27,32 @@ import {
 
 export default function ProjectsPage() {
   const locale = useLocale();
-  const [selectedBlock, setSelectedBlock] = useState<ProjectBlockId | "all">("all");
+  const [blockOverride, setBlockOverride] = useState<ProjectBlockId | "all" | null>(null);
   const [b2bOnly, setB2bOnly] = useState(false);
   const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({
     omnicheck: true,
   });
 
+  const urlSearch = useSyncExternalStore(
+    () => () => {},
+    () => window.location.search,
+    () => ""
+  );
+
+  const urlBlock = (() => {
+    const blockParam = new URLSearchParams(urlSearch).get("block") as ProjectBlockId | null;
+    return blockParam &&
+      ["ai-saas", "edtech-enterprise", "infra-devops", "erp-consumer"].includes(blockParam)
+      ? blockParam
+      : "all";
+  })();
+
+  const selectedBlock = blockOverride ?? urlBlock;
+  const b2bCount = ALL_PROJECTS.filter((p) => p.b2bReady).length;
+
   const toggleExpand = (slug: string) => {
     setExpandedIds((prev) => ({ ...prev, [slug]: !prev[slug] }));
   };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      const blockParam = params.get("block") as ProjectBlockId | null;
-      if (
-        blockParam &&
-        ["ai-saas", "edtech-enterprise", "infra-devops", "erp-consumer"].includes(
-          blockParam
-        )
-      ) {
-        setSelectedBlock(blockParam);
-      }
-    }
-  }, []);
 
   const filteredProjects = ALL_PROJECTS.filter((project) => {
     if (selectedBlock !== "all" && project.block !== selectedBlock) return false;
@@ -119,10 +121,10 @@ export default function ProjectsPage() {
               <ShieldCheck className="w-4 h-4" />
               <span>
                 {locale === "kk"
-                  ? "Тек B2B дайын өнімдер (10)"
+                  ? `Тек B2B дайын өнімдер (${b2bCount})`
                   : locale === "ru"
-                  ? "Только готовые B2B-продукты (10)"
-                  : "B2B-Ready Products Only (10)"}
+                  ? `Только готовые B2B-продукты (${b2bCount})`
+                  : `B2B-Ready Products Only (${b2bCount})`}
               </span>
             </button>
           </div>
@@ -130,7 +132,7 @@ export default function ProjectsPage() {
           {/* 4 Strategic Block Filter Tabs */}
           <div className="flex flex-wrap gap-2 pt-2 border-b border-slate-200 dark:border-white/10 pb-5">
             <button
-              onClick={() => setSelectedBlock("all")}
+              onClick={() => setBlockOverride("all")}
               className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all ${
                 selectedBlock === "all"
                   ? "bg-slate-900 text-white dark:bg-amber dark:text-slate-950"
@@ -150,7 +152,7 @@ export default function ProjectsPage() {
               return (
                 <button
                   key={block.id}
-                  onClick={() => setSelectedBlock(block.id)}
+                  onClick={() => setBlockOverride(block.id)}
                   className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all ${
                     active
                       ? "bg-slate-900 text-white dark:bg-amber dark:text-slate-950"
@@ -176,9 +178,9 @@ export default function ProjectsPage() {
               <motion.article
                 key={project.id}
                 id={project.slug}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                transition={{ duration: 0.35 }}
                 className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white dark:border-white/10 dark:bg-white/[0.02] p-6 sm:p-10 space-y-8 shadow-sm dark:shadow-none"
               >
                 {/* Top Header */}
@@ -186,7 +188,7 @@ export default function ProjectsPage() {
                   <div className="space-y-3 max-w-3xl">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">
-                        // {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+                        {`// ${idx + 1 < 10 ? `0${idx + 1}` : idx + 1}`}
                       </span>
                       {blockMeta && (
                         <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber border border-amber-500/20">
@@ -288,7 +290,7 @@ export default function ProjectsPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/5 space-y-2">
                     <h3 className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-white/50">
-                      //{" "}
+                      {"// "}
                       {locale === "kk"
                         ? "ҚЫСҚАША СИПАТТАМАСЫ (EXECUTIVE SUMMARY)"
                         : locale === "ru"
@@ -302,7 +304,7 @@ export default function ProjectsPage() {
 
                   <div className="p-5 rounded-2xl bg-amber-500/[0.06] border border-amber-500/20 space-y-2">
                     <h3 className="text-xs font-mono uppercase tracking-wider text-amber-700 dark:text-amber">
-                      //{" "}
+                      {"// "}
                       {locale === "kk"
                         ? "B2B ЖӘНЕ КОРПОРАТИВТІК ҚҰНДЫЛЫҒЫ"
                         : locale === "ru"

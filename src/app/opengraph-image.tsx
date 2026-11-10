@@ -153,7 +153,7 @@ export default function OpenGraphImage() {
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: "28px", fontWeight: 800, color: "#fbbf24" }}>
-                11 Systems
+                12 Systems
               </span>
               <span style={{ fontSize: "13px", color: "#94a3b8" }}>
                 Production AI SaaS & ERP

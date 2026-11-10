@@ -46,7 +46,7 @@ export async function generateMetadata({
   const title = `${pickLocale(project.title, loc)} — ${pickLocale(
     project.subtitle,
     loc
-  )} | Azamat Jauysh`;
+  )}`;
   const description = `${pickLocale(project.summary, loc)} ${pickLocale(
     project.b2bValue,
     loc
@@ -180,10 +180,10 @@ export default async function ProjectDetailPage({
             <ArrowLeft className="w-4 h-4" />
             <span>
               {locale === "kk"
-                ? "Барлық 11 жоба мен B2B каталогқа оралу"
+                ? `Барлық ${ALL_PROJECTS.length} жоба мен B2B каталогқа оралу`
                 : locale === "ru"
-                ? "Назад ко всем 11 проектам и B2B каталогу"
-                : "Back to all 11 Projects & B2B Suite"}
+                ? `Назад ко всем ${ALL_PROJECTS.length} проектам и B2B каталогу`
+                : `Back to all ${ALL_PROJECTS.length} Projects & B2B Suite`}
             </span>
           </Link>
 

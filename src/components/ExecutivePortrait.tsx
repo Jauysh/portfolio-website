@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   ArrowUpRight,
   Mail,
@@ -52,12 +53,13 @@ export default function ExecutivePortrait({
     <div className="w-full rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#111622] shadow-xl shadow-slate-900/5 dark:shadow-2xl overflow-hidden">
       {/* 1. Large Editorial Cover Portrait (Apple / Forbes / Stripe Founder Bento Style) */}
       <div className="relative w-full h-72 sm:h-80 bg-[#0B0E14] overflow-hidden">
-        <img
-          src="/avatar.jpg?v=5"
+        <Image
+          src="/avatar.jpg"
           alt={name}
-          width={640}
-          height={640}
-          className="w-full h-full object-cover object-[50%_8%]"
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 440px"
+          className="object-cover object-[50%_8%]"
         />
 
         {/* Top Status Pill */}
@@ -141,7 +143,7 @@ export default function ExecutivePortrait({
         <div className="space-y-1.5">
           <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-white/40 px-1">
             <span>
-              //{" "}
+              {"// "}
               {locale === "kk"
                 ? "НЕГІЗГІ ЭКОЖҮЙЕ (PRODUCTION)"
                 : locale === "ru"

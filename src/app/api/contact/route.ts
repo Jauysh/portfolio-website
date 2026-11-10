@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_REQUESTS = 5;
+const MAX_RATE_ENTRIES = 1000;
 
 function escapeHtml(input: string): string {
   return input
@@ -14,10 +15,40 @@ function escapeHtml(input: string): string {
     .replace(/'/g, "&#39;");
 }
 
+function isAllowedOrigin(req: Request): boolean {
+  if (process.env.NODE_ENV !== "production") return true;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://niaz.kz";
+  let allowedHost = "niaz.kz";
+  try {
+    allowedHost = new URL(siteUrl).hostname.replace(/^www\./, "");
+  } catch {
+    // Keep default host
+  }
+
+  const origin = req.headers.get("origin") || req.headers.get("referer") || "";
+  if (!origin) return false;
+  try {
+    const reqHost = new URL(origin).hostname.replace(/^www\./, "");
+    return reqHost === allowedHost;
+  } catch {
+    return false;
+  }
+}
+
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
+  for (const [key, entry] of rateLimitMap.entries()) {
+    if (now > entry.resetAt) {
+      rateLimitMap.delete(key);
+    }
+  }
+
   const entry = rateLimitMap.get(ip);
   if (!entry || now > entry.resetAt) {
+    if (rateLimitMap.size >= MAX_RATE_ENTRIES) {
+      const oldestKey = rateLimitMap.keys().next().value;
+      if (oldestKey) rateLimitMap.delete(oldestKey);
+    }
     rateLimitMap.set(ip, { count: 1, resetAt: now + WINDOW_MS });
     return true;
   }
@@ -30,8 +61,18 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(req: Request) {
   try {
-    const forwarded = req.headers.get("x-forwarded-for");
-    const ip = forwarded ? forwarded.split(",")[0].trim() : "local";
+    if (!isAllowedOrigin(req)) {
+      return NextResponse.json(
+        { ok: false, error: "Forbidden origin" },
+        { status: 403 }
+      );
+    }
+
+    const ip =
+      req.headers.get("x-real-ip")?.trim() ||
+      req.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() ||
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      "local";
 
     if (!checkRateLimit(ip)) {
       return NextResponse.json(
@@ -87,30 +128,48 @@ export async function POST(req: Request) {
     ].join("\n");
 
     if (botToken && chatId) {
-      const tgRes = await fetch(
-        `https://api.telegram.org/bot${botToken}/sendMessage`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text,
-            parse_mode: "HTML",
-            disable_web_page_preview: true,
-          }),
-        }
-      );
-
-      if (!tgRes.ok) {
-        const errText = await tgRes.text();
-        console.error("Telegram API error:", errText);
-        return NextResponse.json(
-          { ok: false, error: "Telegram delivery failed" },
-          { status: 502 }
+      try {
+        const tgRes = await fetch(
+          `https://api.telegram.org/bot${botToken}/sendMessage`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            signal: AbortSignal.timeout(6000),
+            body: JSON.stringify({
+              chat_id: chatId,
+              text,
+              parse_mode: "HTML",
+              disable_web_page_preview: true,
+            }),
+          }
         );
+
+        if (tgRes.ok) {
+          return NextResponse.json({ ok: true, mode: "telegram" });
+        }
+
+        const errText = await tgRes.text().catch(() => "unknown");
+        console.error("[LEAD_BACKUP] Telegram API non-200:", errText, {
+          name: cleanName,
+          org: cleanOrg,
+          contact: cleanContact,
+          product: cleanProduct,
+          locale: cleanLocale,
+          message: cleanMessage,
+        });
+      } catch (tgErr) {
+        console.error("[LEAD_BACKUP] Telegram fetch timeout/error:", tgErr, {
+          name: cleanName,
+          org: cleanOrg,
+          contact: cleanContact,
+          product: cleanProduct,
+          locale: cleanLocale,
+          message: cleanMessage,
+        });
       }
 
-      return NextResponse.json({ ok: true, mode: "telegram" });
+      // Gracefully instruct client UI to open mailto fallback so zero leads are lost
+      return NextResponse.json({ ok: true, mode: "mailto_fallback" });
     }
 
     return NextResponse.json({ ok: true, mode: "fallback" });

@@ -17,14 +17,14 @@ import { BASE_URL, getAlternates, getLocalizedUrl } from "@/lib/seo";
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin", "cyrillic-ext"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -254,7 +254,6 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="ambient-glow" />
             <Navigation />
             <CommandPalette />
             <main className="flex-grow z-10 pb-24 md:pb-0 w-full max-w-[100vw] overflow-x-hidden min-w-0">

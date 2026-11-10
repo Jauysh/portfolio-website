@@ -5,11 +5,7 @@ import {
   ArrowLeft,
   Server,
   Shield,
-  Cpu,
-  Activity,
   Network,
-  Database,
-  Lock,
   CheckCircle2,
   HardDrive,
 } from "lucide-react";
@@ -137,7 +133,7 @@ export default function InfrastructurePage() {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-16 lg:py-32 space-y-14 sm:space-y-20">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           className="space-y-6"
         >
@@ -239,7 +235,7 @@ export default function InfrastructurePage() {
         <section className="space-y-6">
           <div className="border-b border-slate-200 dark:border-white/10 pb-4">
             <h2 className="text-xs font-mono tracking-widest text-slate-400 dark:text-white/50 uppercase mb-1">
-              // PROXMOX VE CONSOLIDATION (CT 100 – CT 106)
+              {"// PROXMOX VE CONSOLIDATION (CT 100 – CT 106)"}
             </h2>
             <p className="text-2xl font-bold text-slate-900 dark:text-white">
               {locale === "kk"
@@ -281,7 +277,7 @@ export default function InfrastructurePage() {
         <section className="space-y-6">
           <div className="border-b border-slate-200 dark:border-white/10 pb-4">
             <h2 className="text-xs font-mono tracking-widest text-slate-400 dark:text-white/50 uppercase mb-1">
-              // 5-LAYER LOGICAL DMZ & IMMUTABLE DISASTER RECOVERY
+              {"// 5-LAYER LOGICAL DMZ & IMMUTABLE DISASTER RECOVERY"}
             </h2>
             <p className="text-2xl font-bold text-slate-900 dark:text-white">
               {locale === "kk"
