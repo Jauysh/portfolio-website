@@ -58,17 +58,17 @@ export async function POST(req: NextRequest) {
         [
           {
             text: "🚀 12 B2B & AI Жобалар",
-            url: "https://niaz.kz/kk/projects",
+            url: "https://niaz.kz/projects",
           },
           {
             text: "📡 TenderScan.kz",
-            url: "https://niaz.kz/kk/projects/auto-tender",
+            url: "https://niaz.kz/projects/auto-tender",
           },
         ],
         [
           {
             text: "📩 B2B Демо сұрау",
-            url: "https://niaz.kz/kk/contact",
+            url: "https://niaz.kz/contact",
           },
           {
             text: "💬 Тікелей жазу (@jauysh)",
@@ -101,18 +101,18 @@ export async function POST(req: NextRequest) {
       const projectsText = [
         `🚀 <b>niaz.kz — 12 Өндірістік B2B & AI SaaS Жүйесі:</b>`,
         ``,
-        `1️⃣ <b>OmniCheck AI SaaS</b> — <a href="https://niaz.kz/kk/projects/omnicheck">Case Study</a>`,
-        `2️⃣ <b>TenderScan.kz (Auto-Tender)</b> — <a href="https://niaz.kz/kk/projects/auto-tender">Case Study</a>`,
-        `3️⃣ <b>LuminaMath Olympiad</b> — <a href="https://niaz.kz/kk/projects/luminamath">Case Study</a>`,
-        `4️⃣ <b>SSP (Subject Selection)</b> — <a href="https://niaz.kz/kk/projects/ssp">Case Study</a>`,
-        `5️⃣ <b>GM-App (7-Campus MIS)</b> — <a href="https://niaz.kz/kk/projects/gm-app">Case Study</a>`,
-        `6️⃣ <b>EduStaff HR & Workspace IAM</b> — <a href="https://niaz.kz/kk/projects/hr-orizont">Case Study</a>`,
-        `7️⃣ <b>29-Channel AI Media OS</b> — <a href="https://niaz.kz/kk/projects/media-os">Case Study</a>`,
-        `8️⃣ <b>3D-Secure Corporate Web CMS</b> — <a href="https://niaz.kz/kk/projects/corporate-web-cms">Case Study</a>`,
-        `9️⃣ <b>7-Campus SD-WAN & 12MB NOC</b> — <a href="https://niaz.kz/kk/projects/school-it-infra">Case Study</a>`,
-        `🔟 <b>1C:Enterprise Linux Cluster</b> — <a href="https://niaz.kz/kk/projects/1c-enterprise">Case Study</a>`,
+        `1️⃣ <b>OmniCheck AI SaaS</b> — <a href="https://niaz.kz/projects/omnicheck">Case Study</a>`,
+        `2️⃣ <b>TenderScan.kz (Auto-Tender)</b> — <a href="https://niaz.kz/projects/auto-tender">Case Study</a>`,
+        `3️⃣ <b>LuminaMath Olympiad</b> — <a href="https://niaz.kz/projects/luminamath">Case Study</a>`,
+        `4️⃣ <b>SSP (Subject Selection)</b> — <a href="https://niaz.kz/projects/ssp">Case Study</a>`,
+        `5️⃣ <b>GM-App (7-Campus MIS)</b> — <a href="https://niaz.kz/projects/gm-app">Case Study</a>`,
+        `6️⃣ <b>EduStaff HR & Workspace IAM</b> — <a href="https://niaz.kz/projects/hr-orizont">Case Study</a>`,
+        `7️⃣ <b>29-Channel AI Media OS</b> — <a href="https://niaz.kz/projects/media-os">Case Study</a>`,
+        `8️⃣ <b>3D-Secure Corporate Web CMS</b> — <a href="https://niaz.kz/projects/corporate-web-cms">Case Study</a>`,
+        `9️⃣ <b>7-Campus SD-WAN & 12MB NOC</b> — <a href="https://niaz.kz/projects/school-it-infra">Case Study</a>`,
+        `🔟 <b>1C:Enterprise Linux Cluster</b> — <a href="https://niaz.kz/projects/1c-enterprise">Case Study</a>`,
         ``,
-        `🔗 Барлық жобалар мен ROI калькуляторы: <a href="https://niaz.kz/kk/projects">niaz.kz/kk/projects</a>`,
+        `🔗 Барлық жобалар мен ROI калькуляторы: <a href="https://niaz.kz/projects">niaz.kz/projects</a>`,
       ].join("\n");
 
       await sendTelegram(chatId, projectsText, inlineKeyboard);
@@ -123,7 +123,7 @@ export async function POST(req: NextRequest) {
       const contactText = [
         `📩 <b>B2B Демо, Лицензиялау және Архитектуралық Консалтинг:</b>`,
         ``,
-        `• 🌐 Веб-форма: <a href="https://niaz.kz/kk/contact">niaz.kz/kk/contact</a>`,
+        `• 🌐 Веб-форма: <a href="https://niaz.kz/contact">niaz.kz/contact</a>`,
         `• 💬 Telegram: @jauysh`,
         `• ✉️ Email: <code>a.jauysh@gmail.com</code>`,
         ``,

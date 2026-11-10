@@ -12,6 +12,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { ALL_PROJECTS } from "@/data/projectsData";
 import type { Locale } from "@/data/types";
+import { BASE_URL, getAlternates, getLocalizedUrl } from "@/lib/seo";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -26,8 +27,6 @@ const jetbrains = JetBrains_Mono({
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
-
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://niaz.kz";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -107,22 +106,14 @@ export async function generateMetadata({
       "Google Workspace Enterprise",
       "1C Enterprise EDT",
     ],
-    alternates: {
-      canonical: `${BASE_URL}/${loc}`,
-      languages: {
-        kk: `${BASE_URL}/kk`,
-        en: `${BASE_URL}/en`,
-        ru: `${BASE_URL}/ru`,
-        "x-default": `${BASE_URL}/kk`,
-      },
-    },
+    alternates: getAlternates(loc, ""),
     openGraph: {
       type: "website",
       locale: seo.ogLocale,
       alternateLocale: ["kk_KZ", "en_US", "ru_RU"].filter(
         (l) => l !== seo.ogLocale
       ),
-      url: `${BASE_URL}/${loc}`,
+      url: getLocalizedUrl(loc, ""),
       siteName: "Azamat Jauysh — Engineering & B2B Portfolio",
       title: seo.title,
       description: seo.description,
@@ -189,7 +180,7 @@ export default async function RootLayout({
         alternateName: "Азамат Жауыш",
         jobTitle:
           "Full-Stack & AI Product Engineer | EdTech & IT Infrastructure Architect",
-        url: `${BASE_URL}/${loc}`,
+        url: getLocalizedUrl(loc, ""),
         email: "mailto:a.jauysh@gmail.com",
         sameAs: ["https://github.com/jauysh", "https://t.me/jauysh"],
         knowsLanguage: ["kk", "ru", "tr", "en", "ar"],

@@ -62,6 +62,22 @@ const nextConfig: NextConfig = {
     "192.168.*.*",
     "10.*.*.*",
   ],
+  async rewrites() {
+    return [
+      {
+        source: "/favicon.ico",
+        destination: "/icon",
+      },
+      {
+        source: "/apple-touch-icon.png",
+        destination: "/apple-icon",
+      },
+      {
+        source: "/apple-touch-icon-precomposed.png",
+        destination: "/apple-icon",
+      },
+    ];
+  },
   async headers() {
     return [
       {

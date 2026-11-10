@@ -18,8 +18,7 @@ import { ALL_PROJECTS } from "@/data/projectsData";
 import { STRATEGIC_BLOCKS } from "@/data/siteContent";
 import { pickLocale, pickLocaleArray, type Locale } from "@/data/types";
 import ProductVisualPreview from "@/components/ProductVisualPreview";
-
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://niaz.kz";
+import { BASE_URL, getAlternates, getLocalizedUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
@@ -65,18 +64,10 @@ export async function generateMetadata({
       "EdTech SaaS",
       "Enterprise IT Architecture",
     ],
-    alternates: {
-      canonical: `${BASE_URL}/${loc}/projects/${project.slug}`,
-      languages: {
-        kk: `${BASE_URL}/kk/projects/${project.slug}`,
-        en: `${BASE_URL}/en/projects/${project.slug}`,
-        ru: `${BASE_URL}/ru/projects/${project.slug}`,
-        "x-default": `${BASE_URL}/kk/projects/${project.slug}`,
-      },
-    },
+    alternates: getAlternates(loc, `/projects/${project.slug}`),
     openGraph: {
       type: "article",
-      url: `${BASE_URL}/${loc}/projects/${project.slug}`,
+      url: getLocalizedUrl(loc, `/projects/${project.slug}`),
       title,
       description,
       images: [
@@ -121,7 +112,7 @@ export default async function ProjectDetailPage({
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "@id": `${BASE_URL}/${locale}/projects/${project.slug}#software`,
+        "@id": `${getLocalizedUrl(locale, `/projects/${project.slug}`)}#software`,
         name: pickLocale(project.title, locale),
         headline: pickLocale(project.subtitle, locale),
         description: pickLocale(project.summary, locale),
@@ -147,7 +138,7 @@ export default async function ProjectDetailPage({
             "@type": "ListItem",
             position: 1,
             name: locale === "kk" ? "Басты бет" : locale === "ru" ? "Главная" : "Home",
-            item: `${BASE_URL}/${locale}`,
+            item: getLocalizedUrl(locale, ""),
           },
           {
             "@type": "ListItem",
@@ -158,13 +149,13 @@ export default async function ProjectDetailPage({
                 : locale === "ru"
                 ? "Проекты и B2B"
                 : "Projects & B2B",
-            item: `${BASE_URL}/${locale}/projects`,
+            item: getLocalizedUrl(locale, "/projects"),
           },
           {
             "@type": "ListItem",
             position: 3,
             name: pickLocale(project.title, locale),
-            item: `${BASE_URL}/${locale}/projects/${project.slug}`,
+            item: getLocalizedUrl(locale, `/projects/${project.slug}`),
           },
         ],
       },

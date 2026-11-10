@@ -10,7 +10,7 @@
 - **Trilingual Interface**: Full localization in Kazakh (`/kk`), English (`/en`), and Russian (`/ru`).
 
 ## Core Navigation & Endpoints
-- [Home & Executive Overview (KK)](https://niaz.kz/kk)
+- [Home & Executive Overview (KK)](https://niaz.kz)
 - [Home & Executive Overview (EN)](https://niaz.kz/en)
 - [Home & Executive Overview (RU)](https://niaz.kz/ru)
 - [12 Case Studies & B2B Products](https://niaz.kz/en/projects)
