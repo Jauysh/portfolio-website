@@ -29,14 +29,14 @@ export default function InfrastructurePage() {
     },
     {
       ct: "CT 103",
-      name: "Helpdesk Mini v2.2 + Live NOC v3.0 + Ansible",
+      name: "Helpdesk Mini v2.2 + Live NOC v3.0 + CampusCast TV + Ansible",
       role:
         locale === "kk"
-          ? "Ауыр GLPI/Zabbix орнына жазылған Zero-IOPS Python + SQLite WAL жүйесі (~12 MB RAM, 23.6 ms TTFB — 41x жылдам) және түнгі Ansible бэкаптары"
+          ? "Ауыр GLPI/Zabbix орнына жазылған Zero-IOPS Python + SQLite WAL жүйесі (~12 MB RAM, 23.6 ms TTFB), 7 кампустың Smart TV эфирлік сервері және түнгі Ansible бэкаптары"
           : locale === "ru"
-          ? "Кастомные движки Python + SQLite WAL вместо тяжелых GLPI/Zabbix (~12 МБ RAM, 23.6 мс TTFB — в 41x быстрее) и ночные бэкапы роутеров через Ansible"
-          : "Custom Zero-IOPS Python + SQLite WAL engines replacing GLPI/Zabbix (~12 MB RAM, 23.6 ms TTFB — 41x faster) + Ansible DR vault",
-      spec: "Python 3 · SQLite WAL · Ansible · 12 MB RAM",
+          ? "Кастомные движки Python + SQLite WAL вместо тяжелых GLPI/Zabbix (~12 МБ RAM, 23.6 мс TTFB), сервер вещания Smart TV для 7 кампусов и ночные бэкапы Ansible"
+          : "Custom Zero-IOPS Python + SQLite WAL engines replacing GLPI/Zabbix (~12 MB RAM, 23.6 ms TTFB), 7-campus Smart TV signage daemon & Ansible DR vault",
+      spec: "Python 3 · SQLite WAL · Smart TV · Ansible",
     },
     {
       ct: "CT 104",
@@ -62,14 +62,25 @@ export default function InfrastructurePage() {
     },
     {
       ct: "CT 106",
-      name: "EduStaff HR, Digital CV & Google Workspace IAM",
+      name: "EduStaff HR, Olympiad Registry & Google Workspace IAM",
       role:
         locale === "kk"
-          ? "8 кампустың 619 IAM аккаунты мен 239 мұғалім портфолиосын басқару (~27 MB RAM, 13.3 ms TTFB — 15x жылдам)"
+          ? "8 бөлімшенің 582 IAM аккаунты, 239 мұғалім портфолиосы және QR олимпиада дипломдары (~27 MB RAM, 13.3 ms TTFB — 15x жылдам)"
           : locale === "ru"
-          ? "Платформа HR и IAM для 619 аккаунтов Google Workspace и 239 педагогов (~27 МБ RAM, 13.3 мс TTFB — в 15x быстрее)"
-          : "HR & Google Workspace IAM platform for 619 accounts & 239 faculty profiles (~27 MB RAM, 13.3 ms TTFB — 15x faster)",
-      spec: "Next.js 14 · SQLite/JSON · Google OAuth 2.0",
+          ? "Платформа HR и IAM для 582 записей сотрудников, 239 педагогов и QR-дипломов олимпиад (~27 МБ RAM, 13.3 мс TTFB)"
+          : "HR, Olympiad medal registry & Google Workspace IAM for 582 staff records & 239 faculty profiles (~27 MB RAM, 13.3 ms TTFB)",
+      spec: "Next.js · SQLite/JSON · Google OAuth 2.0",
+    },
+    {
+      ct: "CT 107",
+      name: "Core K-12 SIS & Unified REST API Gateway",
+      role:
+        locale === "kk"
+          ? "481 қағаз/Excel формасын (72 құжат тобы) 9 модульдік PostgreSQL 16 бірыңғай ядросына біріктіретін орталық мектеп жүйесі және 24h авто-IAM"
+          : locale === "ru"
+          ? "Центральная школьная ИС (SIS), объединяющая 481 форму (72 группы документов) в 9-модульном ядре PostgreSQL 16 с единым REST API-шлюзом"
+          : "Central K-12 Student Information System consolidating 481 legacy forms into a 9-module PostgreSQL 16 Single Source of Truth & API Gateway",
+      spec: "PostgreSQL 16 · 9 Schemas · Google SSO RBAC",
     },
   ];
 
@@ -235,7 +246,7 @@ export default function InfrastructurePage() {
         <section className="space-y-6">
           <div className="border-b border-slate-200 dark:border-white/10 pb-4">
             <h2 className="text-xs font-mono tracking-widest text-slate-400 dark:text-white/50 uppercase mb-1">
-              {"// PROXMOX VE CONSOLIDATION (CT 100 – CT 106)"}
+              {"// PROXMOX VE CONSOLIDATION (CT 100 – CT 107)"}
             </h2>
             <p className="text-2xl font-bold text-slate-900 dark:text-white">
               {locale === "kk"

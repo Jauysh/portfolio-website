@@ -161,9 +161,15 @@ export default function ProductVisualPreview({
               </div>
               <p className="text-slate-400 mt-1 leading-relaxed">
                 {project.slug === "omnicheck"
-                  ? "GDPR Zero-PII Canvas Crop · dHash 64-bit Cache · RBAC"
-                  : project.slug === "gm-app"
-                  ? "PostgreSQL Serializable Lock · 0% Double-Booking"
+                  ? "GDPR Zero-PII Canvas Mask · 64-bit dHash · 6-Tier RBAC"
+                  : project.slug === "auto-tender"
+                  ? "5-Layer AntiBanGuard · Zero-Trust Paywall · Temp=0 Judge"
+                  : project.slug === "core-sis"
+                  ? "Strict Google SSO Allowlist · 24h IAM Suspend · PostgreSQL 16"
+                  : project.slug === "smart-tv-signage"
+                  ? "WireGuard SD-WAN Static DNS · Nginx TLS · 24/7 NOC Probe"
+                  : project.slug === "ssp"
+                  ? "PostgreSQL Serializable Lock · 0% Seat Overbooking"
                   : "Zero-Trust DMZ · Strict Rate-Limiting · Automated Audit"}
               </p>
             </div>

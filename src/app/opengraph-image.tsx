@@ -111,8 +111,8 @@ export default function OpenGraphImage() {
               maxWidth: "960px",
             }}
           >
-            End-to-end architect of multimodal AI EdTech SaaS (OmniCheck), high-load
-            Olympiad & school MIS platforms, and 7-campus network & 100 TB+ cloud
+            End-to-end architect of commercial AI SaaS (Auto-Tender, OmniCheck),
+            a 9-module K-12 Core SIS, and 8-unit SD-WAN &amp; 100 TB+ cloud
             infrastructure.
           </div>
         </div>
@@ -129,18 +129,18 @@ export default function OpenGraphImage() {
           <div style={{ display: "flex", gap: "42px" }}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: "28px", fontWeight: 800, color: "#38bdf8" }}>
-                7 Campuses
+                8 Units
               </span>
               <span style={{ fontSize: "13px", color: "#94a3b8" }}>
-                WAN/VLAN · CAPsMAN · VPN
+                Core SIS · SD-WAN · Smart TV
               </span>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: "28px", fontWeight: 800, color: "#34d399" }}>
-                1,000+ Users
+                3,500+ Users
               </span>
               <span style={{ fontSize: "13px", color: "#94a3b8" }}>
-                High-Load Cloud Run & MIS
+                High-Load Cloud Run &amp; IAM
               </span>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -148,15 +148,15 @@ export default function OpenGraphImage() {
                 100 TB+ Cloud
               </span>
               <span style={{ fontSize: "13px", color: "#94a3b8" }}>
-                Workspace IAM & Multi-Tenant DB
+                Workspace IAM &amp; PostgreSQL 16
               </span>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <span style={{ fontSize: "28px", fontWeight: 800, color: "#fbbf24" }}>
-                12 Systems
+                13 Systems
               </span>
               <span style={{ fontSize: "13px", color: "#94a3b8" }}>
-                Production AI SaaS & ERP
+                Production AI SaaS &amp; K-12 OS
               </span>
             </div>
           </div>

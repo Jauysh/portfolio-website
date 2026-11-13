@@ -5,33 +5,19 @@ import { motion } from "framer-motion";
 import {
   ArrowLeft,
   ArrowRight,
-  ExternalLink,
-  CheckCircle2,
-  Cpu,
-  Layers,
   ShieldCheck,
   Sparkles,
-  GitBranch,
-  ChevronDown,
-  ChevronUp,
 } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
 import { ALL_PROJECTS } from "@/data/projectsData";
 import { STRATEGIC_BLOCKS } from "@/data/siteContent";
-import {
-  ProjectBlockId,
-  pickLocale,
-  pickLocaleArray,
-} from "@/data/types";
+import { ProjectBlockId, pickLocale } from "@/data/types";
 
 export default function ProjectsPage() {
   const locale = useLocale();
   const [blockOverride, setBlockOverride] = useState<ProjectBlockId | "all" | null>(null);
   const [b2bOnly, setB2bOnly] = useState(false);
-  const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({
-    omnicheck: true,
-  });
 
   const urlSearch = useSyncExternalStore(
     () => () => {},
@@ -50,10 +36,6 @@ export default function ProjectsPage() {
   const selectedBlock = blockOverride ?? urlBlock;
   const b2bCount = ALL_PROJECTS.filter((p) => p.b2bReady).length;
 
-  const toggleExpand = (slug: string) => {
-    setExpandedIds((prev) => ({ ...prev, [slug]: !prev[slug] }));
-  };
-
   const filteredProjects = ALL_PROJECTS.filter((project) => {
     if (selectedBlock !== "all" && project.block !== selectedBlock) return false;
     if (b2bOnly && !project.b2bReady) return false;
@@ -64,9 +46,9 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-slate-50 text-slate-600 dark:bg-[#0B0E14] dark:text-slate-gray font-sans selection:bg-emerald-400/30 dark:selection:bg-amber/30 selection:text-slate-900 dark:selection:text-white">
       <div className="fixed inset-0 bg-[radial-gradient(circle_at_top_right,#e0e7ff,#f8fafc)] dark:bg-[radial-gradient(circle_at_top_right,#1d1b4b,#0B0E14)] -z-10 transition-colors duration-500" />
 
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-16 lg:py-32 space-y-10 sm:space-y-14">
-        {/* Page Header */}
-        <div className="space-y-6">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-16 lg:py-28 space-y-10">
+        {/* Crisp Header */}
+        <div className="space-y-5">
           <Link
             href="/"
             className="inline-flex items-center space-x-2 text-slate-500 hover:text-slate-900 dark:text-slate-gray/70 dark:hover:text-white transition-colors"
@@ -81,38 +63,37 @@ export default function ProjectsPage() {
             </span>
           </Link>
 
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <div className="space-y-3 max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-2xl sm:rounded-full bg-amber-500/10 border border-amber-500/20 text-[11px] sm:text-xs font-mono text-amber-700 dark:text-amber max-w-full">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+            <div className="space-y-2.5 max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[11px] font-mono text-amber-700 dark:text-amber">
                 <Sparkles className="w-3.5 h-3.5 shrink-0" />
-                <span className="break-words">
+                <span>
                   {locale === "kk"
-                    ? `${ALL_PROJECTS.length} ӨНДІРІСТІК ЖОБА · ENGINEERING CASE STUDIES + B2B ВИТРИНА`
+                    ? `${ALL_PROJECTS.length} ӨНДІРІСТІК ЖҮЙЕ · B2B & ENTERPRISE КАТАЛОГЫ`
                     : locale === "ru"
-                    ? `${ALL_PROJECTS.length} ПРОМЫШЛЕННЫХ СИСТЕМ · ENGINEERING CASE STUDIES + ВИТРИНА B2B`
-                    : `${ALL_PROJECTS.length} PRODUCTION ARCHITECTURES · CASE STUDIES & B2B SHOWCASE`}
+                    ? `${ALL_PROJECTS.length} ПРОМЫШЛЕННЫХ СИСТЕМ · КАТАЛОГ B2B`
+                    : `${ALL_PROJECTS.length} PRODUCTION SYSTEMS · CASE STUDIES & B2B SUITE`}
                 </span>
               </div>
-              <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
                 {locale === "kk"
-                  ? "Архитектуралық Кейстер және B2B Өнімдер Портфелі"
+                  ? "Архитектуралық Кейстер Каталогы"
                   : locale === "ru"
-                  ? "Архитектурные кейсы и портфель B2B-продуктов"
-                  : "Architectural Case Studies & B2B Product Portfolio"}
+                  ? "Каталог Архитектурных Кейсов"
+                  : "Production Architecture Catalog"}
               </h1>
-              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-gray/90 leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-gray/90 leading-relaxed">
                 {locale === "kk"
-                  ? "Әрбір жоба «Мәселе → Архитектуралық шешім → Сандық нәтиже» форматында және басқа мектептер мен компанияларға B2B өнім ретінде енгізуге дайын күйде сипатталған."
+                  ? "Әр карточканы ашып, толық «Мәселе → Архитектуралық шешім → Тірі конвейер» техникалық талдауын көріңіз."
                   : locale === "ru"
-                  ? "Каждый проект представлен в формате «Проблема → Архитектурное решение → Измеримый результат» с описанием ценности для B2B-внедрения."
-                  : "Every system is documented using the Problem → Architectural Solution → Measured Outcome framework, complete with B2B deployment specifications."}
+                  ? "Откройте любой кейс для просмотра глубокого разбора «Проблема → Архитектура → Живой конвейер»."
+                  : "Select any system to inspect its full Challenge → Architecture → Interactive Pipeline breakdown."}
               </p>
             </div>
 
-            {/* B2B Filter Toggle */}
             <button
               onClick={() => setB2bOnly(!b2bOnly)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-mono font-semibold border transition-all shrink-0 flex items-center gap-2 ${
+              className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold border transition-all shrink-0 flex items-center gap-2 cursor-pointer ${
                 b2bOnly
                   ? "bg-emerald-500 text-slate-950 border-emerald-400 shadow-lg shadow-emerald-500/20"
                   : "bg-white dark:bg-white/5 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-white/10 hover:border-emerald-500/40"
@@ -121,29 +102,29 @@ export default function ProjectsPage() {
               <ShieldCheck className="w-4 h-4" />
               <span>
                 {locale === "kk"
-                  ? `Тек B2B дайын өнімдер (${b2bCount})`
+                  ? `B2B Дайын (${b2bCount})`
                   : locale === "ru"
-                  ? `Только готовые B2B-продукты (${b2bCount})`
-                  : `B2B-Ready Products Only (${b2bCount})`}
+                  ? `B2B-продукты (${b2bCount})`
+                  : `B2B-Ready (${b2bCount})`}
               </span>
             </button>
           </div>
 
-          {/* 4 Strategic Block Filter Tabs */}
-          <div className="flex flex-wrap gap-2 pt-2 border-b border-slate-200 dark:border-white/10 pb-5">
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap gap-2 pt-1 border-b border-slate-200 dark:border-white/10 pb-4">
             <button
               onClick={() => setBlockOverride("all")}
-              className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-mono font-semibold transition-all cursor-pointer ${
                 selectedBlock === "all"
                   ? "bg-slate-900 text-white dark:bg-amber dark:text-slate-950"
                   : "bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:border-amber/40"
               }`}
             >
               {locale === "kk"
-                ? `Барлық жобалар (${ALL_PROJECTS.length})`
+                ? `Барлығы (${ALL_PROJECTS.length})`
                 : locale === "ru"
-                ? `Все проекты (${ALL_PROJECTS.length})`
-                : `All Systems (${ALL_PROJECTS.length})`}
+                ? `Все (${ALL_PROJECTS.length})`
+                : `All (${ALL_PROJECTS.length})`}
             </button>
 
             {STRATEGIC_BLOCKS.map((block) => {
@@ -153,26 +134,23 @@ export default function ProjectsPage() {
                 <button
                   key={block.id}
                   onClick={() => setBlockOverride(block.id)}
-                  className={`px-4 py-2 rounded-xl text-xs font-mono font-semibold transition-all ${
+                  className={`px-3.5 py-2 rounded-xl text-xs font-mono font-semibold transition-all cursor-pointer ${
                     active
                       ? "bg-slate-900 text-white dark:bg-amber dark:text-slate-950"
                       : "bg-white dark:bg-white/5 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 hover:border-amber/40"
                   }`}
                 >
-                  {pickLocale(block.badge, locale)}: {pickLocale(block.title, locale)} ({count})
+                  {pickLocale(block.badge, locale)} · {pickLocale(block.title, locale)} ({count})
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Projects List */}
-        <div className="space-y-16">
+        {/* Sleek 2-Column Bento Catalog Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {filteredProjects.map((project, idx) => {
-            const highlights = pickLocaleArray(project.highlights, locale);
-            const blockMeta = STRATEGIC_BLOCKS.find(
-              (b) => b.id === project.block
-            );
+            const blockMeta = STRATEGIC_BLOCKS.find((b) => b.id === project.block);
 
             return (
               <motion.article
@@ -180,283 +158,97 @@ export default function ProjectsPage() {
                 id={project.slug}
                 initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35 }}
-                className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white dark:border-white/10 dark:bg-white/[0.02] p-6 sm:p-10 space-y-8 shadow-sm dark:shadow-none"
+                transition={{ duration: 0.25 }}
+                className="group scroll-mt-28 rounded-3xl border border-slate-200 bg-white dark:border-white/10 dark:bg-[#111622] p-6 sm:p-7 flex flex-col justify-between gap-5 shadow-sm dark:shadow-none hover:border-amber-500/40 dark:hover:border-amber/40 transition-all"
               >
-                {/* Top Header */}
-                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 border-b border-slate-200/80 dark:border-white/10 pb-6">
-                  <div className="space-y-3 max-w-3xl">
-                    <div className="flex flex-wrap items-center gap-2">
+                <div className="space-y-4">
+                  {/* Top Badges */}
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
                       <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">
                         {`// ${idx + 1 < 10 ? `0${idx + 1}` : idx + 1}`}
                       </span>
                       {blockMeta && (
-                        <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber border border-amber-500/20">
-                          {pickLocale(blockMeta.badge, locale)} · {pickLocale(blockMeta.title, locale)}
+                        <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber border border-amber-500/20">
+                          {pickLocale(blockMeta.badge, locale)}
                         </span>
                       )}
-                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300">
-                        {pickLocale(project.domainOrPort, locale)}
-                      </span>
-                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-                        {pickLocale(project.statusBadge, locale)}
-                      </span>
                     </div>
+                    <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300">
+                      {pickLocale(project.statusBadge, locale)}
+                    </span>
+                  </div>
 
+                  {/* Title & Crisp 1-Sentence Summary */}
+                  <div className="space-y-1.5">
                     <Link href={`/projects/${project.slug}`}>
-                      <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white hover:text-amber-600 dark:hover:text-amber transition-colors leading-tight">
+                      <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber transition-colors leading-snug">
                         {pickLocale(project.title, locale)}
                       </h2>
                     </Link>
-
-                    <p className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-                      {pickLocale(project.subtitle, locale)}
-                    </p>
-                  </div>
-
-                  {/* External & B2B Action Buttons */}
-                  <div className="flex flex-wrap items-center gap-3 shrink-0">
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-300 dark:border-white/15 bg-slate-50 dark:bg-white/[0.04] hover:border-amber-500/50 text-xs font-mono font-bold text-slate-900 dark:text-white transition-colors"
-                    >
-                      <span>
-                        {locale === "kk"
-                          ? "Толық Case Study"
-                          : locale === "ru"
-                          ? "Полный Case Study"
-                          : "Full Case Study"}
-                      </span>
-                      <ArrowRight className="w-3.5 h-3.5 text-amber-500" />
-                    </Link>
-                    {project.b2bReady && (
-                      <Link
-                        href={`/contact?product=${project.slug}`}
-                        className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-amber text-slate-950 text-xs font-mono font-bold hover:bg-amber/90 transition-colors"
-                      >
-                        <span>
-                          {locale === "kk"
-                            ? "B2B Демо / Енгізу"
-                            : locale === "ru"
-                            ? "B2B Демо / Внедрение"
-                            : "Request B2B Deployment"}
-                        </span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    )}
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
-                      >
-                        <span>Live</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    {project.repoUrl && (
-                      <a
-                        href={project.repoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 text-xs font-mono text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-colors"
-                      >
-                        <GitBranch className="w-3.5 h-3.5" />
-                        <span>GitHub</span>
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-                {/* 4 Key Metrics */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {project.metrics.map((metric, mIdx) => (
-                    <div
-                      key={mIdx}
-                      className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/5"
-                    >
-                      <div className="text-xl sm:text-2xl font-bold font-mono text-slate-900 dark:text-white">
-                        {pickLocale(metric.value, locale)}
-                      </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                        {pickLocale(metric.label, locale)}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Executive Summary & B2B Value Proposition */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <div className="p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/70 dark:border-white/5 space-y-2">
-                    <h3 className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-white/50">
-                      {"// "}
-                      {locale === "kk"
-                        ? "ҚЫСҚАША СИПАТТАМАСЫ (EXECUTIVE SUMMARY)"
-                        : locale === "ru"
-                        ? "КРАТКОЕ ОПИСАНИЕ (EXECUTIVE SUMMARY)"
-                        : "EXECUTIVE SUMMARY"}
-                    </h3>
-                    <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                       {pickLocale(project.summary, locale)}
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-amber-500/[0.06] border border-amber-500/20 space-y-2">
-                    <h3 className="text-xs font-mono uppercase tracking-wider text-amber-700 dark:text-amber">
-                      {"// "}
-                      {locale === "kk"
-                        ? "B2B ЖӘНЕ КОРПОРАТИВТІК ҚҰНДЫЛЫҒЫ"
-                        : locale === "ru"
-                        ? "ЦЕННОСТЬ ДЛЯ B2B И КОРПОРАТИВНЫХ ЗАКАЗЧИКОВ"
-                        : "B2B & ENTERPRISE VALUE PROPOSITION"}
-                    </h3>
-                    <p className="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed">
-                      {pickLocale(project.b2bValue, locale)}
-                    </p>
+                  {/* 4 Crisp Metric Chips */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {project.metrics.slice(0, 4).map((metric, mIdx) => (
+                      <div
+                        key={mIdx}
+                        className="p-2.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/5"
+                      >
+                        <div className="text-sm font-bold font-mono text-slate-900 dark:text-white">
+                          {pickLocale(metric.value, locale)}
+                        </div>
+                        <div className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">
+                          {pickLocale(metric.label, locale)}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Top 5 Stack Tags */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.techStack.slice(0, 5).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 font-mono text-[11px] text-slate-700 dark:text-slate-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                {/* Progressive Disclosure Toggle (Deep Dive Accordion) */}
-                <div>
-                  <button
-                    onClick={() => toggleExpand(project.slug)}
-                    className="w-full py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-100/80 hover:bg-slate-200/70 dark:bg-white/[0.03] dark:hover:bg-white/[0.06] flex items-center justify-between gap-2 text-xs sm:text-sm font-mono font-semibold text-slate-800 dark:text-amber transition-colors cursor-pointer"
+                {/* Footer Actions (Strictly Internal) */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-200/80 dark:border-white/10">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-900 dark:text-white hover:text-amber-600 dark:hover:text-amber transition-colors"
                   >
                     <span>
-                      {expandedIds[project.slug]
-                        ? locale === "kk"
-                          ? "▲ Толық архитектуралық талдауды жасыру"
-                          : locale === "ru"
-                          ? "▲ Свернуть полный архитектурный разбор"
-                          : "▲ Collapse Deep-Dive Architecture & Highlights"
-                        : locale === "kk"
-                        ? "▼ Толық архитектураны ашу: Мәселе → Шешім → Конвейер & Фишкалар"
+                      {locale === "kk"
+                        ? "Толық Архитектура & Кейс"
                         : locale === "ru"
-                        ? "▼ Раскрыть архитектуру: Проблема → Решение → Конвейер и Фишки"
-                        : "▼ Expand Deep-Dive: Challenge → Solution → Pipeline & Highlights"}
+                        ? "Архитектура и разбор кейса"
+                        : "Architecture & Case Study"}
                     </span>
-                    {expandedIds[project.slug] ? (
-                      <ChevronUp className="w-4 h-4 shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 shrink-0" />
-                    )}
-                  </button>
-                </div>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
 
-                {expandedIds[project.slug] && (
-                  <div className="space-y-8 pt-2">
-                    {/* Problem -> Architectural Solution -> Measured Outcome */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      <div className="p-5 rounded-2xl border border-rose-500/20 bg-rose-500/[0.03] space-y-2.5">
-                        <div className="text-xs font-mono font-semibold text-rose-600 dark:text-rose-400 uppercase flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-rose-500" />
-                          {locale === "kk"
-                            ? "1. Мәселе (The Challenge)"
-                            : locale === "ru"
-                            ? "1. Проблема (Challenge)"
-                            : "1. The Challenge"}
-                        </div>
-                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                          {pickLocale(project.challenge, locale)}
-                        </p>
-                      </div>
-
-                      <div className="p-5 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.03] space-y-2.5">
-                        <div className="text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 uppercase flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                          {locale === "kk"
-                            ? "2. Архитектуралық шешім"
-                            : locale === "ru"
-                            ? "2. Архитектурное решение"
-                            : "2. Architectural Solution"}
-                        </div>
-                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                          {pickLocale(project.solution, locale)}
-                        </p>
-                      </div>
-
-                      <div className="p-5 rounded-2xl border border-blue-500/20 bg-blue-500/[0.03] space-y-2.5">
-                        <div className="text-xs font-mono font-semibold text-blue-600 dark:text-blue-400 uppercase flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-blue-500" />
-                          {locale === "kk"
-                            ? "3. Нақты нәтиже (Outcome)"
-                            : locale === "ru"
-                            ? "3. Результат (Outcome)"
-                            : "3. Measured Outcome"}
-                        </div>
-                        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                          {pickLocale(project.outcome, locale)}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Architecture Flow Pipeline */}
-                    <div className="p-5 rounded-2xl bg-slate-900 dark:bg-black/40 border border-slate-800 dark:border-white/10 space-y-4">
-                      <div className="flex items-center gap-2 text-xs font-mono text-amber uppercase tracking-wider">
-                        <Layers className="w-4 h-4" />
-                        <span>
-                          {locale === "kk"
-                            ? "Архитектуралық конвейер (Request & Data Flow)"
-                            : locale === "ru"
-                            ? "Архитектурный конвейер (Поток данных)"
-                            : "System Architecture Pipeline"}
-                        </span>
-                      </div>
-                      <div className="flex flex-wrap items-center gap-2">
-                        {project.architectureFlow.map((node, nIdx) => (
-                          <div key={nIdx} className="flex items-center gap-2">
-                            <span className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-white">
-                              {node}
-                            </span>
-                            {nIdx < project.architectureFlow.length - 1 && (
-                              <ArrowRight className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Standout Engineering Features (Техникалық фишкалары) */}
-                    <div className="space-y-3">
-                      <h3 className="text-xs font-mono uppercase tracking-wider text-slate-400 dark:text-white/50 flex items-center gap-2">
-                        <Cpu className="w-4 h-4 text-emerald-500" />
-                        <span>
-                          {locale === "kk"
-                            ? "Техникалық фишкалары (Рекрутерлер, CTO және Инженерлер бағалайтын тұстары)"
-                            : locale === "ru"
-                            ? "Ключевые инженерные решения (Для CTO, рекрутеров и архитекторов)"
-                            : "Key Engineering Highlights (For CTOs, Recruiters & Systems Architects)"}
-                        </span>
-                      </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {highlights.map((bullet, bIdx) => (
-                          <div
-                            key={bIdx}
-                            className="flex items-start gap-2.5 p-3.5 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200/60 dark:border-white/5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed"
-                          >
-                            <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                            <span>{bullet}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* Tech Stack Tags */}
-                <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200/70 dark:border-white/5">
-                  <span className="text-xs font-mono text-slate-400 mr-1">
-                    STACK:
-                  </span>
-                  {project.techStack.map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="px-3 py-1 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 font-mono text-xs text-slate-800 dark:text-slate-200"
+                  {project.b2bReady && (
+                    <Link
+                      href={`/contact?product=${project.slug}`}
+                      className="px-3.5 py-1.5 rounded-xl bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25 font-mono text-xs font-semibold hover:bg-emerald-500/20 transition-colors"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      {locale === "kk"
+                        ? "B2B Демо"
+                        : locale === "ru"
+                        ? "B2B-демо"
+                        : "B2B Demo"}
+                    </Link>
+                  )}
                 </div>
               </motion.article>
             );

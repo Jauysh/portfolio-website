@@ -1,40 +1,41 @@
-# Azamat Jauysh (Азамат Жауыш) — Full-Stack & AI Product Engineer | EdTech & IT Infrastructure Architect
+# Azamat Jauysh (Азамат Жауыш) — Full-Cycle AI Product & Infrastructure Architect
 
-> Official engineering portfolio and B2B software catalog of Azamat Jauysh. End-to-end architect of high-concurrency web platforms, multimodal AI EdTech SaaS products, and enterprise multi-campus network & cloud infrastructure across 7 educational campuses in Chișinău & Bălți, Moldova.
+> Official engineering portfolio and B2B software catalog of Azamat Jauysh (https://niaz.kz). End-to-end architect of commercial neuro-symbolic GovTech & agentic EdTech SaaS platforms, a centralized 9-module K-12 Student Information System (SIS), and carrier-grade multi-campus SD-WAN & Proxmox cloud infrastructure across 8 institutional units (7 campuses + HQ).
 
 ## Key Impact Metrics
-- **7 Educational Campuses**: Unified network topology (MikroTik RouterOS, CAPsMAN, VLAN, WireGuard VPN) and multi-campus software ecosystem.
-- **1,000+ Concurrent Users**: High-concurrency Olympiad registration & OMR PDF pipelines on Google Cloud Run and PostgreSQL.
-- **100 TB+ Enterprise Cloud**: Google Workspace Enterprise IAM automation, organizational units, and workspace provisioning.
-- **12 Production Systems**: Spanning Flagship AI EdTech & GovTech SaaS, Enterprise School MIS/SIS, Network/Cloud Infrastructure, and ERP/Consumer PWAs.
-- **Trilingual Interface**: Full localization in Kazakh (`/kk`), English (`/en`), and Russian (`/ru`).
+- **8 Institutional Units (7 Campuses + HQ)**: Unified K-12 Digital OS powered by PostgreSQL 16 Core SIS, MikroTik WireGuard SD-WAN, and Proxmox VE (CT 100–107).
+- **3,500+ Active Production Users**: 2,978 students, 582 synced IAM staff profiles, 50+ executives, and 700+ peak concurrent Olympiad users.
+- **41x Systems Speedup**: Custom Python + SQLite WAL daemons (~12 MB RAM, 23.6 ms TTFB), 13.3 ms HR/IAM APIs, and 0.005s GovTech AI caching.
+- **100 TB+ Enterprise Cloud**: Google Workspace Enterprise IAM lifecycle automation, 5-Layer DMZ security, and chattr +i root-immutable backups.
+- **13 Production Systems**: Structured into 3 Flagship Ecosystems (GovTech AI, Agentic EdTech AI, and 8-Campus K-12 Digital OS) plus ERP & Consumer PWAs.
 
-## Core Navigation & Endpoints
-- [Home & Executive Overview (KK)](https://niaz.kz)
-- [Home & Executive Overview (EN)](https://niaz.kz/en)
-- [Home & Executive Overview (RU)](https://niaz.kz/ru)
-- [12 Case Studies & B2B Products](https://niaz.kz/en/projects)
-- [Multi-Campus IT Infrastructure & Cloud Blueprint](https://niaz.kz/en/infrastructure)
-- [About & 1-Page Printable Engineering CV](https://niaz.kz/en/about)
-- [B2B Licensing & Engineering Contact](https://niaz.kz/en/contact)
-- [Full AI Context & Case Study Specifications](https://niaz.kz/llms-full.txt)
+## Core Navigation & Internal Endpoints
+- [Home & 3-Flagship Bento Overview (KK)](https://niaz.kz)
+- [Home & 3-Flagship Bento Overview (EN)](https://niaz.kz/en)
+- [Home & 3-Flagship Bento Overview (RU)](https://niaz.kz/ru)
+- [All 13 Case Studies & B2B Catalog](https://niaz.kz/en/projects)
+- [Multi-Campus SD-WAN, Proxmox & 5-Layer DMZ Blueprint](https://niaz.kz/en/infrastructure)
+- [Executive Profile & 1-Page Printable Engineering CV](https://niaz.kz/en/about)
+- [B2B Demo & Architecture Inquiry](https://niaz.kz/en/contact)
+- [Full AI Technical Specifications](https://niaz.kz/llms-full.txt)
 
-## Featured B2B Products & Case Studies (12 Systems)
-1. **OmniCheck (`omnicheck.kz`)** — Multi-Tenant AI Homework Grading & 24/7 Socratic Tutor SaaS (Next.js, Gemini 2.5 Flash Vision / GPT-4o, HTML5 Canvas GDPR Privacy Shield, Perceptual dHash Anti-Plagiarism, Redis + BullMQ, 6-tier RBAC).
-2. **Auto-Tender (`auto-tender-100463055748.europe-west3.run.app` · `@TenderUP14_bot`)** — AI GovTech Procurement Intelligence, Anti-RNU Risk Scanner & 3-Tier Global Sourcing ROI Platform (FastAPI, Goszakup OWS v3 GraphQL, 5-Layer AntiBanGuard, PyMuPDF + Gemini 2.5 Flash, Kaspi.kz Live Pricer, 1688 Factory API, Customs OEM Graph, Supabase PostgreSQL, Google Cloud Run, Zero-Trust Server Paywall).
-3. **LuminaMath (`luminamath.orizont.md`)** — High-Load National Mathematics Olympiad Platform (700+ concurrent users, 6-digit deterministic IDs, OMR PDF generation, Google Cloud Run Serverless).
-3. **SSP (Subject Selection Platform)** — Transactional Elective Course Registration with `prisma.$transaction` strict seat quota locks and real-time countdown timers.
-4. **GM-App (Executive Enrollment Analytics)** — Multi-Campus Enrollment Quota, Exam & Tuition Re-registration MIS for 50+ school managers across 7 campuses.
-5. **EduStaff IAM** — Enterprise HR, Trilingual Digital CV Builder & Automated Google Workspace Directory Provisioning (Admin SDK + 100 TB Drive governance).
-6. **Enterprise Media OS & AI Studio** — 29-Channel Multi-Campus Editorial Hub with 6-dimension AI content moderation and Telegram/Social automation.
-7. **Multi-Campus Corporate Web CMS** — 30+ Route Trilingual School Portal with PHP 8.4 Headless REST API, Moldindconbank 3D-Secure payments, and GEO/AEO optimization.
-8. **Multi-Campus IT Infrastructure & Cloud** — 7-campus MikroTik RouterOS, CAPsMAN seamless Wi-Fi roaming, VLAN isolation, WireGuard VPN mesh, and AI-assisted incident diagnostics.
-9. **My-Family («Береке» PWA)** — Family Habits, Digital Detox Timer & Analytics Progressive Web App (Next.js 16, Supabase Realtime, Telegram Bot).
-10. **1C:Enterprise Retail & Accounting** — Modern 1C:EDT + Git + PostgreSQL + Linux distributed retail (`Розница 2.2` / `РИБ`) and accounting (`Бухгалтерия 3.0`) engineering.
-11. **Multi-Service Command Center** — Zero-dependency glassmorphism operational portal monitoring 9+ local and staging microservices (`:3000`–`:8090`).
+## 13 Production Systems & Internal Case Studies
+1. **Auto-Tender GovTech AI** (`https://niaz.kz/en/projects/auto-tender`) — 5 procurement portals, 4-Layer Neuro-Symbolic AI Spec/Price Verifier (temp=0.0 Gemini Judge + Reflexion loop), 5-Layer AntiBanGuard (0.005s cache), 6–12 mo Pre-RFP forecast, and retail/1688/OEM customs margin graph (411+ winners CRM).
+2. **OmniCheck Agentic AI** (`https://niaz.kz/en/projects/omnicheck`) — Multi-tenant STEM homework grading & autonomous pedagogical loop (Concept Gap → Mastery Recovery → Morning Warm-up → Compassionate Briefing) across 4 Workspace Modes, with client-side HTML5 Canvas Top-7% GDPR Privacy Shield and <1s 64-bit dHash check.
+3. **Core K-12 SIS & API Gateway** (`https://niaz.kz/en/projects/core-sis`) — PostgreSQL 16 Single Source of Truth consolidating 481 legacy forms (72 doc groups) into 9 normalized schemas across 8 units, with strict Google SSO RBAC, 24h auto-suspend IAM, and 4-language A4 official document generation.
+4. **LuminaMath Olympiad Engine** (`https://niaz.kz/en/projects/luminamath`) — High-concurrency national math competition platform on Google Cloud Run (1,200 concurrent request capacity), atomic 6-digit IDs, and stateless PostgreSQL BYTEA OMR PDF streaming (<1 ms lookup).
+5. **EduStaff HR, Olympiad Registry & Workspace IAM** (`https://niaz.kz/en/projects/hr-orizont`) — 582 synced staff IAM records, 239 public faculty portfolios, 1-click Google Workspace offboarding, 1996–2026 Olympiad Medal Registry with QR-verified A4 diplomas, and 13.3 ms TTFB GDPR APIs.
+6. **GM-App Admissions MIS & CRM** (`https://niaz.kz/en/projects/gm-app`) — Replaces 30-sheet Excel workbooks across 7 campuses for 50+ executives with a 13-column live quota matrix, 5-stage exam funnel, and 321-school outreach CRM.
+7. **SSP Elective Engine** (`https://niaz.kz/en/projects/ssp`) — 3-stage high-school curriculum scheduler enforcing REAL/UMANIST track rules via PostgreSQL Serializable isolation (0% seat overbooking) and live Socket.IO quota bars.
+8. **Multi-Campus Corporate Portal & 3D-Secure CMS** (`https://niaz.kz/en/projects/corporate-web-cms`) — 30-route trilingual Next.js SSG + hardened PHP 8.4 CMS Bridge replacing a 4.1 GB WordPress setup, with live bank 3D-Secure tuition acquiring, 4-tranche calculator, and 2,773 GDPR-filtered alumni records.
+9. **5-Agent AI Media OS** (`https://niaz.kz/en/projects/media-os`) — Zero-Password hub governing 29 social channels across 7 branches + HQ with a 5-Agent AI Marketing Pipeline, 1-click photo enhance, AI video SRT subtitles, Competitor Ad Spy, and Social-to-Lead CRM.
+10. **CampusCast Smart TV Signage** (`https://niaz.kz/en/projects/smart-tv-signage`) — Centralized Python + SQLite WAL digital signage engine broadcasting announcements, olympiad champions, birthdays, and 310 calendar milestones across 7 campuses over WireGuard SD-WAN ($0 per-screen fee).
+11. **Multi-Campus WireGuard SD-WAN & 12MB NOC** (`https://niaz.kz/en/projects/school-it-infra`) — MikroTik CRS418/RB4011 SD-WAN (~7ms RTT), 65+ CAPsMAN Wi-Fi 6 APs, Proxmox VE (CT 100–107), 5-Layer DMZ, 12 MB RAM Helpdesk/NOC (41x faster TTFB), Ansible DR, and chattr +i backups.
+12. **«Береке» Family PWA** (`https://niaz.kz/en/projects/my-family`) — Offline-first family wellness PWA with 30–120 min Digital Detox timer, guided evening parent-child bonding prompts, Gemini AI screen-time analytics, Supabase Realtime sync, and nightly Telegram digests.
+13. **1C:Enterprise 8.3 Linux Cluster** (`https://niaz.kz/en/projects/1c-enterprise`) — 64-bit Ubuntu + Postgres Pro 1C v16 server cluster (CT 105) maintained via 1C:EDT + Git XML source decomposition and REST/JSON web bridges.
 
 ## Contact & B2B Inquiries
 - **Email**: a.jauysh@gmail.com
 - **Telegram**: https://t.me/jauysh
-- **GitHub**: https://github.com/jauysh
-- **Location**: Chișinău, Moldova (Available for Remote Global, EU, UK, and Central Asia engagements)
+- **GitHub**: https://github.com/Jauysh
+- **Portfolio**: https://niaz.kz

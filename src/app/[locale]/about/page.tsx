@@ -142,10 +142,10 @@ export default function AboutPage() {
               </div>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                 {locale === "kk"
-                  ? "Идея мен бизнес-логикадан бастап мульти-тенанттық архитектураға (*.omnicheck.kz), мультимодальды ЖИ конвейерлеріне (Gemini Vision / GPT-4o + BullMQ), транзакциялық ДҚБЖ блоктауларына (PostgreSQL Serializable) және B2B төлем шлюздеріне дейін толық циклде әзірлеу."
+                  ? "Идея мен бизнес-логикадан бастап мульти-тенанттық архитектураға, агенттік мультимодальды ЖИ конвейерлеріне (Gemini 2.5 Vision / GPT-4o + BullMQ), транзакциялық ДҚБЖ блоктауларына (PostgreSQL Serializable) және B2B төлем шлюздеріне дейін толық циклде әзірлеу."
                   : locale === "ru"
-                  ? "Полный цикл создания коммерческих и внутренних платформ: от бизнес-логики и мультитенантного роутинга (*.omnicheck.kz) до асинхронных очередей Vision LLM (BullMQ), транзакций PostgreSQL Serializable и платежных шлюзов."
-                  : "Full-lifecycle ownership from domain modeling and wildcard multi-tenancy (*.omnicheck.kz) to asynchronous Vision LLM pipelines, PostgreSQL Serializable locking, and payment gateway integration."}
+                  ? "Полный цикл создания коммерческих и корпоративных платформ: от бизнес-логики и мультитенантного роутинга до агентских конвейеров Vision LLM (BullMQ), транзакций PostgreSQL Serializable и платежных шлюзов."
+                  : "Full-lifecycle ownership from domain modeling and multi-tenancy to agentic Vision LLM pipelines, PostgreSQL Serializable locking, and B2B payment gateway integration."}
               </p>
             </div>
 
@@ -315,65 +315,65 @@ export default function AboutPage() {
             <div className="space-y-3 text-xs sm:text-sm">
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10">
                 <div className="flex flex-wrap justify-between gap-2 font-bold text-slate-900 dark:text-white">
-                  <span>1. OmniCheck (*.omnicheck.kz) — Multi-Tenant AI Grading & Socratic Tutor SaaS</span>
+                  <span>1. Auto-Tender GovTech AI &amp; OmniCheck Agentic EdTech SaaS</span>
                   <span className="font-mono text-xs text-amber-600 dark:text-amber">
-                    Next.js 14 · Gemini 2.0 Vision · Redis/BullMQ · Sharp dHash
+                    FastAPI · Next.js · Gemini 2.5 Vision · BullMQ · Sharp dHash
                   </span>
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 mt-1">
                   {locale === "kk"
-                    ? "Wildcard поддомендік мульти-тенанттық архитектура, 6-деңгейлі RBAC, браузердегі HTML5 Canvas Top-7% PII Privacy Shield (GDPR), <1 секундта көшіруді анықтайтын 64-bit perceptual dHash антиплагиат және 6 тілдік динамикалық локализация (RTL қоса)."
+                    ? "Auto-Tender: 5 тендер порталы, 4-қабатты нейро-символдық AI спецификация верификаторы (0.005с кэш, 0% бан), 6–12 айлық Pre-RFP болжамы және ҚР/1688/OEM таза маржасы. OmniCheck: 4 Workspace режимі, Concept Gap → Mastery Recovery → Morning Warm-up агенттік циклі, HTML5 Canvas GDPR Privacy Shield және <1с 64-bit dHash."
                     : locale === "ru"
-                    ? "Мультитенантность на поддоменах, 6 ролей RBAC, браузерная маскировка персональных данных HTML5 Canvas Top-7% (GDPR), антиплагиат 64-bit dHash (<1 сек) и локализация на 6 языков (включая RTL)."
-                    : "Wildcard subdomain multi-tenancy, 6-tier RBAC, client-side HTML5 Canvas Top-7% PII Privacy Shield (GDPR), sub-second 64-bit perceptual dHash anti-plagiarism, and 6-language dynamic i18n (including RTL Arabic)."}
+                    ? "Auto-Tender: 5 тендерных площадок, 4-уровневая самопроверка ИИ (кэш 0.005с, 0% бана), прогноз планов за 6–12 мес. и расчет маржи РК/1688/OEM. OmniCheck: 4 режима Workspace, агентский цикл Mastery Recovery, браузерная маскировка ФИО (Canvas GDPR) и 64-bit dHash (<1 сек)."
+                    : "Auto-Tender: 5 procurement portals, 4-layer neuro-symbolic AI spec/price verifier (0.005s cache, 0% ban risk), 6–12 mo Pre-RFP forecast, and retail/1688/OEM ROI. OmniCheck: 4 Workspace Modes, autonomous Mastery Recovery pedagogical loop, client-side Canvas Top-7% GDPR Shield, and <1s 64-bit dHash."}
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10">
                 <div className="flex flex-wrap justify-between gap-2 font-bold text-slate-900 dark:text-white">
-                  <span>2. LuminaMath (luminamath.orizont.md) & SSP (Subject Selection Platform)</span>
+                  <span>2. Core K-12 SIS (481→1 DB), LuminaMath Olympiad &amp; SSP Electives</span>
                   <span className="font-mono text-xs text-amber-600 dark:text-amber">
-                    Google Cloud Run · PostgreSQL Serializable · Socket.IO
+                    PostgreSQL 16 · Google Cloud Run · Serializable Locks · Socket.IO
                   </span>
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 mt-1">
                   {locale === "kk"
-                    ? "LuminaMath: 1,200 параллель сұранысты көтеретін serverless олимпиада платформасы, атомарлы 6-таңбалы ID генераторы және PostgreSQL BYTEA OMR PDF тарату (<1мс B-Tree іздеу). SSP: Prisma Serializable транзакциялық оқшаулауы (0% overbooking) және WebSocket арқылы тікелей квота көрсету."
+                    ? "Core SIS: 8 бөлімшенің 481 қағаз/Excel формасын біріктірген 9-модульдік PostgreSQL 16 ядросы және REST API шлюзі. LuminaMath: 1,200 параллель сұранысты көтеретін олимпиада платформасы және BYTEA OMR PDF тарату (<1мс B-Tree). SSP: Prisma Serializable (0% overbooking) және WebSocket тірі квоталары."
                     : locale === "ru"
-                    ? "LuminaMath: серверлесс-платформа олимпиады (до 1 200 параллельных запросов), атомарный 6-значный ID и выдача OMR PDF из PostgreSQL BYTEA (<1 мс поиск B-Tree). SSP: 3-этапный выбор предметов с блокировками Prisma Serializable (0% овербукинга) и живыми квотами через WebSockets."
-                    : "LuminaMath: 1,200-concurrency serverless Olympiad platform with atomic 6-digit ID generation and stateless PostgreSQL BYTEA OMR PDF streaming (<1ms B-Tree lookup). SSP: 3-stage curriculum engine with Prisma Serializable locking (0% seat overbooking) & real-time WebSocket quota bars."}
+                    ? "Core SIS: 9-модульное ядро PostgreSQL 16 (оцифровка 481 формы 8 подразделений) и единый REST API-шлюз. LuminaMath: серверлесс-олимпиада (1 200 параллельных запросов) и потоковая выдача OMR PDF из BYTEA (<1 мс). SSP: выбор элективов на Prisma Serializable (0% овербукинга) и Socket.IO."
+                    : "Core SIS: 9-module PostgreSQL 16 Single Source of Truth replacing 481 forms across 8 units + REST API Gateway. LuminaMath: 1,200-concurrency Cloud Run Olympiad engine with BYTEA OMR PDF streaming (<1ms). SSP: Prisma Serializable elective locking (0% overbooking) & live WebSockets."}
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10">
                 <div className="flex flex-wrap justify-between gap-2 font-bold text-slate-900 dark:text-white">
-                  <span>3. GM-App (7-Campus MIS), EduStaff HR/IAM, Enterprise Media OS & Corporate Web CMS</span>
+                  <span>3. GM-App MIS, EduStaff HR/IAM (582), 5-Agent Media OS &amp; 3D-Secure CMS</span>
                   <span className="font-mono text-xs text-amber-600 dark:text-amber">
-                    Next.js 14 · PHP 8.4 Bridge · Google Workspace SDK · 3D-Secure
+                    Next.js · PHP 8.4 Bridge · Google Workspace SDK · 3D-Secure
                   </span>
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 mt-1">
                   {locale === "kk"
-                    ? "30 беттік Excel орнына 50+ менеджерге арналған тірі PostgreSQL MIS; 619 Google Workspace аккаунтын біріктірген 239 мұғалім портфолиосы (13.3мс TTFB, 1 батырмамен IAM offboarding); 29 арналы Zero-Password AI медиа-хаб; 4.1 ГБ WordPress орнына жасалған 30 маршруттық гибридтік CMS, банктік 3D-Secure эквайринг және llms.txt GEO/AEO."
+                    ? "30 беттік Excel орнына 50+ менеджерге арналған тірі PostgreSQL MIS; 582 қызметкердің IAM жазбасы, QR олимпиада дипломдары мен 239 мұғалім портфолиосы (13.3мс TTFB); 29 арналы 5-агенттік AI маркетинг хабы (SRT субтитр, Ad Spy, Lead CRM); 30 маршруттық гибридтік CMS және 3D-Secure эквайринг."
                     : locale === "ru"
-                    ? "Замена 30-листового Excel на живую PostgreSQL MIS для 50+ руководителей; консолидация 619 аккаунтов Google Workspace в 239 профилей педагогов (13.3 мс TTFB, оффбординг в 1 клик); объединение 29 соцсетей под ИИ-модерацией; миграция с 4.1 ГБ WordPress на 30-маршрутную гибридную CMS с 3D-Secure эквайрингом и llms.txt."
-                    : "Replaced 30-sheet Excel with live PostgreSQL MIS for 50+ managers; consolidated 619 Google Workspace IAM accounts into 239 faculty profiles (13.3ms TTFB, 1-click IAM offboarding); unified 29 social channels under AI ethical moderation; engineered 30-route hybrid CMS with bank 3D-Secure tuition payments & llms.txt GEO/AEO."}
+                    ? "Замена 30-листового Excel на живую PostgreSQL MIS для 50+ руководителей; 582 записи IAM сотрудников и реестр QR-дипломов олимпиад (13.3 мс TTFB); 5-агентный ИИ-маркетинг на 29 каналов (SRT, Ad Spy, Lead CRM); 30-маршрутная гибридная CMS с 3D-Secure эквайрингом."
+                    : "Replaced 30-sheet Excel with live PostgreSQL MIS for 50+ managers; unified 582 staff IAM records & QR-verified Olympiad diplomas (13.3ms TTFB); 5-Agent AI Marketing OS across 29 channels (SRT subtitles, Ad Spy, Lead CRM); 30-route hybrid CMS with bank 3D-Secure tuition acquiring."}
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10">
                 <div className="flex flex-wrap justify-between gap-2 font-bold text-slate-900 dark:text-white">
-                  <span>4. 7-Campus WireGuard SD-WAN, 5-Layer DMZ, Zero-IOPS NOC/Helpdesk & 1C:Enterprise 8.3</span>
+                  <span>4. 7-Campus WireGuard SD-WAN, 5-Layer DMZ, CampusCast TV &amp; 1C Cluster</span>
                   <span className="font-mono text-xs text-amber-600 dark:text-amber">
                     MikroTik RouterOS v7 · Proxmox VE · Python/SQLite WAL · Postgres Pro 1C 16
                   </span>
                 </div>
                 <p className="text-slate-600 dark:text-slate-300 mt-1">
                   {locale === "kk"
-                    ? "MikroTik CRS418/RB4011 SD-WAN (~7мс RTT), CAPsMAN Wi-Fi 6 (65+ AP), FreeRADIUS 802.1X; ауыр GLPI/Zabbix орнына 12 МБ RAM тұтынатын кастомды Python/SQLite WAL Helpdesk & NOC (TTFB 41 есе жылдам, Zero-Space Auto-Purge); түнгі Ansible DR мен chattr +i өшірілмейтін бэкаптар; Linux 1C 8.3.25 + Git/EDT кластері."
+                    ? "MikroTik CRS418/RB4011 SD-WAN (~7мс RTT), CAPsMAN Wi-Fi 6 (65+ AP), 802.1X; 12 МБ RAM тұтынатын кастомды Python/SQLite WAL Helpdesk, Live NOC (TTFB 41 есе жылдам) және 7 кампустың Smart TV эфирі; түнгі Ansible DR мен chattr +i бэкаптары; Linux 1C 8.3 + Git/EDT кластері."
                     : locale === "ru"
-                    ? "Магистраль MikroTik CRS418/RB4011 SD-WAN (~7 мс RTT), CAPsMAN Wi-Fi 6 (65+ точек), FreeRADIUS 802.1X; замена тяжелых GLPI/Zabbix на кастомные сервисы Python/SQLite WAL (12 МБ RAM, ускорение TTFB в 41 раз, Zero-Space Auto-Purge); ночной DR через Ansible и неизменяемые бэкапы chattr +i; кластер 1С 8.3.25 на Linux + Git/EDT."
-                    : "MikroTik CRS418/RB4011 SD-WAN (~7ms RTT), CAPsMAN Wi-Fi 6 (65+ APs), FreeRADIUS 802.1X; retired heavy GLPI/Zabbix for custom 12 MB RAM Python/SQLite WAL Helpdesk & NOC (41x faster TTFB, Zero-Space Auto-Purge); Ansible nightly DR & chattr +i immutable backups; Linux 1C 8.3.25 + Git/EDT cluster."}
+                    ? "Магистраль MikroTik CRS418/RB4011 SD-WAN (~7 мс RTT), CAPsMAN Wi-Fi 6 (65+ точек), 802.1X; кастомные сервисы Python/SQLite WAL (12 МБ RAM, TTFB в 41 раз быстрее) и вещание Smart TV 7 кампусов; ночной DR Ansible и бэкапы chattr +i; кластер 1С 8.3 на Linux + Git/EDT."
+                    : "MikroTik CRS418/RB4011 SD-WAN (~7ms RTT), CAPsMAN Wi-Fi 6 (65+ APs), 802.1X; custom 12 MB RAM Python/SQLite WAL Helpdesk, Live NOC (41x faster TTFB) & 7-campus Smart TV broadcast engine; Ansible nightly DR & chattr +i immutable backups; Linux 1C 8.3 + Git/EDT cluster."}
                 </p>
               </div>
             </div>

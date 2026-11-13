@@ -2,6 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { useLocale } from "next-intl";
+import { ALL_PROJECTS } from "@/data/projectsData";
 
 export default function Footer() {
   const locale = useLocale();
@@ -33,10 +34,10 @@ export default function Footer() {
             className="hover:text-cyan-500 transition-colors"
           >
             {locale === "kk"
-              ? "12 Жоба"
+              ? `${ALL_PROJECTS.length} Жоба`
               : locale === "ru"
-              ? "12 Проектов"
-              : "12 Case Studies"}
+              ? `${ALL_PROJECTS.length} Проектов`
+              : `${ALL_PROJECTS.length} Case Studies`}
           </Link>
           <Link
             href="/about#cv"

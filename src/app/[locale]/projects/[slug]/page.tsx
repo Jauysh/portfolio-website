@@ -6,7 +6,6 @@ import {
   ArrowRight,
   CheckCircle2,
   Cpu,
-  ExternalLink,
   Layers,
   ShieldCheck,
   Sparkles,
@@ -247,24 +246,6 @@ export default async function ProjectDetailPage({
               </span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-slate-300 dark:border-white/15 bg-slate-50 dark:bg-white/[0.03] hover:border-amber-500/50 text-slate-800 dark:text-white font-semibold text-sm transition-all"
-              >
-                <span>
-                  {locale === "kk"
-                    ? "Тірі жүйені ашу"
-                    : locale === "ru"
-                    ? "Открыть живую систему"
-                    : "Open Live Production"}
-                </span>
-                <ExternalLink className="w-4 h-4 text-amber-500" />
-              </a>
-            )}
           </div>
         </section>
 

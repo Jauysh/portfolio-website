@@ -77,11 +77,11 @@ export async function POST(req: NextRequest) {
         ],
         [
           {
-            text: "🚀 12 B2B & AI Жобалар",
+            text: "🚀 13 B2B & AI Жүйелер",
             url: "https://niaz.kz/projects",
           },
           {
-            text: "📡 TenderScan.kz",
+            text: "📡 Auto-Tender AI",
             url: "https://niaz.kz/projects/auto-tender",
           },
         ],
@@ -104,11 +104,10 @@ export async function POST(req: NextRequest) {
         ``,
         `🏛 <b>niaz.kz (ЖК «NIAZ»)</b> — <b>Азамат Жауыштың</b> ресми B2B өнімдер экожүйесі мен инженерлік ассистентіне қош келдіңіз.`,
         ``,
-        `<b>Негізгі флагмандық жүйелер:</b>`,
-        `• 🧠 <b>OmniCheck AI SaaS</b> — Дәптер мен тестті мультимодальды ЖИ арқылы тексеру (GDPR Privacy Shield + dHash)`,
-        `• 📡 <b>TenderScan.kz (Auto-Tender)</b> — 5 портал тендерлері, Анти-РНУ қалқаны & Kaspi/1688/OEM ROI радары`,
-        `• 🏆 <b>LuminaMath & School ERP</b> — 7–8 кампустық олимпиада, MIS/SIS және Google Workspace IAM`,
-        `• 🖧 <b>SD-WAN & 5-Layer DMZ</b> — MikroTik, Proxmox кластері & 100 TB+ инфрақұрылым`,
+        `<b>Негізгі 3 флагмандық экожүйе:</b>`,
+        `• 📡 <b>Auto-Tender GovTech AI</b> — 5 тендер порталы, 4-қабатты ЖИ верификаторы & ҚР/1688/OEM ROI`,
+        `• 🧠 <b>OmniCheck Agentic AI</b> — Дәптер тексеру, Mastery Recovery циклі & GDPR Privacy Shield`,
+        `• 🏛 <b>8-Кампустық K-12 OS</b> — Core SIS (481→1 БД), LuminaMath, HR/IAM, Smart TV & SD-WAN`,
         ``,
         `👇 Төмендегі батырмалар арқылы платформаны ашыңыз немесе осы чатқа сұрағыңызды жаза беріңіз — хабарламаңыз тікелей Азаматқа жетеді!`,
       ].join("\n");
@@ -119,20 +118,20 @@ export async function POST(req: NextRequest) {
 
     if (text.startsWith("/projects")) {
       const projectsText = [
-        `🚀 <b>niaz.kz — 12 Өндірістік B2B & AI SaaS Жүйесі:</b>`,
+        `🚀 <b>niaz.kz — 13 Өндірістік B2B & AI Жүйесі:</b>`,
         ``,
-        `1️⃣ <b>OmniCheck AI SaaS</b> — <a href="https://niaz.kz/projects/omnicheck">Case Study</a>`,
-        `2️⃣ <b>TenderScan.kz (Auto-Tender)</b> — <a href="https://niaz.kz/projects/auto-tender">Case Study</a>`,
-        `3️⃣ <b>LuminaMath Olympiad</b> — <a href="https://niaz.kz/projects/luminamath">Case Study</a>`,
-        `4️⃣ <b>SSP (Subject Selection)</b> — <a href="https://niaz.kz/projects/ssp">Case Study</a>`,
-        `5️⃣ <b>GM-App (7-Campus MIS)</b> — <a href="https://niaz.kz/projects/gm-app">Case Study</a>`,
-        `6️⃣ <b>EduStaff HR & Workspace IAM</b> — <a href="https://niaz.kz/projects/hr-orizont">Case Study</a>`,
-        `7️⃣ <b>29-Channel AI Media OS</b> — <a href="https://niaz.kz/projects/media-os">Case Study</a>`,
-        `8️⃣ <b>3D-Secure Corporate Web CMS</b> — <a href="https://niaz.kz/projects/corporate-web-cms">Case Study</a>`,
-        `9️⃣ <b>7-Campus SD-WAN & 12MB NOC</b> — <a href="https://niaz.kz/projects/school-it-infra">Case Study</a>`,
-        `🔟 <b>1C:Enterprise Linux Cluster</b> — <a href="https://niaz.kz/projects/1c-enterprise">Case Study</a>`,
+        `1️⃣ <b>Auto-Tender GovTech AI</b> — <a href="https://niaz.kz/projects/auto-tender">Case Study</a>`,
+        `2️⃣ <b>OmniCheck Agentic AI</b> — <a href="https://niaz.kz/projects/omnicheck">Case Study</a>`,
+        `3️⃣ <b>Core K-12 SIS (481→1 DB)</b> — <a href="https://niaz.kz/projects/core-sis">Case Study</a>`,
+        `4️⃣ <b>LuminaMath Olympiad</b> — <a href="https://niaz.kz/projects/luminamath">Case Study</a>`,
+        `5️⃣ <b>EduStaff HR & Workspace IAM</b> — <a href="https://niaz.kz/projects/hr-orizont">Case Study</a>`,
+        `6️⃣ <b>GM-App Admissions MIS</b> — <a href="https://niaz.kz/projects/gm-app">Case Study</a>`,
+        `7️⃣ <b>SSP Elective Engine</b> — <a href="https://niaz.kz/projects/ssp">Case Study</a>`,
+        `8️⃣ <b>3D-Secure Corporate CMS</b> — <a href="https://niaz.kz/projects/corporate-web-cms">Case Study</a>`,
+        `9️⃣ <b>5-Agent AI Media OS</b> — <a href="https://niaz.kz/projects/media-os">Case Study</a>`,
+        `🔟 <b>CampusCast Smart TV & SD-WAN</b> — <a href="https://niaz.kz/projects/smart-tv-signage">Case Study</a>`,
         ``,
-        `🔗 Барлық жобалар мен ROI калькуляторы: <a href="https://niaz.kz/projects">niaz.kz/projects</a>`,
+        `🔗 Барлық 13 жоба каталогы: <a href="https://niaz.kz/projects">niaz.kz/projects</a>`,
       ].join("\n");
 
       await sendTelegram(chatId, projectsText, inlineKeyboard);

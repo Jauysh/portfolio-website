@@ -65,6 +65,20 @@ const nextConfig: NextConfig = {
     "192.168.*.*",
     "10.*.*.*",
   ],
+  async redirects() {
+    return [
+      {
+        source: "/projects/command-center",
+        destination: "/projects",
+        permanent: true,
+      },
+      {
+        source: "/:locale(kk|en|ru)/projects/command-center",
+        destination: "/:locale/projects",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {

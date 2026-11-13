@@ -26,8 +26,6 @@ export interface ProjectItem {
   title: LocalizedText;
   subtitle: LocalizedText;
   domainOrPort: string | LocalizedText;
-  repoUrl?: string;
-  liveUrl?: string;
   statusBadge: LocalizedText;
   b2bValue: LocalizedText;
   summary: LocalizedText;

@@ -1,102 +1,79 @@
-# Azamat Jauysh (Азамат Жауыш) — Comprehensive AI & LLM Reference (llms-full.txt)
+# Azamat Jauysh (Азамат Жауыш) — Comprehensive AI & LLM Technical Reference (llms-full.txt)
 
 ## 1. Executive Profile
 - **Full Name**: Azamat Jauysh (Азамат Жауыш)
-- **Primary Title**: Full-Stack & AI Product Engineer | EdTech & IT Infrastructure Architect
-- **Location**: Chișinău, Moldova (Serving Central Asia, EU, UK, MENA & Global Remote)
-- **Spoken Languages**:
-  - Kazakh (KK) — Native
-  - Russian (RU) — Fluent / Bilingual
-  - Turkish (TR) — Fluent / Professional
-  - English (EN) — Professional Technical
-  - Arabic (AR) — Basic / Foundational
-- **Contact**:
-  - Email: `a.jauysh@gmail.com`
-  - Telegram: `https://t.me/jauysh`
-  - GitHub: `https://github.com/jauysh`
+- **Primary Title**: Full-Cycle AI Product & Infrastructure Architect
+- **Official Website**: `https://niaz.kz`
+- **Locations**: Chișinău, Moldova · Almaty / Taraz, Kazakhstan (Serving EU, UK, Central Asia & Global Remote)
+- **Working Languages**: Kazakh (Native), Russian (Fluent), Turkish (Fluent), English (Professional), Arabic (Basic)
+- **Direct Contact**: `a.jauysh@gmail.com` · `https://t.me/jauysh` · `https://github.com/Jauysh`
 
-## 2. Core Engineering Differentiator
-Azamat Jauysh bridges two domains that are almost always siloed in modern technology organizations:
-1. **Modern Full-Stack & Multimodal AI SaaS Engineering**: Next.js 15/16 App Router, TypeScript 5, React 19, Tailwind CSS, Prisma + PostgreSQL, Supabase, Redis + BullMQ, Google Cloud Run, Docker, and Multimodal LLMs (Gemini 2.5 Flash Vision, OpenAI GPT-4o, Anthropic Claude).
-2. **Physical Multi-Campus Enterprise IT & Cloud Infrastructure**: Designing and operating the network backbone for 7 educational campuses across multiple cities (MikroTik RouterOS, CAPsMAN wireless roaming, VLAN segmentation, WireGuard VPN tunnels, 100 TB+ Google Workspace Enterprise IAM, and 1C:Enterprise ERP on Linux/PostgreSQL).
+## 2. Core Architectural Differentiator
+Azamat Jauysh bridges two disciplines rarely combined in one engineer:
+1. **Commercial Multimodal & Neuro-Symbolic AI SaaS Engineering**: FastAPI (Python 3.12), Next.js 16 App Router, React 19, TypeScript, Gemini 2.5 Flash Vision / GPT-4o, PostgreSQL 16 (Serializable isolation & BYTEA streaming), Redis 7 + BullMQ, Google Cloud Run, and Zero-Trust B2B paywalls.
+2. **Carrier-Grade Multi-Campus IT & Private Cloud Infrastructure**: End-to-end design and operation of an 8-unit international K-12 network (MikroTik CRS418/RB4011 WireGuard SD-WAN, 65+ CAPsMAN Wi-Fi 6 APs, FreeRADIUS 802.1X, Proxmox VE CT 100–107, 5-Layer DMZ, 12 MB RAM Python/SQLite WAL daemons, Ansible DR, chattr +i immutable backups, and 100 TB+ Google Workspace IAM).
 
 ---
 
-## 3. Detailed Case Studies & B2B Product Catalog (12 Systems)
+## 3. Detailed Case Studies Catalog (13 Production Systems)
 
-### [01] OmniCheck (`omnicheck.kz`) — Flagship AI & EdTech SaaS
-- **Category**: B2B / B2C Multi-Tenant EdTech SaaS
-- **Problem**: Teachers spend 10–15 hours weekly grading handwritten STEM homework (math, physics, chemistry), while students lack immediate step-by-step Socratic guidance at home. Sending raw notebook photos to public LLMs also creates student PII/GDPR compliance risks and fails to detect classmate photo-copying.
+### [01] Auto-Tender — AI GovTech, 4-Layer Spec Verifier & Global Sourcing Terminal
+- **Internal Case Study**: `https://niaz.kz/en/projects/auto-tender`
+- **Problem**: B2B suppliers waste hours reading PDF technical specs across 5 procurement portals, risk 24-month RNU blacklisting from hidden traps, hit API rate-limit bans, and suffer from LLM price hallucinations.
 - **Architecture**:
-  - Next.js Edge Middleware subdomain multi-tenancy (`*.omnicheck.kz`) with 6-tier Role-Based Access Control (SuperAdmin, SchoolAdmin, Teacher, Student, Parent, Solo).
-  - **Client-Side GDPR Privacy Shield**: HTML5 Canvas automatically masks student names on notebook headers in the browser before uploading to cloud storage or AI APIs.
-  - **Perceptual Anti-Plagiarism Engine**: Sharp image normalization + 64-bit Perceptual dHash (`hammingDistance <= 8`) detects duplicate or re-cropped homework submissions across classmates in milliseconds.
-  - **High-Concurrency Queue**: Redis + BullMQ worker queues prevent deadline traffic spikes from dropping grading jobs.
-- **Stack**: Next.js 16, TypeScript, Prisma, PostgreSQL, Redis, BullMQ, Gemini 2.5 Flash Vision, GPT-4o, Sharp, Tailwind CSS.
+  - **5-Layer GoszakupAntiBanGuard**: Semaphore(1), human jitter, Circuit Breaker, dedicated KZ IPv4 Proxy, and Supabase PostgreSQL caching (`0.005s` reads, `0%` ban risk).
+  - **4-Layer Neuro-Symbolic AI Verification**: PyMuPDF PDF Evidence Quote grounding + Serper regional/1688/Alibaba factory search + deterministic `temperature=0.0` Gemini 2.5 Judge + autonomous Reflexion retry loop.
+  - **3-Tab Terminal**: Active multi-portal lots, 6–12 month Pre-RFP `/v3/plans` budget forecasting, and HS-Code customs OEM supply chain graph with 411+ verified tender winners CRM.
+  - **Security & Monetization**: DevTools-proof server-side DEMO redaction, Web-First Email OTP + Telegram WebApp HMAC-SHA256 auth, anti-sharing device limits, and multi-rail B2B billing.
 
-### [02] LuminaMath (`luminamath.orizont.md`) — High-Load National Olympiad Platform
-- **Category**: High-Concurrency Public EdTech Platform
-- **Problem**: National mathematics competition required reliable online registration for Grades 2–8 across Moldova, deterministic 6-digit student ID assignment, and automated OMR (Optical Mark Recognition) PDF answer sheet generation without crashing when 700+ parents and students check results simultaneously.
-- **Architecture**: Stateless containerized deployment on Google Cloud Run (`europe-west1`) with Prisma + PostgreSQL connection pooling and dynamic PDF/OMR sheet rendering (`pdf-lib`).
-- **Stack**: Next.js, TypeScript, PostgreSQL, Prisma, Google Cloud Run, Docker, pdf-lib.
-
-### [03] SSP — Transactional Subject Selection Platform
-- **Category**: Enterprise School SIS Module
-- **Problem**: When hundreds of high-school students simultaneously select elective courses with strict classroom seat caps, naive database queries suffer from race conditions and overbooking.
-- **Architecture**: Interactive matrix selection UI backed by strict PostgreSQL serializable transactions (`prisma.$transaction`), real-time seat quota locks, countdown timers, and one-click CSV/Excel schedule exports.
-- **Stack**: Next.js 16, TypeScript, PostgreSQL, Prisma, NextAuth, Tailwind CSS.
-
-### [04] GM-App — Multi-Campus Executive Enrollment & Quota MIS
-- **Category**: Executive Management Information System (MIS)
-- **Problem**: Executive leadership across 7 campuses previously tracked enrollment targets, entrance exam pipelines, and tuition contract renewals across fragmented spreadsheets used by 50+ admissions managers.
-- **Architecture**: Real-time executive MIS dashboard with campus-level quota tracking, automated daily delta snapshots, entrance exam funnel analytics, and role-scoped reporting.
-- **Stack**: Next.js 15, TypeScript, Prisma, PostgreSQL, Recharts, Tailwind CSS.
-
-### [05] EduStaff IAM — Enterprise HR, Trilingual Digital CV & Google Workspace Provisioning
-- **Category**: Enterprise HR & Cloud Identity Automation
-- **Problem**: Onboarding hundreds of teachers and staff across 7 campuses required manual Google Workspace account creation, organizational unit placement, and fragmented paper CVs across multiple languages.
-- **Architecture**: Unified HR portal with a trilingual Digital CV builder, PDF dossier export, and direct Google Workspace Admin SDK Directory API integration that provisions accounts, groups, and 100 TB+ Drive permissions in one click.
-- **Stack**: Next.js 16, TypeScript, Google Admin SDK, Prisma, PostgreSQL, PDFKit.
-
-### [06] Enterprise Media OS & AI Studio
-- **Category**: Multi-Campus Content Governance & AI Editorial Hub
-- **Problem**: Managing content consistency, ethical compliance, and multi-language publishing across 29 digital channels and 7 campus editorial teams led to bottlenecks and uneven quality.
-- **Architecture**: Centralized Media OS with a 6-dimension AI editorial auditor (grammar, tone, ethics, safety, SEO, translation across 4 languages), kanban approval workflows, and automated social publishing.
-- **Stack**: Next.js 16, React 19, Gemini 2.5 Pro, Prisma, PostgreSQL, Telegram Bot API.
-
-### [07] Multi-Campus Corporate Web CMS & 3D-Secure Admissions Portal
-- **Category**: Enterprise Web Platform & Payment Gateway
-- **Problem**: A 7-campus international school network needed a fast, SEO/AI-optimized public web portal spanning 30+ routes in 3 languages, paired with online contract/event payments via local banking rails.
-- **Architecture**: Hybrid Next.js 16 frontend + PHP 8.4 Headless REST CMS, integrated with Moldindconbank 3D-Secure (`CommerceGateway` RSA-SHA256) payment processing and full Schema.org / `llms.txt` GEO optimization.
-- **Stack**: Next.js 16, TypeScript, PHP 8.4 REST API, MySQL, Moldindconbank 3D-Secure, Tailwind CSS.
-
-### [08] Multi-Campus IT Infrastructure & Google Workspace Cloud (7 Campuses)
-- **Category**: Enterprise Network Engineering & Cloud DevOps
-- **Problem**: Operating 7 physical school campuses across Chișinău and Bălți required resilient WAN/LAN connectivity, seamless Wi-Fi roaming for thousands of devices, strict segmentation between admin/lab/guest traffic, and centralized cloud governance.
+### [02] OmniCheck — Agentic AI Homework Grading & Mastery Recovery SaaS
+- **Internal Case Study**: `https://niaz.kz/en/projects/omnicheck`
+- **Problem**: Manual grading of handwritten STEM notebooks consumes 10–15h/week per teacher without resolving underlying student concept gaps, while raw photo uploads expose student PII to external LLMs.
 - **Architecture**:
-  - MikroTik RouterOS core routing with VLAN segmentation (Management, Staff, Labs, IoT/CCTV, Guest Portal).
-  - CAPsMAN centralized wireless controller for zero-handoff roaming across campus buildings.
-  - WireGuard site-to-site VPN mesh connecting all 7 campuses + Linux production servers.
-  - 100 TB+ Google Workspace for Education Enterprise architecture and AI-assisted incident root-cause diagnostics (`helpdesk` & `mikrotik` automation scripts).
+  - **4 Adaptive Workspace Modes & 6-Tier RBAC**: Tailored UX for Solo Teachers, Tutoring Centers, Single Schools, and Multi-Branch School Networks across 6 locales (including RTL).
+  - **Autonomous Pedagogical Loop (Auto-Pilot & Co-Pilot)**: `Concept Gap` diagnosis → interactive Socratic `Mastery Recovery` → teacher 3-problem `Morning Warm-up` → parent jargon-free `Compassionate Briefing`.
+  - **Client-Side GDPR Privacy Shield & Perceptual dHash**: Browser HTML5 Canvas compresses 15MB scans to ~250KB and redacts the top 7% PII header prior to upload; Sharp 64-bit `dHash` flags peer copying in `<1s`.
 
-### [09] My-Family («Береке» PWA) — Family Habits, Digital Detox & Analytics
-- **Category**: Consumer Mobile PWA
-- **Architecture**: Installable Progressive Web App with parent/child role profiles, Digital Detox focus timers, daily habit scoring engine, Recharts family analytics, and Telegram Bot reminders.
-- **Stack**: Next.js 16, TypeScript, Supabase (PostgreSQL + Auth + Realtime), Recharts, PWA Service Workers.
+### [03] Core SIS — Central K-12 Student Information System & Unified API Gateway
+- **Internal Case Study**: `https://niaz.kz/en/projects/core-sis`
+- **Architecture**: Isolated PostgreSQL 16 Single Source of Truth (`Proxmox CT 107`) consolidating **481 legacy paper/Excel forms (72 document groups)** across 8 units into **9 relational modules** (`core`, `hr`, `students`, `admissions`, `finance`, `academics`, `olympiads`, `events_pr`, `assets_docs`), with strict Google SSO allowlist RBAC, 24h auto-suspend IAM lifecycle, quadrilingual (`RO/RU/TR/EN`) A4 official document generation, and a unified REST API Gateway.
 
-### [10] 1C:Enterprise Retail, RIB & Accounting Engineering
-- **Category**: Enterprise ERP & Distributed Retail Systems
-- **Architecture**: Modern 1C engineering workflow using 1C:Enterprise Development Tools (1C:EDT), Git version control, PostgreSQL on Linux, distributed retail synchronization (`Розница 2.2` / `РИБ`), and custom fiscal/accounting (`Бухгалтерия 3.0`) extensions.
+### [04] LuminaMath — High-Concurrency National Math Olympiad Engine
+- **Internal Case Study**: `https://niaz.kz/en/projects/luminamath`
+- **Architecture**: Auto-scaling Google Cloud Run (`1,200` concurrent request capacity, `700+` peak simultaneous users), atomic PostgreSQL 6-digit candidate ID upserts, in-memory JSZip bulk admin matching into stateless PostgreSQL `BYTEA` OMR PDF streaming (`<1 ms` B-Tree lookup, 120s RAM cache), PIN lockout, and Google-only OAuth 2.0 admin SSO.
 
-### [11] Multi-Service Engineering Command Center
-- **Category**: Developer Experience & Microservice Operations Portal
-- **Architecture**: Zero-dependency dark glassmorphism operational dashboard indexing all local and staging services (`:3000`–`:8090`), port health status, and architecture documentation in one unified view.
+### [05] EduStaff IAM — Multi-Campus HR, Olympiad Registry & Workspace Portal
+- **Internal Case Study**: `https://niaz.kz/en/projects/hr-orizont`
+- **Architecture**: Ultra-lean (`~27 MB` RAM, `13.3 ms` TTFB behind Nginx WAF) Next.js + SQLite/JSON platform (`CT 106`) unifying **582 synced staff IAM records**, 239 public faculty portfolios, 1-click Google Workspace offboarding, expat visa watchdogs, the **1996–2026 Olympiad Medal Registry & printable QR-verified A4 diplomas**, and strict PII-stripping public APIs.
 
-### [12] TenderScan.kz (`Auto-Tender`) — Multi-Portal GovTech AI & Anti-RNU Procurement Intelligence SaaS
-- **Category**: B2B GovTech & AI Procurement SaaS (`https://niaz.kz/projects/auto-tender`)
-- **Problem**: Suppliers across Kazakhstan waste hours manually monitoring 5 fragmented state/corporate procurement portals (`goszakup.gov.kz`, `samruk-kazyna`, `nadloc`, `mitwork`, `ets-tender`), miscalculate net margins after logistics/VAT/warranty, and risk costly 24-month RNU blacklisting from hidden technical specification traps.
-- **Architecture**:
-  - Multi-portal ingestion engine (`Goszakup GraphQL/REST v3` + portal adapters) paired with a deterministic **Anti-RNU Risk Shield** (`0% Ban Core`) scanning PDF/DOCX specifications (`pdf-parse`, `mammoth`) before bid submission.
-  - **Multi-Source Margin & Sourcing Radar**: Automated price cross-checking across Kaspi.kz, 1688/China wholesale, and OEM distributors with net ROI, VAT, and logistics breakdown.
-  - Multi-tenant subscription tiers via **Kaspi Pay QR**, **Telegram Mini App** instant alerts, and NCALayer EDS integration readiness.
-- **Stack**: Next.js 16, TypeScript, PostgreSQL, Prisma, Gemini 2.5 Flash, Goszakup v3 GraphQL, Kaspi Pay, Telegram Bot & Mini App.
+### [06] GM-App — Multi-Campus Executive Admissions MIS & Outreach CRM
+- **Internal Case Study**: `https://niaz.kz/en/projects/gm-app`
+- **Architecture**: PostgreSQL + Next.js executive platform replacing a 30-sheet Excel workbook for 50+ managers across 7 campuses, featuring signed Google OAuth SSO, a 13-column live quota matrix with weekly deltas, a 5-stage entrance exam funnel, 321-school outreach CRM, and 1-click `.xlsx` exports.
+
+### [07] SSP — Real-Time Transactional Elective Selection Engine
+- **Internal Case Study**: `https://niaz.kz/en/projects/ssp`
+- **Architecture**: Custom Node.js + `Socket.IO v4.8` server wrapping Next.js 16 and Prisma `Serializable` PostgreSQL transactions (`0%` seat overbooking) across a 3-stage curriculum scheduler (`REAL/UMANIST` tracks, `GPA >= 8.0` gates).
+
+### [08] Multi-Campus Corporate Portal, CMS & 3D-Secure Tuition Gateway
+- **Internal Case Study**: `https://niaz.kz/en/projects/corporate-web-cms`
+- **Architecture**: 30-route trilingual Next.js SSG + hardened Native PHP 8.4 CMS Bridge replacing a 4.1 GB WordPress monolith, preserving live 15-field bank 3D-Secure tuition acquiring, 4-tranche discount calculator, live Faculty/Olympiad API sync, 2,773 SQL-stripped GDPR alumni profiles, HTTPS Gmail OAuth2, and `llms.txt` GEO/AEO.
+
+### [09] Enterprise Media OS — 5-Agent AI Marketing Office & 29-Channel Hub
+- **Internal Case Study**: `https://niaz.kz/en/projects/media-os`
+- **Architecture**: Zero-Password governance across 29 channels (7 branches + HQ) featuring a **5-Agent AI Marketing Pipeline** (ethical audit, channel-native IG/FB/LinkedIn/YT copy, 4-language translation), 1-click AI photo enhance, HTML5 Canvas poster studio, AI video SRT subtitle generator, Competitor Ad Spy, and Social-to-Lead CRM.
+
+### [10] CampusCast TV — 7-Campus Smart TV Digital Signage Broadcast Engine
+- **Internal Case Study**: `https://niaz.kz/en/projects/smart-tv-signage`
+- **Architecture**: Lightweight Python + SQLite WAL broadcast daemon (`CT 103`) routed over MikroTik WireGuard SD-WAN static DNS and Nginx TLS, streaming global/per-branch announcements, 310 calendar milestones, birthdays, and live olympiad medalists to lobby Smart TVs across 7 campuses (`$0` per-screen recurring cost, 24/7 NOC monitored).
+
+### [11] Multi-Campus WireGuard SD-WAN, 5-Layer DMZ & 12MB RAM Live NOC
+- **Internal Case Study**: `https://niaz.kz/en/projects/school-it-infra`
+- **Architecture**: MikroTik `CRS418` + `RB4011` WireGuard SD-WAN (`~7 ms` inter-city RTT), 65+ CAPsMAN Wi-Fi 6 APs + FreeRADIUS 802.1X, Proxmox VE (`CT 100–107`), 5-Layer DMZ + Nginx WAF, custom `~12 MB` RAM Python/SQLite WAL Helpdesk & Live NOC (`41x` faster TTFB: `978ms → 23.6ms`), 02:00 AM Ansible router vaults, `chattr +i` immutable SQL dumps, and 100 TB Google Workspace.
+
+### [12] «Береке» PWA — Family Habit, Bonding & Digital Detox App
+- **Internal Case Study**: `https://niaz.kz/en/projects/my-family`
+- **Architecture**: Offline-first Next.js PWA combining LocalStorage persistence with multi-device Supabase Realtime PostgreSQL sync, 30–120 min Lockbox Digital Detox countdown, guided 21:30 parent-child bonding prompts, Gemini AI screen-time analytics, and nightly Telegram Bot scorecards.
+
+### [13] 1C:Enterprise 8.3 Linux Cluster & Git/EDT Integration
+- **Internal Case Study**: `https://niaz.kz/en/projects/1c-enterprise`
+- **Architecture**: 64-bit 1C:Enterprise 8.3 server cluster paired with Postgres Pro 1C v16 on Ubuntu Linux (`CT 105`), maintained via macOS `1C:EDT` + Git XML source decomposition (`.cfe` extensions, SKD analytics, RIB distributed store sync, and REST JSON bridges).
